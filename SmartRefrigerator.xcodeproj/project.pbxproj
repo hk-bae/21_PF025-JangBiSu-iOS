@@ -3,27 +3,47 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
 		2062432326CD2CFF00A9018A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2062432226CD2CFF00A9018A /* AppDelegate.swift */; };
 		2062432526CD2CFF00A9018A /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2062432426CD2CFF00A9018A /* SceneDelegate.swift */; };
-		2062432726CD2CFF00A9018A /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2062432626CD2CFF00A9018A /* ViewController.swift */; };
-		2062432A26CD2CFF00A9018A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2062432826CD2CFF00A9018A /* Main.storyboard */; };
+		2062432726CD2CFF00A9018A /* InitialViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2062432626CD2CFF00A9018A /* InitialViewController.swift */; };
+		2062432A26CD2CFF00A9018A /* Initial.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2062432826CD2CFF00A9018A /* Initial.storyboard */; };
 		2062432C26CD2D0000A9018A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2062432B26CD2D0000A9018A /* Assets.xcassets */; };
 		2062432F26CD2D0000A9018A /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2062432D26CD2D0000A9018A /* LaunchScreen.storyboard */; };
+		2062433C26CD2DEA00A9018A /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2062433B26CD2DEA00A9018A /* LoginViewController.swift */; };
+		2062434026CD2DF900A9018A /* RegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2062433F26CD2DF900A9018A /* RegisterViewController.swift */; };
+		2062434A26CD2E8C00A9018A /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2062434926CD2E8C00A9018A /* MainView.swift */; };
+		2062434E26CD2E9E00A9018A /* FoodRegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2062434D26CD2E9E00A9018A /* FoodRegisterViewController.swift */; };
+		2062435126CD2EAB00A9018A /* FoodModificationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2062435026CD2EAB00A9018A /* FoodModificationView.swift */; };
+		2062435426CD2EB500A9018A /* StatusView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2062435326CD2EB500A9018A /* StatusView.swift */; };
+		2062435726CD2EC000A9018A /* IceView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2062435626CD2EC000A9018A /* IceView.swift */; };
+		2062435C26CD2EE600A9018A /* UIKit+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2062435B26CD2EE600A9018A /* UIKit+Extension.swift */; };
+		23C7FC2E8D430D4AB1B0D073 /* Pods_SmartRefrigerator.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EB8CF1F1CE19EC438F39B09A /* Pods_SmartRefrigerator.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		2062431F26CD2CFF00A9018A /* SmartRefrigerator.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SmartRefrigerator.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2062432226CD2CFF00A9018A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		2062432426CD2CFF00A9018A /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		2062432626CD2CFF00A9018A /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		2062432926CD2CFF00A9018A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		2062432626CD2CFF00A9018A /* InitialViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InitialViewController.swift; sourceTree = "<group>"; };
+		2062432926CD2CFF00A9018A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Initial.storyboard; sourceTree = "<group>"; };
 		2062432B26CD2D0000A9018A /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		2062432E26CD2D0000A9018A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		2062433026CD2D0000A9018A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		2062433B26CD2DEA00A9018A /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
+		2062433F26CD2DF900A9018A /* RegisterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterViewController.swift; sourceTree = "<group>"; };
+		2062434926CD2E8C00A9018A /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
+		2062434D26CD2E9E00A9018A /* FoodRegisterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodRegisterViewController.swift; sourceTree = "<group>"; };
+		2062435026CD2EAB00A9018A /* FoodModificationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodModificationView.swift; sourceTree = "<group>"; };
+		2062435326CD2EB500A9018A /* StatusView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatusView.swift; sourceTree = "<group>"; };
+		2062435626CD2EC000A9018A /* IceView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IceView.swift; sourceTree = "<group>"; };
+		2062435B26CD2EE600A9018A /* UIKit+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIKit+Extension.swift"; sourceTree = "<group>"; };
+		54E29ABB2C357B27FADF4CAC /* Pods-SmartRefrigerator.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SmartRefrigerator.release.xcconfig"; path = "Target Support Files/Pods-SmartRefrigerator/Pods-SmartRefrigerator.release.xcconfig"; sourceTree = "<group>"; };
+		EB8CF1F1CE19EC438F39B09A /* Pods_SmartRefrigerator.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SmartRefrigerator.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		EFEC73D11130E75BAAF3D395 /* Pods-SmartRefrigerator.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SmartRefrigerator.debug.xcconfig"; path = "Target Support Files/Pods-SmartRefrigerator/Pods-SmartRefrigerator.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -31,6 +51,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				23C7FC2E8D430D4AB1B0D073 /* Pods_SmartRefrigerator.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -42,6 +63,8 @@
 			children = (
 				2062432126CD2CFF00A9018A /* SmartRefrigerator */,
 				2062432026CD2CFF00A9018A /* Products */,
+				DCB3A5629F490AD922FF917C /* Pods */,
+				868EBAC805D07EE95A5D2623 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -56,15 +79,120 @@
 		2062432126CD2CFF00A9018A /* SmartRefrigerator */ = {
 			isa = PBXGroup;
 			children = (
+				2062433926CD2DC600A9018A /* InitialPage */,
+				2062434326CD2E1600A9018A /* MainPage */,
+				2062435A26CD2ED600A9018A /* Extension */,
 				2062432226CD2CFF00A9018A /* AppDelegate.swift */,
 				2062432426CD2CFF00A9018A /* SceneDelegate.swift */,
-				2062432626CD2CFF00A9018A /* ViewController.swift */,
-				2062432826CD2CFF00A9018A /* Main.storyboard */,
 				2062432B26CD2D0000A9018A /* Assets.xcassets */,
 				2062432D26CD2D0000A9018A /* LaunchScreen.storyboard */,
 				2062433026CD2D0000A9018A /* Info.plist */,
 			);
 			path = SmartRefrigerator;
+			sourceTree = "<group>";
+		};
+		2062433926CD2DC600A9018A /* InitialPage */ = {
+			isa = PBXGroup;
+			children = (
+				2062433A26CD2DE000A9018A /* Login */,
+				2062433E26CD2DF100A9018A /* Register */,
+				2062432626CD2CFF00A9018A /* InitialViewController.swift */,
+				2062432826CD2CFF00A9018A /* Initial.storyboard */,
+			);
+			path = InitialPage;
+			sourceTree = "<group>";
+		};
+		2062433A26CD2DE000A9018A /* Login */ = {
+			isa = PBXGroup;
+			children = (
+				2062433B26CD2DEA00A9018A /* LoginViewController.swift */,
+			);
+			path = Login;
+			sourceTree = "<group>";
+		};
+		2062433E26CD2DF100A9018A /* Register */ = {
+			isa = PBXGroup;
+			children = (
+				2062433F26CD2DF900A9018A /* RegisterViewController.swift */,
+			);
+			path = Register;
+			sourceTree = "<group>";
+		};
+		2062434326CD2E1600A9018A /* MainPage */ = {
+			isa = PBXGroup;
+			children = (
+				2062434826CD2E4C00A9018A /* Main */,
+				2062434726CD2E4600A9018A /* RegisterFood */,
+				2062434626CD2E3900A9018A /* ModificationFood */,
+				2062434526CD2E3400A9018A /* CheckStatus */,
+				2062434426CD2E2800A9018A /* CheckIce */,
+			);
+			path = MainPage;
+			sourceTree = "<group>";
+		};
+		2062434426CD2E2800A9018A /* CheckIce */ = {
+			isa = PBXGroup;
+			children = (
+				2062435626CD2EC000A9018A /* IceView.swift */,
+			);
+			path = CheckIce;
+			sourceTree = "<group>";
+		};
+		2062434526CD2E3400A9018A /* CheckStatus */ = {
+			isa = PBXGroup;
+			children = (
+				2062435326CD2EB500A9018A /* StatusView.swift */,
+			);
+			path = CheckStatus;
+			sourceTree = "<group>";
+		};
+		2062434626CD2E3900A9018A /* ModificationFood */ = {
+			isa = PBXGroup;
+			children = (
+				2062435026CD2EAB00A9018A /* FoodModificationView.swift */,
+			);
+			path = ModificationFood;
+			sourceTree = "<group>";
+		};
+		2062434726CD2E4600A9018A /* RegisterFood */ = {
+			isa = PBXGroup;
+			children = (
+				2062434D26CD2E9E00A9018A /* FoodRegisterViewController.swift */,
+			);
+			path = RegisterFood;
+			sourceTree = "<group>";
+		};
+		2062434826CD2E4C00A9018A /* Main */ = {
+			isa = PBXGroup;
+			children = (
+				2062434926CD2E8C00A9018A /* MainView.swift */,
+			);
+			path = Main;
+			sourceTree = "<group>";
+		};
+		2062435A26CD2ED600A9018A /* Extension */ = {
+			isa = PBXGroup;
+			children = (
+				2062435B26CD2EE600A9018A /* UIKit+Extension.swift */,
+			);
+			path = Extension;
+			sourceTree = "<group>";
+		};
+		868EBAC805D07EE95A5D2623 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				EB8CF1F1CE19EC438F39B09A /* Pods_SmartRefrigerator.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		DCB3A5629F490AD922FF917C /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				EFEC73D11130E75BAAF3D395 /* Pods-SmartRefrigerator.debug.xcconfig */,
+				54E29ABB2C357B27FADF4CAC /* Pods-SmartRefrigerator.release.xcconfig */,
+			);
+			path = Pods;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -74,9 +202,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 2062433326CD2D0000A9018A /* Build configuration list for PBXNativeTarget "SmartRefrigerator" */;
 			buildPhases = (
+				6130D6A9FBAC7068F3DA718B /* [CP] Check Pods Manifest.lock */,
 				2062431B26CD2CFF00A9018A /* Sources */,
 				2062431C26CD2CFF00A9018A /* Frameworks */,
 				2062431D26CD2CFF00A9018A /* Resources */,
+				95A2F505FB3B8DCCF19F9CAD /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -126,32 +256,82 @@
 			files = (
 				2062432F26CD2D0000A9018A /* LaunchScreen.storyboard in Resources */,
 				2062432C26CD2D0000A9018A /* Assets.xcassets in Resources */,
-				2062432A26CD2CFF00A9018A /* Main.storyboard in Resources */,
+				2062432A26CD2CFF00A9018A /* Initial.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		6130D6A9FBAC7068F3DA718B /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-SmartRefrigerator-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		95A2F505FB3B8DCCF19F9CAD /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-SmartRefrigerator/Pods-SmartRefrigerator-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-SmartRefrigerator/Pods-SmartRefrigerator-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-SmartRefrigerator/Pods-SmartRefrigerator-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		2062431B26CD2CFF00A9018A /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				2062432726CD2CFF00A9018A /* ViewController.swift in Sources */,
+				2062433C26CD2DEA00A9018A /* LoginViewController.swift in Sources */,
+				2062434A26CD2E8C00A9018A /* MainView.swift in Sources */,
+				2062435726CD2EC000A9018A /* IceView.swift in Sources */,
+				2062435426CD2EB500A9018A /* StatusView.swift in Sources */,
+				2062434026CD2DF900A9018A /* RegisterViewController.swift in Sources */,
+				2062432726CD2CFF00A9018A /* InitialViewController.swift in Sources */,
 				2062432326CD2CFF00A9018A /* AppDelegate.swift in Sources */,
+				2062435C26CD2EE600A9018A /* UIKit+Extension.swift in Sources */,
 				2062432526CD2CFF00A9018A /* SceneDelegate.swift in Sources */,
+				2062435126CD2EAB00A9018A /* FoodModificationView.swift in Sources */,
+				2062434E26CD2E9E00A9018A /* FoodRegisterViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
-		2062432826CD2CFF00A9018A /* Main.storyboard */ = {
+		2062432826CD2CFF00A9018A /* Initial.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
 				2062432926CD2CFF00A9018A /* Base */,
 			);
-			name = Main.storyboard;
+			name = Initial.storyboard;
 			sourceTree = "<group>";
 		};
 		2062432D26CD2D0000A9018A /* LaunchScreen.storyboard */ = {
@@ -216,7 +396,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 14.4;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -271,7 +451,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 14.4;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;
@@ -283,6 +463,7 @@
 		};
 		2062433426CD2D0000A9018A /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = EFEC73D11130E75BAAF3D395 /* Pods-SmartRefrigerator.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -301,6 +482,7 @@
 		};
 		2062433526CD2D0000A9018A /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 54E29ABB2C357B27FADF4CAC /* Pods-SmartRefrigerator.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
