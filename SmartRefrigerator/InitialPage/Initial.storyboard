@@ -1,0 +1,157 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="iub-Wn-Aej">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Navigation Controller-->
+        <scene sceneID="LJf-9l-KoT">
+            <objects>
+                <navigationController id="iub-Wn-Aej" sceneMemberID="viewController">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="3fJ-Mw-rR3">
+                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="h49-Hx-jUT" kind="relationship" relationship="rootViewController" id="Dit-iX-TiL"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="uWO-Is-0LE" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-841" y="-7"/>
+        </scene>
+        <!--Initial View Controller-->
+        <scene sceneID="ASx-2v-xe3">
+            <objects>
+                <viewController id="h49-Hx-jUT" customClass="InitialViewController" customModule="SmartRefrigerator" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="2KN-eN-cMt">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="NEg-XE-Eut" userLabel="ContainerView">
+                                <rect key="frame" x="0.0" y="88" width="414" height="269"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Logo, 사진 &amp; 정보" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="AAE-N4-zwo">
+                                        <rect key="frame" x="123.5" y="120.5" width="167.5" height="27.5"/>
+                                        <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="23"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstItem="AAE-N4-zwo" firstAttribute="centerY" secondItem="NEg-XE-Eut" secondAttribute="centerY" id="dcW-Po-pbm"/>
+                                    <constraint firstItem="AAE-N4-zwo" firstAttribute="centerX" secondItem="NEg-XE-Eut" secondAttribute="centerX" id="gep-pm-Y02"/>
+                                </constraints>
+                            </view>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="25" translatesAutoresizingMaskIntoConstraints="NO" id="FcS-y7-C1W">
+                                <rect key="frame" x="62" y="557" width="290" height="149.5"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aOv-mk-CCv">
+                                        <rect key="frame" x="0.0" y="0.0" width="290" height="62"/>
+                                        <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="18"/>
+                                        <state key="normal" title="로그인">
+                                            <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        </state>
+                                        <connections>
+                                            <segue destination="f7k-4F-TQG" kind="show" id="c8n-G5-n98"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zUS-jz-SFb">
+                                        <rect key="frame" x="0.0" y="87" width="290" height="62.5"/>
+                                        <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="18"/>
+                                        <state key="normal" title="회원가입">
+                                            <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        </state>
+                                        <connections>
+                                            <segue destination="DHd-FZ-isd" kind="show" id="nku-l7-2Uc"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="FcS-y7-C1W" secondAttribute="height" multiplier="29:15" id="u12-Jv-F9R"/>
+                                </constraints>
+                            </stackView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="FHG-8u-7nc"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="FHG-8u-7nc" firstAttribute="trailing" secondItem="NEg-XE-Eut" secondAttribute="trailing" id="2jC-Se-WA8"/>
+                            <constraint firstItem="FcS-y7-C1W" firstAttribute="width" secondItem="2KN-eN-cMt" secondAttribute="width" multiplier="0.7" id="7XX-Xs-WYz"/>
+                            <constraint firstItem="FcS-y7-C1W" firstAttribute="top" secondItem="NEg-XE-Eut" secondAttribute="bottom" constant="200" id="7tz-t8-Aqf"/>
+                            <constraint firstItem="NEg-XE-Eut" firstAttribute="leading" secondItem="FHG-8u-7nc" secondAttribute="leading" id="IO9-W1-DCL"/>
+                            <constraint firstItem="FcS-y7-C1W" firstAttribute="centerX" secondItem="2KN-eN-cMt" secondAttribute="centerX" id="cBf-Mn-zYy"/>
+                            <constraint firstItem="NEg-XE-Eut" firstAttribute="top" secondItem="FHG-8u-7nc" secondAttribute="top" id="cr4-M6-kOq"/>
+                            <constraint firstItem="NEg-XE-Eut" firstAttribute="height" secondItem="2KN-eN-cMt" secondAttribute="height" multiplier="0.3" id="mdO-G1-tLg"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="0YT-lR-Yho"/>
+                    <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
+                    <nil key="simulatedBottomBarMetrics"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="6Me-c9-ugR" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-139" y="-7"/>
+        </scene>
+        <!--로그인-->
+        <scene sceneID="OTq-AT-Fhm">
+            <objects>
+                <viewController id="f7k-4F-TQG" customClass="LoginViewController" customModule="SmartRefrigerator" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="4Nr-ah-my0">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <viewLayoutGuide key="safeArea" id="5R6-Jo-2Pv"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    </view>
+                    <toolbarItems/>
+                    <navigationItem key="navigationItem" title="로그인" id="dqS-Av-FUT">
+                        <barButtonItem key="leftBarButtonItem" title="Item" image="chevron.backward" catalog="system" id="Jcn-9c-vYA">
+                            <connections>
+                                <action selector="backToInitialPage:" destination="f7k-4F-TQG" id="hhX-oW-SxZ"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <nil key="simulatedBottomBarMetrics"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="vxs-bw-R2w" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="804" y="-238"/>
+        </scene>
+        <!--회원가입-->
+        <scene sceneID="fbc-w6-has">
+            <objects>
+                <viewController id="DHd-FZ-isd" customClass="RegisterViewController" customModule="SmartRefrigerator" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="XHP-HK-VRT">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <viewLayoutGuide key="safeArea" id="IVL-Y7-yp7"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="회원가입" id="8iY-Wd-CpU">
+                        <barButtonItem key="leftBarButtonItem" title="Item" image="chevron.backward" catalog="system" id="63M-pC-5oG">
+                            <connections>
+                                <action selector="backToInitialPage:" destination="DHd-FZ-isd" id="2UO-lg-lmD"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <nil key="simulatedBottomBarMetrics"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Tga-kr-ZLe" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="803" y="457"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="chevron.backward" catalog="system" width="96" height="128"/>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
+</document>
