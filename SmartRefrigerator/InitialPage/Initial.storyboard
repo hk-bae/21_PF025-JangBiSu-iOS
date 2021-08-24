@@ -79,6 +79,13 @@
                                     <constraint firstAttribute="width" secondItem="FcS-y7-C1W" secondAttribute="height" multiplier="29:15" id="u12-Jv-F9R"/>
                                 </constraints>
                             </stackView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ifk-pz-FE5">
+                                <rect key="frame" x="133" y="726.5" width="148" height="30"/>
+                                <state key="normal" title="메인페이지로 이동 (dev)"/>
+                                <connections>
+                                    <action selector="moveToMainPage:" destination="h49-Hx-jUT" eventType="touchUpInside" id="dTp-D5-9ks"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="FHG-8u-7nc"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -86,10 +93,12 @@
                             <constraint firstItem="FHG-8u-7nc" firstAttribute="trailing" secondItem="NEg-XE-Eut" secondAttribute="trailing" id="2jC-Se-WA8"/>
                             <constraint firstItem="FcS-y7-C1W" firstAttribute="width" secondItem="2KN-eN-cMt" secondAttribute="width" multiplier="0.7" id="7XX-Xs-WYz"/>
                             <constraint firstItem="FcS-y7-C1W" firstAttribute="top" secondItem="NEg-XE-Eut" secondAttribute="bottom" constant="200" id="7tz-t8-Aqf"/>
+                            <constraint firstItem="ifk-pz-FE5" firstAttribute="centerX" secondItem="2KN-eN-cMt" secondAttribute="centerX" id="G6f-Xb-ime"/>
                             <constraint firstItem="NEg-XE-Eut" firstAttribute="leading" secondItem="FHG-8u-7nc" secondAttribute="leading" id="IO9-W1-DCL"/>
                             <constraint firstItem="FcS-y7-C1W" firstAttribute="centerX" secondItem="2KN-eN-cMt" secondAttribute="centerX" id="cBf-Mn-zYy"/>
                             <constraint firstItem="NEg-XE-Eut" firstAttribute="top" secondItem="FHG-8u-7nc" secondAttribute="top" id="cr4-M6-kOq"/>
                             <constraint firstItem="NEg-XE-Eut" firstAttribute="height" secondItem="2KN-eN-cMt" secondAttribute="height" multiplier="0.3" id="mdO-G1-tLg"/>
+                            <constraint firstItem="ifk-pz-FE5" firstAttribute="top" secondItem="FcS-y7-C1W" secondAttribute="bottom" constant="20" id="ywM-bu-z3m"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="0YT-lR-Yho"/>
