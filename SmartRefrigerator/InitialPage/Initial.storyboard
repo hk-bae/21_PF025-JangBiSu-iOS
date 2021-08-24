@@ -107,22 +107,114 @@
                     <view key="view" contentMode="scaleToFill" id="4Nr-ah-my0">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="30" translatesAutoresizingMaskIntoConstraints="NO" id="meH-60-A13">
+                                <rect key="frame" x="62" y="288" width="290" height="145"/>
+                                <subviews>
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="line" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="U0x-c5-kRE">
+                                        <rect key="frame" x="0.0" y="0.0" width="290" height="57.5"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                    </textField>
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="line" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="14F-uD-KsJ">
+                                        <rect key="frame" x="0.0" y="87.5" width="290" height="57.5"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                    </textField>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="meH-60-A13" secondAttribute="height" multiplier="2:1" id="uKH-oF-3P8"/>
+                                </constraints>
+                            </stackView>
+                            <stackView opaque="NO" contentMode="scaleToFill" distribution="equalSpacing" translatesAutoresizingMaskIntoConstraints="NO" id="9th-B0-JQ4">
+                                <rect key="frame" x="62" y="453" width="290" height="20"/>
+                                <subviews>
+                                    <stackView opaque="NO" contentMode="scaleToFill" alignment="center" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="Udh-tr-f9i">
+                                        <rect key="frame" x="0.0" y="0.0" width="94.5" height="20"/>
+                                        <subviews>
+                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="circle" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="9C4-6y-Wox">
+                                                <rect key="frame" x="0.0" y="0.5" width="20" height="19"/>
+                                                <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" secondItem="9C4-6y-Wox" secondAttribute="height" multiplier="1:1" id="0UF-5e-c0q"/>
+                                                </constraints>
+                                            </imageView>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="자동 로그인" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="h8A-My-Y3u">
+                                                <rect key="frame" x="30" y="1.5" width="64.5" height="17"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                        </subviews>
+                                    </stackView>
+                                    <stackView opaque="NO" contentMode="scaleToFill" alignment="center" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="7IG-ua-nNL">
+                                        <rect key="frame" x="195.5" y="0.0" width="94.5" height="20"/>
+                                        <subviews>
+                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="circle" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="r1V-Av-Wnf">
+                                                <rect key="frame" x="0.0" y="0.5" width="20" height="19"/>
+                                                <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" secondItem="r1V-Av-Wnf" secondAttribute="height" multiplier="1:1" id="62s-rS-PjQ"/>
+                                                </constraints>
+                                            </imageView>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="아이디 저장" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XNk-8b-DxK">
+                                                <rect key="frame" x="30" y="1.5" width="64.5" height="17"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                        </subviews>
+                                    </stackView>
+                                </subviews>
+                            </stackView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nFh-hT-KlB">
+                                <rect key="frame" x="62" y="573" width="290" height="58"/>
+                                <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="nFh-hT-KlB" secondAttribute="height" multiplier="5:1" id="Ygo-o4-pW9"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="18"/>
+                                <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <state key="normal" title="로그인"/>
+                            </button>
+                        </subviews>
                         <viewLayoutGuide key="safeArea" id="5R6-Jo-2Pv"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="nFh-hT-KlB" firstAttribute="top" secondItem="9th-B0-JQ4" secondAttribute="bottom" constant="100" id="2Nr-l3-87y"/>
+                            <constraint firstItem="nFh-hT-KlB" firstAttribute="width" secondItem="4Nr-ah-my0" secondAttribute="width" multiplier="0.7" id="78U-nH-jiy"/>
+                            <constraint firstItem="meH-60-A13" firstAttribute="top" secondItem="5R6-Jo-2Pv" secondAttribute="top" constant="200" id="CmX-Gv-RM4"/>
+                            <constraint firstItem="9th-B0-JQ4" firstAttribute="trailing" secondItem="meH-60-A13" secondAttribute="trailing" id="McS-yC-Af9"/>
+                            <constraint firstItem="9th-B0-JQ4" firstAttribute="top" secondItem="meH-60-A13" secondAttribute="bottom" constant="20" id="RBa-J8-zZU"/>
+                            <constraint firstItem="nFh-hT-KlB" firstAttribute="centerX" secondItem="4Nr-ah-my0" secondAttribute="centerX" id="Vt6-OV-qhe"/>
+                            <constraint firstItem="9th-B0-JQ4" firstAttribute="leading" secondItem="meH-60-A13" secondAttribute="leading" id="bpQ-Yn-GEM"/>
+                            <constraint firstItem="meH-60-A13" firstAttribute="centerX" secondItem="4Nr-ah-my0" secondAttribute="centerX" id="j0w-lL-arM"/>
+                            <constraint firstItem="meH-60-A13" firstAttribute="width" secondItem="4Nr-ah-my0" secondAttribute="width" multiplier="0.7" id="nry-x2-iPj"/>
+                        </constraints>
                     </view>
                     <toolbarItems/>
                     <navigationItem key="navigationItem" title="로그인" id="dqS-Av-FUT">
                         <barButtonItem key="leftBarButtonItem" title="Item" image="chevron.backward" catalog="system" id="Jcn-9c-vYA">
+                            <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             <connections>
                                 <action selector="backToInitialPage:" destination="f7k-4F-TQG" id="hhX-oW-SxZ"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
                     <nil key="simulatedBottomBarMetrics"/>
+                    <connections>
+                        <outlet property="autoLogin" destination="Udh-tr-f9i" id="cBc-pM-uxl"/>
+                        <outlet property="autoLoginCheckBox" destination="9C4-6y-Wox" id="Zqi-oz-lMc"/>
+                        <outlet property="idTextField" destination="U0x-c5-kRE" id="gY5-fl-Wnq"/>
+                        <outlet property="loginButton" destination="nFh-hT-KlB" id="hv6-vG-MxO"/>
+                        <outlet property="passwordTextField" destination="14F-uD-KsJ" id="YGE-dg-o4j"/>
+                        <outlet property="saveId" destination="7IG-ua-nNL" id="T45-1d-4lm"/>
+                        <outlet property="saveIdCheckBox" destination="r1V-Av-Wnf" id="h9i-65-uYJ"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="vxs-bw-R2w" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="804" y="-238"/>
+            <point key="canvasLocation" x="802.89855072463774" y="-238.39285714285714"/>
         </scene>
         <!--회원가입-->
         <scene sceneID="fbc-w6-has">
@@ -136,6 +228,7 @@
                     </view>
                     <navigationItem key="navigationItem" title="회원가입" id="8iY-Wd-CpU">
                         <barButtonItem key="leftBarButtonItem" title="Item" image="chevron.backward" catalog="system" id="63M-pC-5oG">
+                            <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             <connections>
                                 <action selector="backToInitialPage:" destination="DHd-FZ-isd" id="2UO-lg-lmD"/>
                             </connections>
@@ -150,6 +243,7 @@
     </scenes>
     <resources>
         <image name="chevron.backward" catalog="system" width="96" height="128"/>
+        <image name="circle" catalog="system" width="128" height="121"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>

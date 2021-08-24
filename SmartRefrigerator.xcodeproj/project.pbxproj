@@ -8,6 +8,16 @@
 
 /* Begin PBXBuildFile section */
 		2047DDAB26D3EF9A00326003 /* Initial.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2047DDAA26D3EF9A00326003 /* Initial.storyboard */; };
+		2047DDC326D3FF3100326003 /* LoginViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2047DDC226D3FF3100326003 /* LoginViewModel.swift */; };
+		2047DDC626D4193200326003 /* CommonString.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2047DDC526D4193200326003 /* CommonString.swift */; };
+		2047DDCD26D4D52D00326003 /* UserInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2047DDCC26D4D52D00326003 /* UserInfo.swift */; };
+		2047DDD026D4D60900326003 /* Shelf.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2047DDCF26D4D60900326003 /* Shelf.swift */; };
+		2047DDD326D4D60F00326003 /* Food.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2047DDD226D4D60F00326003 /* Food.swift */; };
+		2047DDD626D4D8EC00326003 /* AlamofireManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2047DDD526D4D8EC00326003 /* AlamofireManager.swift */; };
+		2047DDDB26D4D9B700326003 /* BaseInterceptor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2047DDDA26D4D9B700326003 /* BaseInterceptor.swift */; };
+		2047DDE226D4DC8600326003 /* UserInfoRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2047DDE126D4DC8600326003 /* UserInfoRouter.swift */; };
+		2047DDE626D4E06E00326003 /* EventLogger.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2047DDE526D4E06E00326003 /* EventLogger.swift */; };
+		2047DDF026D507BD00326003 /* CustomDialog.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2047DDEF26D507BD00326003 /* CustomDialog.swift */; };
 		2062432326CD2CFF00A9018A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2062432226CD2CFF00A9018A /* AppDelegate.swift */; };
 		2062432526CD2CFF00A9018A /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2062432426CD2CFF00A9018A /* SceneDelegate.swift */; };
 		2062432726CD2CFF00A9018A /* InitialViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2062432626CD2CFF00A9018A /* InitialViewController.swift */; };
@@ -26,6 +36,16 @@
 
 /* Begin PBXFileReference section */
 		2047DDAA26D3EF9A00326003 /* Initial.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Initial.storyboard; sourceTree = "<group>"; };
+		2047DDC226D3FF3100326003 /* LoginViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewModel.swift; sourceTree = "<group>"; };
+		2047DDC526D4193200326003 /* CommonString.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommonString.swift; sourceTree = "<group>"; };
+		2047DDCC26D4D52D00326003 /* UserInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserInfo.swift; sourceTree = "<group>"; };
+		2047DDCF26D4D60900326003 /* Shelf.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Shelf.swift; sourceTree = "<group>"; };
+		2047DDD226D4D60F00326003 /* Food.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Food.swift; sourceTree = "<group>"; };
+		2047DDD526D4D8EC00326003 /* AlamofireManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlamofireManager.swift; sourceTree = "<group>"; };
+		2047DDDA26D4D9B700326003 /* BaseInterceptor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseInterceptor.swift; sourceTree = "<group>"; };
+		2047DDE126D4DC8600326003 /* UserInfoRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserInfoRouter.swift; sourceTree = "<group>"; };
+		2047DDE526D4E06E00326003 /* EventLogger.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventLogger.swift; sourceTree = "<group>"; };
+		2047DDEF26D507BD00326003 /* CustomDialog.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomDialog.swift; sourceTree = "<group>"; };
 		2062431F26CD2CFF00A9018A /* SmartRefrigerator.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SmartRefrigerator.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2062432226CD2CFF00A9018A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		2062432426CD2CFF00A9018A /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -58,6 +78,46 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		2047DDCA26D4D49F00326003 /* Common */ = {
+			isa = PBXGroup;
+			children = (
+				2047DDEE26D5071E00326003 /* CustomDialog */,
+				2047DDD826D4D8F300326003 /* Service */,
+				2047DDCB26D4D52600326003 /* Model */,
+			);
+			path = Common;
+			sourceTree = "<group>";
+		};
+		2047DDCB26D4D52600326003 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				2047DDC526D4193200326003 /* CommonString.swift */,
+				2047DDCC26D4D52D00326003 /* UserInfo.swift */,
+				2047DDCF26D4D60900326003 /* Shelf.swift */,
+				2047DDD226D4D60F00326003 /* Food.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		2047DDD826D4D8F300326003 /* Service */ = {
+			isa = PBXGroup;
+			children = (
+				2047DDD526D4D8EC00326003 /* AlamofireManager.swift */,
+				2047DDDA26D4D9B700326003 /* BaseInterceptor.swift */,
+				2047DDE526D4E06E00326003 /* EventLogger.swift */,
+				2047DDE126D4DC8600326003 /* UserInfoRouter.swift */,
+			);
+			path = Service;
+			sourceTree = "<group>";
+		};
+		2047DDEE26D5071E00326003 /* CustomDialog */ = {
+			isa = PBXGroup;
+			children = (
+				2047DDEF26D507BD00326003 /* CustomDialog.swift */,
+			);
+			path = CustomDialog;
+			sourceTree = "<group>";
+		};
 		2062431626CD2CFF00A9018A = {
 			isa = PBXGroup;
 			children = (
@@ -82,6 +142,7 @@
 				2062433926CD2DC600A9018A /* InitialPage */,
 				2062434326CD2E1600A9018A /* MainPage */,
 				2062435A26CD2ED600A9018A /* Extension */,
+				2047DDCA26D4D49F00326003 /* Common */,
 				2062432226CD2CFF00A9018A /* AppDelegate.swift */,
 				2062432426CD2CFF00A9018A /* SceneDelegate.swift */,
 				2062432B26CD2D0000A9018A /* Assets.xcassets */,
@@ -106,6 +167,7 @@
 			isa = PBXGroup;
 			children = (
 				2062433B26CD2DEA00A9018A /* LoginViewController.swift */,
+				2047DDC226D3FF3100326003 /* LoginViewModel.swift */,
 			);
 			path = Login;
 			sourceTree = "<group>";
@@ -311,15 +373,25 @@
 			files = (
 				2062433C26CD2DEA00A9018A /* LoginViewController.swift in Sources */,
 				2062434A26CD2E8C00A9018A /* MainView.swift in Sources */,
+				2047DDDB26D4D9B700326003 /* BaseInterceptor.swift in Sources */,
+				2047DDC626D4193200326003 /* CommonString.swift in Sources */,
 				2062435726CD2EC000A9018A /* IceView.swift in Sources */,
 				2062435426CD2EB500A9018A /* StatusView.swift in Sources */,
+				2047DDE226D4DC8600326003 /* UserInfoRouter.swift in Sources */,
 				2062434026CD2DF900A9018A /* RegisterViewController.swift in Sources */,
+				2047DDD026D4D60900326003 /* Shelf.swift in Sources */,
 				2062432726CD2CFF00A9018A /* InitialViewController.swift in Sources */,
 				2062432326CD2CFF00A9018A /* AppDelegate.swift in Sources */,
+				2047DDE626D4E06E00326003 /* EventLogger.swift in Sources */,
 				2062435C26CD2EE600A9018A /* UIKit+Extension.swift in Sources */,
+				2047DDC326D3FF3100326003 /* LoginViewModel.swift in Sources */,
 				2062432526CD2CFF00A9018A /* SceneDelegate.swift in Sources */,
 				2062435126CD2EAB00A9018A /* FoodModificationView.swift in Sources */,
+				2047DDF026D507BD00326003 /* CustomDialog.swift in Sources */,
+				2047DDD326D4D60F00326003 /* Food.swift in Sources */,
+				2047DDCD26D4D52D00326003 /* UserInfo.swift in Sources */,
 				2062434E26CD2E9E00A9018A /* FoodRegisterViewController.swift in Sources */,
+				2047DDD626D4D8EC00326003 /* AlamofireManager.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
