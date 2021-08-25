@@ -18,6 +18,7 @@
 		2047DDE226D4DC8600326003 /* UserInfoRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2047DDE126D4DC8600326003 /* UserInfoRouter.swift */; };
 		2047DDE626D4E06E00326003 /* EventLogger.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2047DDE526D4E06E00326003 /* EventLogger.swift */; };
 		2047DDF026D507BD00326003 /* CustomDialog.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2047DDEF26D507BD00326003 /* CustomDialog.swift */; };
+		2047DDF626D5363B00326003 /* RegisterViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2047DDF526D5363B00326003 /* RegisterViewModel.swift */; };
 		2062432326CD2CFF00A9018A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2062432226CD2CFF00A9018A /* AppDelegate.swift */; };
 		2062432526CD2CFF00A9018A /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2062432426CD2CFF00A9018A /* SceneDelegate.swift */; };
 		2062432726CD2CFF00A9018A /* InitialViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2062432626CD2CFF00A9018A /* InitialViewController.swift */; };
@@ -46,6 +47,7 @@
 		2047DDE126D4DC8600326003 /* UserInfoRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserInfoRouter.swift; sourceTree = "<group>"; };
 		2047DDE526D4E06E00326003 /* EventLogger.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventLogger.swift; sourceTree = "<group>"; };
 		2047DDEF26D507BD00326003 /* CustomDialog.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomDialog.swift; sourceTree = "<group>"; };
+		2047DDF526D5363B00326003 /* RegisterViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterViewModel.swift; sourceTree = "<group>"; };
 		2062431F26CD2CFF00A9018A /* SmartRefrigerator.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SmartRefrigerator.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2062432226CD2CFF00A9018A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		2062432426CD2CFF00A9018A /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -176,6 +178,7 @@
 			isa = PBXGroup;
 			children = (
 				2062433F26CD2DF900A9018A /* RegisterViewController.swift */,
+				2047DDF526D5363B00326003 /* RegisterViewModel.swift */,
 			);
 			path = Register;
 			sourceTree = "<group>";
@@ -386,6 +389,7 @@
 				2062435C26CD2EE600A9018A /* UIKit+Extension.swift in Sources */,
 				2047DDC326D3FF3100326003 /* LoginViewModel.swift in Sources */,
 				2062432526CD2CFF00A9018A /* SceneDelegate.swift in Sources */,
+				2047DDF626D5363B00326003 /* RegisterViewModel.swift in Sources */,
 				2062435126CD2EAB00A9018A /* FoodModificationView.swift in Sources */,
 				2047DDF026D507BD00326003 /* CustomDialog.swift in Sources */,
 				2047DDD326D4D60F00326003 /* Food.swift in Sources */,
