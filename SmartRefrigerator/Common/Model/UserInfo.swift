@@ -9,7 +9,7 @@ import Foundation
 
 struct UserInfo: Codable {
     let id, name, password: String
-    let shelf: Shelf
+    var shelf: Shelf?
 }
 
 extension UserInfo {
