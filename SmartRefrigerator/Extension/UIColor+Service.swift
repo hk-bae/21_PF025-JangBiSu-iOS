@@ -12,7 +12,6 @@ extension UIColor {
         case orange
         case yellow
         case red
-        case redShadow
         case white100
         
         
@@ -25,8 +24,6 @@ extension UIColor {
                 return UIColor(red: 255.0/255.0, green: 213.0/255.0, blue: 46.0/255.0, alpha: 1)
             case .red :
                 return UIColor(red: 1, green: 0, blue: 0, alpha: 1)
-            case .redShadow :
-                return UIColor(red: 1, green: 0, blue: 0, alpha: 0.2)
             case .white100 :
                 return UIColor(red: 1, green: 1, blue: 1, alpha: 1)
             }
