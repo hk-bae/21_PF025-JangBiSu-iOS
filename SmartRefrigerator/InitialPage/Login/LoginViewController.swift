@@ -59,31 +59,37 @@ extension LoginViewController {
     
     func output(){
         self.viewModel.output.login.asObservable()
-            .subscribe(onNext:{ result in
-                switch result {
-                case .success :
-                    // 로그인 성공 처리 -> 메인 페이지로 이동
-                    print("SUCCESS")
-                    let main = UIHostingController(rootView: MainView())
-                    main.modalTransitionStyle = .crossDissolve
-                    main.modalPresentationStyle = .overFullScreen
-                    let navigationViewController = self.navigationController
-                    
-                    self.present(main, animated: true) {
-                        navigationViewController?.popViewController(animated: true)
-                    }
-                    
-                case .inValidInput :
-                    let customDialog = CustomDialog(width: 300, height: 200, type: .OK)
-                    customDialog.setTitleLabel(text: "아이디 또는 비밀번호가\n유효하지 않습니다.")
-                    customDialog.show()
-                    
-                case .failure :
-                    let customDialog = CustomDialog(width: 300, height: 200, type: .OK)
-                    customDialog.setTitleLabel(text: "아이디 또는 비밀번호가\n일치하지 않습니다.")
-                    customDialog.show()
-                }
-            }).disposed(by: disposeBag)
+            .subscribe(onNext:handleLoginResult)
+            .disposed(by: disposeBag)
+    }
+}
+
+extension LoginViewController {
+    func handleLoginResult(result : LoginViewModel.LoginResult){
+        switch result {
+        case .success :
+            // 로그인 성공 처리 -> 메인 페이지로 이동
+            print("SUCCESS")
+            let main = UIHostingController(rootView: MainView())
+            main.modalTransitionStyle = .crossDissolve
+            main.modalPresentationStyle = .overFullScreen
+            let navigationViewController = self.navigationController
+            
+            self.present(main, animated: true) {
+                navigationViewController?.popViewController(animated: true)
+            }
+            
+        case .inValidInput :
+            let customDialog = CustomDialog(width: 300, height: 200, type: .OK)
+            customDialog.setTitleLabel(text: "아이디 또는 비밀번호가\n유효하지 않습니다.")
+            customDialog.show()
+            
+        case .failure :
+            let customDialog = CustomDialog(width: 300, height: 200, type: .OK)
+            customDialog.setTitleLabel(text: "아이디 또는 비밀번호가\n일치하지 않습니다.")
+            customDialog.show()
+        }
+        
     }
 }
 

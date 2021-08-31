@@ -44,14 +44,13 @@ enum UserInfoRouter : URLRequestConvertible {
     
     var baseURL : URL {
         switch self {
-        case let .login(id,_), let .register(id,_,_), let .connect(id,_):
-            return URL(string: AlamofireManager.BASE_URL + "user/" + "\(id)/")!
+        case .login(let id,_), .register(let id,_,_), .connect(let id,_):
+            return URL(string: AlamofireManager.BASE_URL + "user/" + self.endPoint + id)!
         }
     }
     
     func asURLRequest() throws -> URLRequest {
-        let url = baseURL.appendingPathComponent(endPoint)
-        var request = URLRequest(url: url)
+        var request = URLRequest(url: baseURL)
         request.method = method
         request = try URLEncodedFormParameterEncoder().encode(parameters, into: request)
         return request

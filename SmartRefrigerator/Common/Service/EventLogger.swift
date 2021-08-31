@@ -39,5 +39,6 @@ final class EventLogger : EventMonitor {
         guard let statusCode = request.response?.statusCode else { return }
         print("EventLogger - request.didParseRsponse()")
         debugPrint(response)
+        debugPrint(statusCode)
     }
 }
