@@ -19,6 +19,12 @@
 		2047DDE626D4E06E00326003 /* EventLogger.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2047DDE526D4E06E00326003 /* EventLogger.swift */; };
 		2047DDF026D507BD00326003 /* CustomDialog.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2047DDEF26D507BD00326003 /* CustomDialog.swift */; };
 		2047DDF626D5363B00326003 /* RegisterViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2047DDF526D5363B00326003 /* RegisterViewModel.swift */; };
+		2047DE1926DE0FDD00326003 /* UIFont+Service.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2047DE1826DE0FDD00326003 /* UIFont+Service.swift */; };
+		2047DE1C26DE0FE500326003 /* UIColor+Service.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2047DE1B26DE0FE500326003 /* UIColor+Service.swift */; };
+		2047DE2726DE122F00326003 /* NotoSansCJKkr-Bold.otf in Resources */ = {isa = PBXBuildFile; fileRef = 2047DE2626DE122F00326003 /* NotoSansCJKkr-Bold.otf */; };
+		2047DE2F26DE12D500326003 /* NotoSansCJKkr-Regular.otf in Resources */ = {isa = PBXBuildFile; fileRef = 2047DE2D26DE12D400326003 /* NotoSansCJKkr-Regular.otf */; };
+		2047DE3026DE12D500326003 /* NotoSansCJKkr-Medium.otf in Resources */ = {isa = PBXBuildFile; fileRef = 2047DE2E26DE12D400326003 /* NotoSansCJKkr-Medium.otf */; };
+		2047DE3426DE144C00326003 /* NanumSquareOTF-ExtraBold.otf in Resources */ = {isa = PBXBuildFile; fileRef = 2047DE3326DE144C00326003 /* NanumSquareOTF-ExtraBold.otf */; };
 		2062432326CD2CFF00A9018A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2062432226CD2CFF00A9018A /* AppDelegate.swift */; };
 		2062432526CD2CFF00A9018A /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2062432426CD2CFF00A9018A /* SceneDelegate.swift */; };
 		2062432726CD2CFF00A9018A /* InitialViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2062432626CD2CFF00A9018A /* InitialViewController.swift */; };
@@ -48,6 +54,12 @@
 		2047DDE526D4E06E00326003 /* EventLogger.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventLogger.swift; sourceTree = "<group>"; };
 		2047DDEF26D507BD00326003 /* CustomDialog.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomDialog.swift; sourceTree = "<group>"; };
 		2047DDF526D5363B00326003 /* RegisterViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterViewModel.swift; sourceTree = "<group>"; };
+		2047DE1826DE0FDD00326003 /* UIFont+Service.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIFont+Service.swift"; sourceTree = "<group>"; };
+		2047DE1B26DE0FE500326003 /* UIColor+Service.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+Service.swift"; sourceTree = "<group>"; };
+		2047DE2626DE122F00326003 /* NotoSansCJKkr-Bold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "NotoSansCJKkr-Bold.otf"; sourceTree = "<group>"; };
+		2047DE2D26DE12D400326003 /* NotoSansCJKkr-Regular.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "NotoSansCJKkr-Regular.otf"; sourceTree = "<group>"; };
+		2047DE2E26DE12D400326003 /* NotoSansCJKkr-Medium.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "NotoSansCJKkr-Medium.otf"; sourceTree = "<group>"; };
+		2047DE3326DE144C00326003 /* NanumSquareOTF-ExtraBold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "NanumSquareOTF-ExtraBold.otf"; sourceTree = "<group>"; };
 		2062431F26CD2CFF00A9018A /* SmartRefrigerator.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SmartRefrigerator.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2062432226CD2CFF00A9018A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		2062432426CD2CFF00A9018A /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -83,6 +95,7 @@
 		2047DDCA26D4D49F00326003 /* Common */ = {
 			isa = PBXGroup;
 			children = (
+				2047DE1E26DE11AF00326003 /* Font */,
 				2047DDEE26D5071E00326003 /* CustomDialog */,
 				2047DDD826D4D8F300326003 /* Service */,
 				2047DDCB26D4D52600326003 /* Model */,
@@ -118,6 +131,17 @@
 				2047DDEF26D507BD00326003 /* CustomDialog.swift */,
 			);
 			path = CustomDialog;
+			sourceTree = "<group>";
+		};
+		2047DE1E26DE11AF00326003 /* Font */ = {
+			isa = PBXGroup;
+			children = (
+				2047DE3326DE144C00326003 /* NanumSquareOTF-ExtraBold.otf */,
+				2047DE2626DE122F00326003 /* NotoSansCJKkr-Bold.otf */,
+				2047DE2E26DE12D400326003 /* NotoSansCJKkr-Medium.otf */,
+				2047DE2D26DE12D400326003 /* NotoSansCJKkr-Regular.otf */,
+			);
+			path = Font;
 			sourceTree = "<group>";
 		};
 		2062431626CD2CFF00A9018A = {
@@ -239,6 +263,8 @@
 			isa = PBXGroup;
 			children = (
 				2062435B26CD2EE600A9018A /* UIKit+Extension.swift */,
+				2047DE1826DE0FDD00326003 /* UIFont+Service.swift */,
+				2047DE1B26DE0FE500326003 /* UIColor+Service.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -320,8 +346,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				2047DDAB26D3EF9A00326003 /* Initial.storyboard in Resources */,
+				2047DE3026DE12D500326003 /* NotoSansCJKkr-Medium.otf in Resources */,
+				2047DE2F26DE12D500326003 /* NotoSansCJKkr-Regular.otf in Resources */,
+				2047DE2726DE122F00326003 /* NotoSansCJKkr-Bold.otf in Resources */,
 				2062432F26CD2D0000A9018A /* LaunchScreen.storyboard in Resources */,
 				2062432C26CD2D0000A9018A /* Assets.xcassets in Resources */,
+				2047DE3426DE144C00326003 /* NanumSquareOTF-ExtraBold.otf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -375,10 +405,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				2062433C26CD2DEA00A9018A /* LoginViewController.swift in Sources */,
+				2047DE1C26DE0FE500326003 /* UIColor+Service.swift in Sources */,
 				2062434A26CD2E8C00A9018A /* MainView.swift in Sources */,
 				2047DDDB26D4D9B700326003 /* BaseInterceptor.swift in Sources */,
 				2047DDC626D4193200326003 /* CommonString.swift in Sources */,
 				2062435726CD2EC000A9018A /* IceView.swift in Sources */,
+				2047DE1926DE0FDD00326003 /* UIFont+Service.swift in Sources */,
 				2062435426CD2EB500A9018A /* StatusView.swift in Sources */,
 				2047DDE226D4DC8600326003 /* UserInfoRouter.swift in Sources */,
 				2062434026CD2DF900A9018A /* RegisterViewController.swift in Sources */,
