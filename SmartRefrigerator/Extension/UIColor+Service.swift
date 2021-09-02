@@ -13,7 +13,7 @@ extension UIColor {
         case yellow
         case red
         case white100
-        
+        case gray
         
         var value : UIColor {
             switch self {
@@ -26,6 +26,8 @@ extension UIColor {
                 return UIColor(red: 1, green: 0, blue: 0, alpha: 1)
             case .white100 :
                 return UIColor(red: 1, green: 1, blue: 1, alpha: 1)
+            case .gray :
+                return UIColor(red: 104.0/255.0, green: 104.0/255.0, blue: 104.0/255.0, alpha: 1)
             }
         }
         

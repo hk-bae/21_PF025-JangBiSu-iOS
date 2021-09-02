@@ -64,14 +64,34 @@ extension LoginViewModel {
             .shared
             .session
             .request(UserInfoRouter.login(id: id, pw: pw))
-            .responseDecodable(of:UserInfo.self){ response in
-                //로그인 성공
-                if let user = response.value {
-                    UserInfo.savedUser = user // 사용자 정보 저장
-                    self.output.login.accept(LoginResult.success) // 성공 알림
-                // 로그인 실패
-                }else{
-                    self.output.login.accept(LoginResult.failure) // 실패 알림
+            .responseJSON{ response in
+            
+                switch response.result {
+                case .success(let value) :
+                    guard let result = value as? [String:Any] else { return }
+                    
+                    if response.response?.statusCode == 200 {
+                        let user = result["data"] as? UserInfo
+                        UserInfo.savedUser = user
+                        self.output.login.accept(LoginResult.success)
+                        
+                    }else{
+                        let errorMessage = result["errorMessage"] as? String
+                        switch errorMessage {
+                        case "일치하는 회원 정보가 없습니다. 사용자 id를 확인해주세요.":
+                            self.output.login.accept(LoginResult.nonexistentUser)
+                            break
+                        case "일치하는 회원 정보가 없습니다. 사용자 pw를 확인해주세요.":
+                            self.output.login.accept(LoginResult.inconsistentUser)
+                            break
+                        default : break
+                        }
+                        
+                    }
+                    
+                case .failure(let error) :
+                    print(error)
+                    break
                 }
             }
     }
@@ -82,6 +102,8 @@ extension LoginViewModel {
     enum LoginResult {
         case success
         case inValidInput
+        case nonexistentUser
+        case inconsistentUser
         case failure
     }
     

@@ -19,6 +19,14 @@ class LoginViewController: UIViewController {
     @IBOutlet weak var autoLoginCheckBox: UIImageView!
     @IBOutlet weak var saveId: UIStackView!
     @IBOutlet weak var saveIdCheckBox: UIImageView!
+    @IBOutlet weak var loginFailLabel: UILabel!
+    lazy var clearIdButton = UIButton()
+    lazy var clearPwButton = UIButton()
+    
+    private final let check_image = UIImage(named: "check_light")
+    private final let uncheck_image = UIImage(named: "uncheck_light")
+    
+    @IBOutlet weak var loginFailLabelHeight: NSLayoutConstraint!
     
     private let viewModel = LoginViewModel()
     private let disposeBag = DisposeBag()
@@ -54,7 +62,14 @@ extension LoginViewController {
             .bind(to: viewModel.input.passwordTextField)
             .disposed(by: disposeBag)
         
+        self.clearIdButton.rx.tap.asObservable()
+            .subscribe(onNext:clearInputId)
+            .disposed(by: disposeBag)
+            
         
+        self.clearPwButton.rx.tap.asObservable()
+            .subscribe(onNext:clearInputPw)
+            .disposed(by: disposeBag)
     }
     
     func output(){
@@ -69,25 +84,56 @@ extension LoginViewController {
         switch result {
         case .success :
             // 로그인 성공 처리 -> 메인 페이지로 이동
-            print("SUCCESS")
-            let main = UIHostingController(rootView: MainView())
-            main.modalTransitionStyle = .crossDissolve
-            main.modalPresentationStyle = .overFullScreen
-            let navigationViewController = self.navigationController
-            
-            self.present(main, animated: true) {
-                navigationViewController?.popViewController(animated: true)
+            if let _ = UserInfo.savedUser?.shelf {
+                let main = UIHostingController(rootView: MainView())
+                main.modalTransitionStyle = .crossDissolve
+                main.modalPresentationStyle = .overFullScreen
+                let navigationViewController = self.navigationController
+                
+                self.present(main, animated: true) {
+                    navigationViewController?.popViewController(animated: true)
+                }
+            }else{
+                // 냉장고 등록 페이지로 이동
+                print("냉장고 페이지로 이동")
             }
             
         case .inValidInput :
-            let customDialog = CustomDialog(width: 300, height: 200, type: .OK)
-            customDialog.setTitleLabel(text: "아이디 또는 비밀번호가\n유효하지 않습니다.")
-            customDialog.show()
+            configureLoginFailLabel(false)
+            var text = ""
+            if idTextField.text?.count == 0{
+                idTextField.layer.borderColor = UIColor.Service.red.value.cgColor
+                text = "아이디"
+            }else{
+                idTextField.layer.borderColor = UIColor.Service.gray.value.cgColor
+            }
             
+            if passwordTextField.text?.count == 0 {
+                passwordTextField.layer.borderColor = UIColor.Service.red.value.cgColor
+                if text.count == 0 {
+                    text = "비밀번호"
+                }else{
+                    text += ", 비밀번호"
+                }
+            }else{
+                passwordTextField.layer.borderColor = UIColor.Service.gray.value.cgColor
+            }
+            loginFailLabel.text = "\(text)을(를) 입력해주세요."
+            
+        case .nonexistentUser:
+            configureLoginFailLabel(false)
+            idTextField.layer.borderColor = UIColor.Service.red.value.cgColor
+            passwordTextField.layer.borderColor = UIColor.Service.gray.value.cgColor
+            loginFailLabel.text = "존재하지 않는 아이디 입니다."
+            break
+        case .inconsistentUser:
+            configureLoginFailLabel(false)
+            idTextField.layer.borderColor = UIColor.Service.gray.value.cgColor
+            passwordTextField.layer.borderColor = UIColor.Service.red.value.cgColor
+            loginFailLabel.text = "아이디와 비밀번호가 일치하지 않습니다."
+            break
         case .failure :
-            let customDialog = CustomDialog(width: 300, height: 200, type: .OK)
-            customDialog.setTitleLabel(text: "아이디 또는 비밀번호가\n일치하지 않습니다.")
-            customDialog.show()
+            break
         }
         
     }
@@ -98,19 +144,41 @@ extension LoginViewController {
     func createView(){
         createIdInputTextField()
         createPasswordInputTextField()
+        createLoginButton()
+        configureLoginFailLabel(true)
         createAutoLogin()
         createSaveId()
     }
     
     func createIdInputTextField(){
-        idTextField.placeholder = "아이디"
+        
+        idTextField.attributedPlaceholder = NSAttributedString(string: "아이디를 입력해 주세요.",attributes: [NSAttributedString.Key.foregroundColor: UIColor.Service.gray.value,NSAttributedString.Key.font: UIFont.Service.notoSans_regular(_size: 14).value])
+        
         idTextField.keyboardType = .alphabet
         
-        let leftPadding = UIView(frame: CGRect(x: 0, y: 0, width: 10, height: 0))
+        let leftPaddingSize = idTextField.frame.width * 20.0 / 330.0
+        let leftPadding = UIView(frame: CGRect(x: 0, y: 0, width: leftPaddingSize, height: 0))
+        
         idTextField.leftView = leftPadding
         idTextField.leftViewMode = .always
         
-        // 아이디 저장
+        let rightPaddingSize = idTextField.frame.width * 36.0 / 330.0
+        let rightPadding = UIView(frame: CGRect(x: 0, y: 0, width: rightPaddingSize, height: idTextField.frame.height))
+        
+        clearIdButton.setBackgroundImage(UIImage(named: "clear"), for: .normal)
+        rightPadding.addSubview(clearIdButton)
+        let buttonSize = idTextField.frame.width * 16.0 / 330.0
+        clearIdButton.frame = CGRect(x: 0, y: rightPadding.frame.height / 2.0 - buttonSize / 2.0, width: buttonSize, height: buttonSize)
+        
+        idTextField.rightView = rightPadding
+        idTextField.rightViewMode = .always
+
+        idTextField.layer.borderColor = UIColor.Service.gray.value.cgColor
+        idTextField.layer.borderWidth = 2
+        idTextField.layer.cornerRadius = idTextField.frame.height / 2.0
+        idTextField.layer.backgroundColor = UIColor(red: 241.0/255.0, green: 241.0/255.0, blue: 244.0/255.0, alpha: 1).cgColor
+        
+        // 아이디 저장이 설정되어 있다면 아이디를 불러온다.
         if UserDefaults.standard.bool(forKey: CommonString.SAVE_ID.rawValue){
             idTextField.text = UserDefaults.standard.string(forKey: CommonString.SAVED_ID.rawValue)
         }
@@ -118,14 +186,66 @@ extension LoginViewController {
     }
     
     func createPasswordInputTextField(){
-        passwordTextField.placeholder = "비밀번호"
+        
+        passwordTextField.attributedPlaceholder = NSAttributedString(string: "비밀번호를 입력해 주세요.",attributes: [NSAttributedString.Key.foregroundColor: UIColor.Service.gray.value,NSAttributedString.Key.font: UIFont.Service.notoSans_regular(_size: 14).value])
         passwordTextField.keyboardType = .default
         passwordTextField.isSecureTextEntry = true
         
-        let leftPadding = UIView(frame: CGRect(x: 0, y: 0, width: 10, height: 0))
+        let leftPaddingSize = idTextField.frame.width * 20.0 / 330.0
+        let leftPadding = UIView(frame: CGRect(x: 0, y: 0, width: leftPaddingSize, height: 0))
+        
         passwordTextField.leftView = leftPadding
         passwordTextField.leftViewMode = .always
+        
+        let rightPaddingSize = idTextField.frame.width * 36.0 / 330.0
+        let rightPadding = UIView(frame: CGRect(x: 0, y: 0, width: rightPaddingSize, height: passwordTextField.frame.height))
+        
+        clearPwButton.setBackgroundImage(UIImage(named: "clear"), for: .normal)
+        rightPadding.addSubview(clearPwButton)
+        let buttonSize = passwordTextField.frame.width * 16.0 / 330.0
+        clearPwButton.frame = CGRect(x: 0, y: rightPadding.frame.height / 2.0 - buttonSize / 2.0, width: buttonSize, height: buttonSize)
+        
+        passwordTextField.rightView = rightPadding
+        passwordTextField.rightViewMode = .always
+        
+        passwordTextField.layer.borderColor = UIColor.Service.gray.value.cgColor
+        passwordTextField.layer.borderWidth = 2
+        passwordTextField.layer.cornerRadius = idTextField.frame.height / 2.0
+        passwordTextField.layer.backgroundColor = UIColor(red: 241.0/255.0, green: 241.0/255.0, blue: 244.0/255.0, alpha: 1).cgColor
     }
+    
+    func createLoginButton(){
+        loginButton.setTitleColor(UIColor.Service.white100.value, for: .normal)
+        loginButton.layer.cornerRadius = loginButton.frame.height / 2.0
+        loginButton.layer.backgroundColor = UIColor.Service.red.value.cgColor
+        
+        loginButton.layer.borderWidth = 2
+        loginButton.layer.borderColor = UIColor.red.cgColor
+        
+        loginButton.layer.shadowColor = UIColor.Service.red.value.cgColor
+        loginButton.layer.shadowOffset = CGSize(width:0,height:5)
+        loginButton.layer.shadowOpacity = 0.2
+        loginButton.layer.shadowRadius = 5
+        loginButton.layer.masksToBounds = false
+    }
+    
+    func configureLoginFailLabel(_ bool : Bool){
+        
+        loginFailLabel.isHidden = bool
+        
+        if !loginFailLabel.isHidden {
+            // label 높이가 0일 때 높이  변경
+              if loginFailLabelHeight.constant == 0 {
+                loginFailLabelHeight.constant = loginFailLabel.intrinsicContentSize.height
+                
+                UIView.animate(withDuration: 0.2) {
+                    self.loginFailLabel.layoutIfNeeded()
+                }
+            }
+        }
+        
+    }
+    
     
     func createAutoLogin(){
         let tapGesture = UITapGestureRecognizer(target: self, action: #selector(autoLogin(_:)))
@@ -133,7 +253,7 @@ extension LoginViewController {
         
         let state = UserDefaults.standard.bool(forKey: CommonString.AUTO_LOGIN.rawValue)
         if state {
-            autoLoginCheckBox.image = UIImage.init(systemName: "checkmark.circle.fill")
+            autoLoginCheckBox.image = check_image
         }
     }
     
@@ -143,8 +263,16 @@ extension LoginViewController {
         
         let state = UserDefaults.standard.bool(forKey: CommonString.SAVE_ID.rawValue)
         if state {
-            saveIdCheckBox.image = UIImage.init(systemName: "checkmark.circle.fill")
+            saveIdCheckBox.image = check_image
         }
+    }
+    
+    func clearInputId(){
+        self.idTextField.text = ""
+    }
+    
+    func clearInputPw(){
+        self.passwordTextField.text = ""
     }
 }
 
@@ -168,11 +296,11 @@ extension LoginViewController {
         
         // toogle
         if before {
-            autoLoginCheckBox.image = UIImage.init(systemName: "circle")
+            autoLoginCheckBox.image = uncheck_image
             UserDefaults.standard.set(false,forKey: CommonString.AUTO_LOGIN.rawValue)
         }
         else {
-            autoLoginCheckBox.image = UIImage.init(systemName: "checkmark.circle.fill")
+            autoLoginCheckBox.image = check_image
             UserDefaults.standard.set(true,forKey: CommonString.AUTO_LOGIN.rawValue)
         }
     }
@@ -182,11 +310,11 @@ extension LoginViewController {
         
         // toogle
         if before {
-            saveIdCheckBox.image = UIImage.init(systemName: "circle")
+            saveIdCheckBox.image = uncheck_image
             UserDefaults.standard.set(false,forKey: CommonString.SAVE_ID.rawValue)
         }
         else {
-            saveIdCheckBox.image = UIImage.init(systemName: "checkmark.circle.fill")
+            saveIdCheckBox.image = check_image
             UserDefaults.standard.set(true,forKey: CommonString.SAVE_ID.rawValue)
         }
     }

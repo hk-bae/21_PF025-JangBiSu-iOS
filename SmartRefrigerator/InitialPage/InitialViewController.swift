@@ -13,15 +13,9 @@ class InitialViewController: UIViewController {
     @IBOutlet weak var moveToRegisterPageButton: UIButton!
     
     override func viewWillAppear(_ animated: Bool) {
-        if UserDefaults.standard.bool(forKey: CommonString.AUTO_LOGIN.rawValue), let _ = UserInfo.savedUser {
-            // 자동로그인
-            //            let main = UIHostingController(rootView: MainView())
-            //            main.modalTransitionStyle = .crossDissolve
-            //            main.modalPresentationStyle = .overFullScreen
-            //            self.present(main, animated: true,completion: nil)
-        }
-        
+      
         self.navigationController?.isNavigationBarHidden = true
+        configureNavigationController()
     }
     
     override func viewDidLoad() {
@@ -47,6 +41,13 @@ extension InitialViewController {
         createGradeint()
         createMoveToLoginButton()
         createMoveToRegisterButton()
+    }
+    
+    func configureNavigationController(){
+        // 전체 네비게이션 바에 대해서 라인을 없앤다
+        self.navigationController?.navigationBar.setBackgroundImage(UIImage(), for: .default)
+        self.navigationController?.navigationBar.shadowImage = UIImage()
+        self.navigationController?.navigationBar.titleTextAttributes = [NSAttributedString.Key.font : UIFont.Service.notoSans_regular(_size: 20).value]
     }
     
     func createGradeint(){
@@ -99,4 +100,14 @@ extension InitialViewController {
     }
 }
 
-
+extension InitialViewController {
+    func autoLogin(){
+        if UserDefaults.standard.bool(forKey: CommonString.AUTO_LOGIN.rawValue), let _ = UserInfo.savedUser {
+            // 자동로그인
+            //            let main = UIHostingController(rootView: MainView())
+            //            main.modalTransitionStyle = .crossDissolve
+            //            main.modalPresentationStyle = .overFullScreen
+            //            self.present(main, animated: true,completion: nil)
+        }
+    }
+}
