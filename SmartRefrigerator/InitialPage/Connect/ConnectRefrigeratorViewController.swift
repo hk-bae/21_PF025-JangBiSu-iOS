@@ -10,6 +10,7 @@ import UIKit
 
 class ConnectRefrigeratorViewController : UIViewController{
     override func viewDidLoad(){
+        view.backgroundColor = UIColor.Service.backgroundWhite.value
         super.viewDidLoad()
     }
     

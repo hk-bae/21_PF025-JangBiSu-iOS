@@ -29,6 +29,7 @@ class RegisterViewController: UIViewController,UITextFieldDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        view.backgroundColor = UIColor.Service.backgroundWhite.value
         setDelegate()
         createView()
         input()
