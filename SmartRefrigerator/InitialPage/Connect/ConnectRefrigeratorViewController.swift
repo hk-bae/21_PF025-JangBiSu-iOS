@@ -14,6 +14,10 @@ class ConnectRefrigeratorViewController : UIViewController{
     }
     
     @IBAction func backToInitalPage(_ sender: Any) {
-        navigationController?.popToRootViewController(animated: true)
+        let vc = navigationController?.viewControllers[1]
+        if let _ = vc as? LoginViewController {
+            navigationController?.popViewController(animated: true)
+        }else{        navigationController?.popToRootViewController(animated: true)
+        }
     }
 }
