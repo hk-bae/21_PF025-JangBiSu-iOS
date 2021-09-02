@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		200EC95D26E11FCC00186F28 /* InputTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 200EC95C26E11FCC00186F28 /* InputTextField.swift */; };
+		200EC96026E1253700186F28 /* RedButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 200EC95F26E1253700186F28 /* RedButton.swift */; };
+		200EC96426E13E3A00186F28 /* ConnectRefrigeratorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 200EC96326E13E3A00186F28 /* ConnectRefrigeratorViewController.swift */; };
 		2047DDAB26D3EF9A00326003 /* Initial.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2047DDAA26D3EF9A00326003 /* Initial.storyboard */; };
 		2047DDC326D3FF3100326003 /* LoginViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2047DDC226D3FF3100326003 /* LoginViewModel.swift */; };
 		2047DDC626D4193200326003 /* CommonString.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2047DDC526D4193200326003 /* CommonString.swift */; };
@@ -42,6 +45,9 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		200EC95C26E11FCC00186F28 /* InputTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InputTextField.swift; sourceTree = "<group>"; };
+		200EC95F26E1253700186F28 /* RedButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RedButton.swift; sourceTree = "<group>"; };
+		200EC96326E13E3A00186F28 /* ConnectRefrigeratorViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConnectRefrigeratorViewController.swift; sourceTree = "<group>"; };
 		2047DDAA26D3EF9A00326003 /* Initial.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Initial.storyboard; sourceTree = "<group>"; };
 		2047DDC226D3FF3100326003 /* LoginViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewModel.swift; sourceTree = "<group>"; };
 		2047DDC526D4193200326003 /* CommonString.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommonString.swift; sourceTree = "<group>"; };
@@ -92,6 +98,23 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		200EC95B26E11FB300186F28 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				200EC95C26E11FCC00186F28 /* InputTextField.swift */,
+				200EC95F26E1253700186F28 /* RedButton.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		200EC96226E13E2800186F28 /* Connect */ = {
+			isa = PBXGroup;
+			children = (
+				200EC96326E13E3A00186F28 /* ConnectRefrigeratorViewController.swift */,
+			);
+			path = Connect;
+			sourceTree = "<group>";
+		};
 		2047DDCA26D4D49F00326003 /* Common */ = {
 			isa = PBXGroup;
 			children = (
@@ -183,6 +206,8 @@
 			children = (
 				2062433A26CD2DE000A9018A /* Login */,
 				2062433E26CD2DF100A9018A /* Register */,
+				200EC96226E13E2800186F28 /* Connect */,
+				200EC95B26E11FB300186F28 /* View */,
 				2062432626CD2CFF00A9018A /* InitialViewController.swift */,
 				2047DDAA26D3EF9A00326003 /* Initial.storyboard */,
 			);
@@ -409,7 +434,9 @@
 				2062434A26CD2E8C00A9018A /* MainView.swift in Sources */,
 				2047DDDB26D4D9B700326003 /* BaseInterceptor.swift in Sources */,
 				2047DDC626D4193200326003 /* CommonString.swift in Sources */,
+				200EC96026E1253700186F28 /* RedButton.swift in Sources */,
 				2062435726CD2EC000A9018A /* IceView.swift in Sources */,
+				200EC96426E13E3A00186F28 /* ConnectRefrigeratorViewController.swift in Sources */,
 				2047DE1926DE0FDD00326003 /* UIFont+Service.swift in Sources */,
 				2062435426CD2EB500A9018A /* StatusView.swift in Sources */,
 				2047DDE226D4DC8600326003 /* UserInfoRouter.swift in Sources */,
@@ -419,6 +446,7 @@
 				2062432326CD2CFF00A9018A /* AppDelegate.swift in Sources */,
 				2047DDE626D4E06E00326003 /* EventLogger.swift in Sources */,
 				2062435C26CD2EE600A9018A /* UIKit+Extension.swift in Sources */,
+				200EC95D26E11FCC00186F28 /* InputTextField.swift in Sources */,
 				2047DDC326D3FF3100326003 /* LoginViewModel.swift in Sources */,
 				2062432526CD2CFF00A9018A /* SceneDelegate.swift in Sources */,
 				2047DDF626D5363B00326003 /* RegisterViewModel.swift in Sources */,
