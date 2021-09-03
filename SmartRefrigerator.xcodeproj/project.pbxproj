@@ -452,7 +452,6 @@
 				2047DDC326D3FF3100326003 /* LoginViewModel.swift in Sources */,
 				2062432526CD2CFF00A9018A /* SceneDelegate.swift in Sources */,
 				2047DDF626D5363B00326003 /* RegisterViewModel.swift in Sources */,
-				2062435126CD2EAB00A9018A /* FoodModificationView.swift in Sources */,
 				20FD7ED026E20070005B8122 /* NFCUtility.swift in Sources */,
 				2047DDF026D507BD00326003 /* CustomDialog.swift in Sources */,
 				2047DDD326D4D60F00326003 /* Food.swift in Sources */,
@@ -600,7 +599,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = SmartRefrigerator/SmartRefrigerator.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = X26CZ6CG2J;
+				DEVELOPMENT_TEAM = GQBBT7N7T4;
 				INFOPLIST_FILE = SmartRefrigerator/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -621,7 +620,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = SmartRefrigerator/SmartRefrigerator.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = X26CZ6CG2J;
+				DEVELOPMENT_TEAM = GQBBT7N7T4;
 				INFOPLIST_FILE = SmartRefrigerator/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
