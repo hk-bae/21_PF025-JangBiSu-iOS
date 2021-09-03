@@ -321,8 +321,21 @@
                     <view key="view" contentMode="scaleToFill" id="eyM-Qf-JQj">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="808"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="b0w-k7-ypF">
+                                <rect key="frame" x="184" y="357" width="46" height="62"/>
+                                <state key="normal" title="Button"/>
+                                <connections>
+                                    <action selector="test:" destination="INl-IV-QQu" eventType="touchUpInside" id="zJK-Nm-RaJ"/>
+                                </connections>
+                            </button>
+                        </subviews>
                         <viewLayoutGuide key="safeArea" id="avB-KY-XxT"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="b0w-k7-ypF" firstAttribute="centerX" secondItem="eyM-Qf-JQj" secondAttribute="centerX" id="1Wl-rl-NEc"/>
+                            <constraint firstItem="b0w-k7-ypF" firstAttribute="centerY" secondItem="eyM-Qf-JQj" secondAttribute="centerY" id="6IU-2i-LPf"/>
+                        </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="사용자 등록" id="Oy0-D8-0wV">
                         <barButtonItem key="leftBarButtonItem" title="Item" image="back" id="4tf-3v-L4C">
@@ -335,7 +348,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="3ht-tj-RlN" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-139" y="730"/>
+            <point key="canvasLocation" x="-139.13043478260872" y="729.91071428571422"/>
         </scene>
         <!--회원가입-->
         <scene sceneID="fbc-w6-has">
@@ -393,10 +406,6 @@
                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
                             </button>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="y0V-Kw-43R">
-                                <rect key="frame" x="0.0" y="685.5" width="414" height="122.5"/>
-                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                            </view>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7FK-hW-8bR">
                                 <rect key="frame" x="68" y="271" width="0.0" height="0.0"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -441,19 +450,15 @@
                             <constraint firstItem="tUf-xX-FHa" firstAttribute="top" secondItem="3iH-r5-aRq" secondAttribute="bottom" constant="8" id="6vm-XL-PVi"/>
                             <constraint firstItem="tUf-xX-FHa" firstAttribute="trailing" secondItem="xcu-Ui-cIm" secondAttribute="trailing" id="9dg-1v-fp2"/>
                             <constraint firstItem="WSm-zF-p9w" firstAttribute="top" secondItem="mgI-Bs-GbO" secondAttribute="bottom" constant="20" id="GCp-B3-uFC"/>
-                            <constraint firstItem="y0V-Kw-43R" firstAttribute="leading" secondItem="IVL-Y7-yp7" secondAttribute="leading" id="Hca-Xm-Fda"/>
-                            <constraint firstItem="y0V-Kw-43R" firstAttribute="height" secondItem="XHP-HK-VRT" secondAttribute="height" multiplier="0.151786" id="KHv-m6-vrz"/>
                             <constraint firstItem="WSm-zF-p9w" firstAttribute="centerX" secondItem="XHP-HK-VRT" secondAttribute="centerX" id="Ktr-dn-UqE"/>
                             <constraint firstItem="mgI-Bs-GbO" firstAttribute="top" secondItem="3iH-r5-aRq" secondAttribute="bottom" constant="60" id="LUf-mf-ejc"/>
                             <constraint firstItem="3iH-r5-aRq" firstAttribute="height" secondItem="XHP-HK-VRT" secondAttribute="height" multiplier="238:844" id="NPj-a5-iVw"/>
                             <constraint firstItem="mgI-Bs-GbO" firstAttribute="centerX" secondItem="XHP-HK-VRT" secondAttribute="centerX" id="PKi-BB-Bbs"/>
                             <constraint firstItem="mgI-Bs-GbO" firstAttribute="trailing" secondItem="3iH-r5-aRq" secondAttribute="trailing" id="Sog-rD-eqh"/>
                             <constraint firstItem="3iH-r5-aRq" firstAttribute="width" secondItem="XHP-HK-VRT" secondAttribute="width" multiplier="330:390" id="Vhj-8I-HPc"/>
-                            <constraint firstAttribute="bottom" secondItem="y0V-Kw-43R" secondAttribute="bottom" id="YVB-fB-BN5"/>
                             <constraint firstItem="tUf-xX-FHa" firstAttribute="leading" secondItem="xcu-Ui-cIm" secondAttribute="leading" id="eLS-hv-vft"/>
                             <constraint firstItem="3iH-r5-aRq" firstAttribute="top" secondItem="IVL-Y7-yp7" secondAttribute="top" constant="35" id="i5Z-Zj-brh"/>
                             <constraint firstItem="3iH-r5-aRq" firstAttribute="centerX" secondItem="XHP-HK-VRT" secondAttribute="centerX" id="jx7-v0-xQf"/>
-                            <constraint firstItem="y0V-Kw-43R" firstAttribute="trailing" secondItem="IVL-Y7-yp7" secondAttribute="trailing" id="mEI-Ro-hgO"/>
                             <constraint firstItem="mgI-Bs-GbO" firstAttribute="leading" secondItem="3iH-r5-aRq" secondAttribute="leading" id="ueK-4x-zaA"/>
                         </constraints>
                     </view>

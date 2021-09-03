@@ -41,6 +41,7 @@
 		2062435426CD2EB500A9018A /* StatusView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2062435326CD2EB500A9018A /* StatusView.swift */; };
 		2062435726CD2EC000A9018A /* IceView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2062435626CD2EC000A9018A /* IceView.swift */; };
 		2062435C26CD2EE600A9018A /* UIKit+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2062435B26CD2EE600A9018A /* UIKit+Extension.swift */; };
+		20FD7ED026E20070005B8122 /* NFCUtility.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20FD7ECF26E20070005B8122 /* NFCUtility.swift */; };
 		23C7FC2E8D430D4AB1B0D073 /* Pods_SmartRefrigerator.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EB8CF1F1CE19EC438F39B09A /* Pods_SmartRefrigerator.framework */; };
 /* End PBXBuildFile section */
 
@@ -48,6 +49,7 @@
 		200EC95C26E11FCC00186F28 /* InputTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InputTextField.swift; sourceTree = "<group>"; };
 		200EC95F26E1253700186F28 /* RedButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RedButton.swift; sourceTree = "<group>"; };
 		200EC96326E13E3A00186F28 /* ConnectRefrigeratorViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConnectRefrigeratorViewController.swift; sourceTree = "<group>"; };
+		200EC96C26E1DA8600186F28 /* SmartRefrigerator.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = SmartRefrigerator.entitlements; sourceTree = "<group>"; };
 		2047DDAA26D3EF9A00326003 /* Initial.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Initial.storyboard; sourceTree = "<group>"; };
 		2047DDC226D3FF3100326003 /* LoginViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewModel.swift; sourceTree = "<group>"; };
 		2047DDC526D4193200326003 /* CommonString.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommonString.swift; sourceTree = "<group>"; };
@@ -81,6 +83,7 @@
 		2062435326CD2EB500A9018A /* StatusView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatusView.swift; sourceTree = "<group>"; };
 		2062435626CD2EC000A9018A /* IceView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IceView.swift; sourceTree = "<group>"; };
 		2062435B26CD2EE600A9018A /* UIKit+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIKit+Extension.swift"; sourceTree = "<group>"; };
+		20FD7ECF26E20070005B8122 /* NFCUtility.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NFCUtility.swift; sourceTree = "<group>"; };
 		54E29ABB2C357B27FADF4CAC /* Pods-SmartRefrigerator.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SmartRefrigerator.release.xcconfig"; path = "Target Support Files/Pods-SmartRefrigerator/Pods-SmartRefrigerator.release.xcconfig"; sourceTree = "<group>"; };
 		EB8CF1F1CE19EC438F39B09A /* Pods_SmartRefrigerator.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SmartRefrigerator.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		EFEC73D11130E75BAAF3D395 /* Pods-SmartRefrigerator.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SmartRefrigerator.debug.xcconfig"; path = "Target Support Files/Pods-SmartRefrigerator/Pods-SmartRefrigerator.debug.xcconfig"; sourceTree = "<group>"; };
@@ -121,6 +124,7 @@
 				2047DE1E26DE11AF00326003 /* Font */,
 				2047DDEE26D5071E00326003 /* CustomDialog */,
 				2047DDD826D4D8F300326003 /* Service */,
+				20FD7ECE26E20056005B8122 /* Utilites */,
 				2047DDCB26D4D52600326003 /* Model */,
 			);
 			path = Common;
@@ -188,6 +192,7 @@
 		2062432126CD2CFF00A9018A /* SmartRefrigerator */ = {
 			isa = PBXGroup;
 			children = (
+				200EC96C26E1DA8600186F28 /* SmartRefrigerator.entitlements */,
 				2062433926CD2DC600A9018A /* InitialPage */,
 				2062434326CD2E1600A9018A /* MainPage */,
 				2062435A26CD2ED600A9018A /* Extension */,
@@ -292,6 +297,14 @@
 				2047DE1B26DE0FE500326003 /* UIColor+Service.swift */,
 			);
 			path = Extension;
+			sourceTree = "<group>";
+		};
+		20FD7ECE26E20056005B8122 /* Utilites */ = {
+			isa = PBXGroup;
+			children = (
+				20FD7ECF26E20070005B8122 /* NFCUtility.swift */,
+			);
+			path = Utilites;
 			sourceTree = "<group>";
 		};
 		868EBAC805D07EE95A5D2623 /* Frameworks */ = {
@@ -451,6 +464,7 @@
 				2062432526CD2CFF00A9018A /* SceneDelegate.swift in Sources */,
 				2047DDF626D5363B00326003 /* RegisterViewModel.swift in Sources */,
 				2062435126CD2EAB00A9018A /* FoodModificationView.swift in Sources */,
+				20FD7ED026E20070005B8122 /* NFCUtility.swift in Sources */,
 				2047DDF026D507BD00326003 /* CustomDialog.swift in Sources */,
 				2047DDD326D4D60F00326003 /* Food.swift in Sources */,
 				2047DDCD26D4D52D00326003 /* UserInfo.swift in Sources */,
@@ -595,7 +609,9 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = SmartRefrigerator/SmartRefrigerator.entitlements;
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = X26CZ6CG2J;
 				INFOPLIST_FILE = SmartRefrigerator/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -614,7 +630,9 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = SmartRefrigerator/SmartRefrigerator.entitlements;
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = X26CZ6CG2J;
 				INFOPLIST_FILE = SmartRefrigerator/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",

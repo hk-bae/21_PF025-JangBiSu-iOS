@@ -12,7 +12,7 @@ final class AlamofireManager {
     
     //Singleton
     static let shared = AlamofireManager()
-    static let BASE_URL = "http://localhost:8080/"
+    static let BASE_URL = "http://3.38.64.200:8080/"
     
     let interceptors = Interceptor(interceptors:[
         BaseInterceptor()
