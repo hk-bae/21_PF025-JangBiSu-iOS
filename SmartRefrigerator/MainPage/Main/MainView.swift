@@ -10,6 +10,9 @@ import Combine
 
 struct MainView: View {
     private var user: String = "혜미" //나중에 값 받아오기 이 값 하나 받으려고 해도 설정 해야하나..? 킷이랑 유아이랑
+    //comman > model >user_info >saved_user
+    //user_info.saved_user 뭐라뭐라
+    
     
     var body: some View {
         NavigationView{
