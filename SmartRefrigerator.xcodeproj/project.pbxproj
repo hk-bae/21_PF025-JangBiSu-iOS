@@ -599,7 +599,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = SmartRefrigerator/SmartRefrigerator.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = GQBBT7N7T4;
+				DEVELOPMENT_TEAM = X26CZ6CG2J;
 				INFOPLIST_FILE = SmartRefrigerator/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -620,7 +620,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = SmartRefrigerator/SmartRefrigerator.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = GQBBT7N7T4;
+				DEVELOPMENT_TEAM = X26CZ6CG2J;
 				INFOPLIST_FILE = SmartRefrigerator/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
