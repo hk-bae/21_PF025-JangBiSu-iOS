@@ -20,7 +20,6 @@
 		2047DDDB26D4D9B700326003 /* BaseInterceptor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2047DDDA26D4D9B700326003 /* BaseInterceptor.swift */; };
 		2047DDE226D4DC8600326003 /* UserInfoRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2047DDE126D4DC8600326003 /* UserInfoRouter.swift */; };
 		2047DDE626D4E06E00326003 /* EventLogger.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2047DDE526D4E06E00326003 /* EventLogger.swift */; };
-		2047DDF026D507BD00326003 /* CustomDialog.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2047DDEF26D507BD00326003 /* CustomDialog.swift */; };
 		2047DDF626D5363B00326003 /* RegisterViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2047DDF526D5363B00326003 /* RegisterViewModel.swift */; };
 		2047DE1926DE0FDD00326003 /* UIFont+Service.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2047DE1826DE0FDD00326003 /* UIFont+Service.swift */; };
 		2047DE1C26DE0FE500326003 /* UIColor+Service.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2047DE1B26DE0FE500326003 /* UIColor+Service.swift */; };
@@ -39,6 +38,8 @@
 		2062435426CD2EB500A9018A /* StatusView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2062435326CD2EB500A9018A /* StatusView.swift */; };
 		2062435726CD2EC000A9018A /* IceView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2062435626CD2EC000A9018A /* IceView.swift */; };
 		2062435C26CD2EE600A9018A /* UIKit+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2062435B26CD2EE600A9018A /* UIKit+Extension.swift */; };
+		20966E7226ECF6AF00A109BD /* UserInfoRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20966E7126ECF6AF00A109BD /* UserInfoRepository.swift */; };
+		20966E7426ECF6B700A109BD /* LoginUsecase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20966E7326ECF6B700A109BD /* LoginUsecase.swift */; };
 		20FD7ED026E20070005B8122 /* NFCUtility.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20FD7ECF26E20070005B8122 /* NFCUtility.swift */; };
 		23C7FC2E8D430D4AB1B0D073 /* Pods_SmartRefrigerator.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EB8CF1F1CE19EC438F39B09A /* Pods_SmartRefrigerator.framework */; };
 		E57A51FB26E2117C007A6419 /* RegisterFoodView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E57A51FA26E2117C007A6419 /* RegisterFoodView.swift */; };
@@ -59,7 +60,6 @@
 		2047DDDA26D4D9B700326003 /* BaseInterceptor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseInterceptor.swift; sourceTree = "<group>"; };
 		2047DDE126D4DC8600326003 /* UserInfoRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserInfoRouter.swift; sourceTree = "<group>"; };
 		2047DDE526D4E06E00326003 /* EventLogger.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventLogger.swift; sourceTree = "<group>"; };
-		2047DDEF26D507BD00326003 /* CustomDialog.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomDialog.swift; sourceTree = "<group>"; };
 		2047DDF526D5363B00326003 /* RegisterViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterViewModel.swift; sourceTree = "<group>"; };
 		2047DE1826DE0FDD00326003 /* UIFont+Service.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIFont+Service.swift"; sourceTree = "<group>"; };
 		2047DE1B26DE0FE500326003 /* UIColor+Service.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+Service.swift"; sourceTree = "<group>"; };
@@ -80,6 +80,8 @@
 		2062435326CD2EB500A9018A /* StatusView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatusView.swift; sourceTree = "<group>"; };
 		2062435626CD2EC000A9018A /* IceView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IceView.swift; sourceTree = "<group>"; };
 		2062435B26CD2EE600A9018A /* UIKit+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIKit+Extension.swift"; sourceTree = "<group>"; };
+		20966E7126ECF6AF00A109BD /* UserInfoRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserInfoRepository.swift; sourceTree = "<group>"; };
+		20966E7326ECF6B700A109BD /* LoginUsecase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginUsecase.swift; sourceTree = "<group>"; };
 		20FD7ECF26E20070005B8122 /* NFCUtility.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NFCUtility.swift; sourceTree = "<group>"; };
 		54E29ABB2C357B27FADF4CAC /* Pods-SmartRefrigerator.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SmartRefrigerator.release.xcconfig"; path = "Target Support Files/Pods-SmartRefrigerator/Pods-SmartRefrigerator.release.xcconfig"; sourceTree = "<group>"; };
 		E57A51FA26E2117C007A6419 /* RegisterFoodView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterFoodView.swift; sourceTree = "<group>"; };
@@ -120,7 +122,6 @@
 			isa = PBXGroup;
 			children = (
 				2047DE1E26DE11AF00326003 /* Font */,
-				2047DDEE26D5071E00326003 /* CustomDialog */,
 				2047DDD826D4D8F300326003 /* Service */,
 				20FD7ECE26E20056005B8122 /* Utilites */,
 				2047DDCB26D4D52600326003 /* Model */,
@@ -148,14 +149,6 @@
 				2047DDE126D4DC8600326003 /* UserInfoRouter.swift */,
 			);
 			path = Service;
-			sourceTree = "<group>";
-		};
-		2047DDEE26D5071E00326003 /* CustomDialog */ = {
-			isa = PBXGroup;
-			children = (
-				2047DDEF26D507BD00326003 /* CustomDialog.swift */,
-			);
-			path = CustomDialog;
 			sourceTree = "<group>";
 		};
 		2047DE1E26DE11AF00326003 /* Font */ = {
@@ -211,6 +204,7 @@
 				2062433E26CD2DF100A9018A /* Register */,
 				200EC96226E13E2800186F28 /* Connect */,
 				200EC95B26E11FB300186F28 /* View */,
+				20966E7526EDA19200A109BD /* Repository */,
 				2062432626CD2CFF00A9018A /* InitialViewController.swift */,
 				2047DDAA26D3EF9A00326003 /* Initial.storyboard */,
 			);
@@ -222,6 +216,7 @@
 			children = (
 				2062433B26CD2DEA00A9018A /* LoginViewController.swift */,
 				2047DDC226D3FF3100326003 /* LoginViewModel.swift */,
+				20966E7326ECF6B700A109BD /* LoginUsecase.swift */,
 			);
 			path = Login;
 			sourceTree = "<group>";
@@ -286,6 +281,14 @@
 				2047DE1B26DE0FE500326003 /* UIColor+Service.swift */,
 			);
 			path = Extension;
+			sourceTree = "<group>";
+		};
+		20966E7526EDA19200A109BD /* Repository */ = {
+			isa = PBXGroup;
+			children = (
+				20966E7126ECF6AF00A109BD /* UserInfoRepository.swift */,
+			);
+			path = Repository;
 			sourceTree = "<group>";
 		};
 		20FD7ECE26E20056005B8122 /* Utilites */ = {
@@ -433,6 +436,7 @@
 			files = (
 				2062433C26CD2DEA00A9018A /* LoginViewController.swift in Sources */,
 				2047DE1C26DE0FE500326003 /* UIColor+Service.swift in Sources */,
+				20966E7426ECF6B700A109BD /* LoginUsecase.swift in Sources */,
 				2062434A26CD2E8C00A9018A /* MainView.swift in Sources */,
 				2047DDDB26D4D9B700326003 /* BaseInterceptor.swift in Sources */,
 				2047DDC626D4193200326003 /* CommonString.swift in Sources */,
@@ -448,12 +452,12 @@
 				2062432326CD2CFF00A9018A /* AppDelegate.swift in Sources */,
 				2047DDE626D4E06E00326003 /* EventLogger.swift in Sources */,
 				2062435C26CD2EE600A9018A /* UIKit+Extension.swift in Sources */,
+				20966E7226ECF6AF00A109BD /* UserInfoRepository.swift in Sources */,
 				200EC95D26E11FCC00186F28 /* InputTextField.swift in Sources */,
 				2047DDC326D3FF3100326003 /* LoginViewModel.swift in Sources */,
 				2062432526CD2CFF00A9018A /* SceneDelegate.swift in Sources */,
 				2047DDF626D5363B00326003 /* RegisterViewModel.swift in Sources */,
 				20FD7ED026E20070005B8122 /* NFCUtility.swift in Sources */,
-				2047DDF026D507BD00326003 /* CustomDialog.swift in Sources */,
 				2047DDD326D4D60F00326003 /* Food.swift in Sources */,
 				2047DDCD26D4D52D00326003 /* UserInfo.swift in Sources */,
 				2047DDD626D4D8EC00326003 /* AlamofireManager.swift in Sources */,
