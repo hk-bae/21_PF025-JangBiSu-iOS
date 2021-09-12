@@ -22,8 +22,9 @@ class LoginViewModel: ViewModelType {
     
     let input = Input()
     let output = Output()
-    
     let disposeBag = DisposeBag()
+    
+    let usecase = LoginUsecase()
     
     init(){
         // input
@@ -55,70 +56,60 @@ extension LoginViewModel {
         UserDefaults.standard.set(id, forKey:CommonString.SAVED_ID.rawValue)
     }
     
-    // 서버에 로그인 시도
-    func login(){
-        let id = self.input.idTextField.value
-        let pw = self.input.passwordTextField.value
-        
-        AlamofireManager
-            .shared
-            .session
-            .request(UserInfoRouter.login(id: id, pw: pw))
-            .responseJSON{ response in
-            
-                switch response.result {
-                case .success(let value) :
-                    guard let result = value as? [String:Any] else { return }
-                    
-                    if response.response?.statusCode == 200 {
-                        let user = result["data"] as? UserInfo
-                        UserInfo.savedUser = user
-                        self.output.login.accept(LoginResult.success)
-                        
+    
+    // 아이디 유효성 검사
+    func isValid() -> Bool{
+        return usecase.isValid(id: input.idTextField.value, pw: input.passwordTextField.value) { [weak self] isValid in
+            if !isValid {
+                var text = ""
+                if self?.input.idTextField.value.count == 0{
+                    text = "아이디"
+                }
+                if self?.input.passwordTextField.value.count == 0 {
+                    if text.count == 0 {
+                        text = "비밀번호"
                     }else{
-                        let errorMessage = result["errorMessage"] as? String
-                        switch errorMessage {
-                        case "일치하는 회원 정보가 없습니다. 사용자 id를 확인해주세요.":
-                            self.output.login.accept(LoginResult.nonexistentUser)
-                            break
-                        case "일치하는 회원 정보가 없습니다. 사용자 pw를 확인해주세요.":
-                            self.output.login.accept(LoginResult.inconsistentUser)
-                            break
-                        default : break
-                        }
-                        
+                        text += ", 비밀번호"
                     }
-                    
-                case .failure(let error) :
-                    print(error)
+                }
+                self?.output.login.accept(LoginResult.inValidInput(text: text))
+            }
+        }
+    }
+    
+    func login() {
+        usecase.login(id: input.idTextField.value, pw: input.passwordTextField.value) { [weak self] user, errorMessage in
+            if let _ = user {
+                self?.output.login.accept(LoginResult.success)
+            }
+            
+            if let _ = errorMessage {
+                switch errorMessage {
+                case "일치하는 회원 정보가 없습니다. 사용자 id를 확인해주세요.":
+                    self?.output.login.accept(LoginResult.nonexistentUser)
                     break
+                case "일치하는 회원 정보가 없습니다. 사용자 pw를 확인해주세요.":
+                    self?.output.login.accept(LoginResult.inconsistentUser)
+                    break
+                default : break
                 }
             }
+        }
     }
+    
 }
 
 extension LoginViewModel {
     
     enum LoginResult {
         case success
-        case inValidInput
+        case inValidInput(text:String)
         case nonexistentUser
         case inconsistentUser
         case failure
     }
     
-    // 아이디 비밀번호 유효성 검사
-    private func isValid() -> Bool {
-        let id = self.input.idTextField.value
-        let pw = self.input.passwordTextField.value
-        
-        if id.count > 0 && pw.count > 0 {
-            return true
-        }
-        // 로그인 시도 실패
-        output.login.accept(LoginResult.inValidInput)
-        return false
-    }
+    
 }
 
 protocol ViewModelType {

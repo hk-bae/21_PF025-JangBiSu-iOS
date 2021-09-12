@@ -94,30 +94,27 @@ extension LoginViewController {
                 }
             }else{
                 // 냉장고 등록 페이지로 이동
+
                 guard let connectVC = self.storyboard?.instantiateViewController(identifier: "connectVC") else { fatalError() }
                 navigationController?.pushViewController(connectVC, animated: true)
+                
             }
             
-        case .inValidInput :
+        case .inValidInput(let text) :
             configureLoginFailLabel(false)
-            var text = ""
-            if idTextField.text?.count == 0{
+            
+            if text.count > 4 {
                 idTextField.configureView(true)
-                text = "아이디"
+                passwordTextField.configureView(true)
+            }
+            else if text == "아이디" {
+                idTextField.configureView(true)
+                passwordTextField.configureView(false)
             }else{
                 idTextField.configureView(false)
-            }
-            
-            if passwordTextField.text?.count == 0 {
                 passwordTextField.configureView(true)
-                if text.count == 0 {
-                    text = "비밀번호"
-                }else{
-                    text += ", 비밀번호"
-                }
-            }else{
-                passwordTextField.configureView(false)
             }
+
             loginFailLabel.text = "\(text)을(를) 입력해주세요."
             
         case .nonexistentUser:
@@ -213,10 +210,12 @@ extension LoginViewController {
     
     func clearInputId(){
         self.idTextField.text = ""
+        viewModel.input.idTextField.accept("")
     }
     
     func clearInputPw(){
         self.passwordTextField.text = ""
+        viewModel.input.passwordTextField.accept("")
     }
 }
 
