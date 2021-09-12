@@ -14,6 +14,7 @@ class RegisterViewModel : ViewModelType {
     let input = Input()
     let output = Output()
     let disposeBag = DisposeBag()
+    let usecase = RegisterUsecase()
     
     var validInput = [false,false,false,false]
     
@@ -122,34 +123,24 @@ extension RegisterViewModel {
 extension RegisterViewModel {
     
     func register(){
+        
         let id = self.input.idTextField.value
         let pw = self.input.pwTextField.value
         let name = self.input.nameTextField.value
-        print("#password",pw)
-        AlamofireManager
-            .shared
-            .session
-            .request(UserInfoRouter.register(id: id, pw: pw, name: name))
-            .responseJSON{ response in
-                
-                switch response.result {
-                case .success(let value) :
-                    guard let result = value as? [String:Any] else{ return }
-                    
-                    if response.response?.statusCode == 201{
-                        let user = result["data"] as? UserInfo
-                        UserInfo.savedUser = user
-                        self.output.register.accept(RegisterResult.success)
-                    }else{
-                        self.output.register.accept(RegisterResult.alreadyExists) // 이미 존재하는 아이디
-                    }
-                case .failure :
-                    break
-                }
+        
+        usecase.register(id, pw, name) { user, errorMessage in
+            if let _ = user {
+                self.output.register.accept(RegisterResult.success)
             }
+            
+            if let _ = errorMessage {
+                self.output.register.accept(RegisterResult.alreadyExists) // 이미 존재하는 아이디
+            }
+        }
     }
+    
     func handleInputName(_ name: String){
-        if name.count > 0 {
+        if usecase.handleInputName(name) {
             self.validInput[0] = true
             self.output.register.accept(RegisterResult.validName)
         }else{
@@ -158,33 +149,26 @@ extension RegisterViewModel {
     }
     
     func handleInputId(_ id:String){
-        if id.count == 0 {
-            self.validInput[1] = false
+        if usecase.handleInputId(id) {
+            self.validInput[1] = true
+            self.output.register.accept(RegisterResult.validId)
         }else {
-            // 영문, 숫자만 유효하도록
-            let pattern = "^[A-Za-z0-9]{0,}$"
-            let regex = try? NSRegularExpression(pattern: pattern)
-            if let _ = regex?.firstMatch(in: id, options: [], range: NSRange(location: 0, length: id.count)){
-                // 유효한 경우
-                self.validInput[1] = true
-                self.output.register.accept(RegisterResult.validId)
-            }else{
-                self.validInput[1] = false
-            }
+            self.validInput[1] = false
         }
     }
     
+    
     func handleInputPw(_ pw:String){
-        if pw.count < 6 {
-            self.validInput[2] = false
-        }else{
+        if usecase.handleInputPw(pw) {
             self.validInput[2] = true
             self.output.register.accept(RegisterResult.validPassword)
+        }else{
+            self.validInput[2] = false
         }
     }
     
     func handleInputPwCheck(_ pwCheck:String){
-        if pwCheck.count >= 6 && pwCheck == self.input.pwTextField.value {
+        if usecase.handleInputPwCheck(pwCheck, input.pwCheckTextField.value) {
             self.validInput[3] = true
             self.output.register.accept(RegisterResult.validCheckPassword)
         }else{

@@ -184,17 +184,21 @@ extension RegisterViewController {
     
     func clearInputId(){
         self.idInputTextField.text = ""
+        self.viewModel.input.idTextField.accept("")
     }
     
     func clearInputName(){
         self.nameInputTextField.text = ""
+        self.viewModel.input.nameTextField.accept("")
     }
     func clearInputPw(){
         self.pwInputTextField.text = ""
+        self.viewModel.input.pwTextField.accept("")
     }
     
     func clearInputPwCheck(){
         self.pwCheckInputTextField.text = ""
+        self.viewModel.input.pwCheckTextField.accept("")
     }
 }
 

@@ -45,8 +45,38 @@ class UserInfoRepository {
                         completion(nil,errorMessage)
                     }
                     
-                case .failure(let error) :
-                    print(error)
+                case .failure :
+                    break
+                }
+            }
+    }
+    
+    func register(_ id:String, _ pw:String, _ name: String, completion : @escaping (_ user : UserInfo?,_ errorMessage : String?) -> Void ){
+        
+        AlamofireManager
+            .shared
+            .session
+            .request(UserInfoRouter.register(id: id, pw: pw, name: name))
+            .responseJSON{ response in
+                
+                switch response.result {
+                case .success(let value) :
+                    guard let result = value as? [String:Any] else{ return }
+                    
+                    if response.response?.statusCode == 201{
+                        if let user = result["data"] as? [String:Any] {
+                            UserInfo.savedUser = UserInfo(id: user["id"] as! String,
+                                                          name: user["name"] as! String,
+                                                          password: user["password"] as! String,
+                                                          shelf: nil)
+                        }
+                        
+                        completion(UserInfo.savedUser,nil)
+                    }else{
+                        let errorMessage = result["errorMessage"] as? String
+                        completion(nil,errorMessage)
+                    }
+                case .failure :
                     break
                 }
             }
