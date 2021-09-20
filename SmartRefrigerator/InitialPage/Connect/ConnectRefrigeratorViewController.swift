@@ -46,7 +46,13 @@ extension ConnectRefrigeratorViewController{
         
         nfcIdInputButton.rx.tap.asObservable()
             .debounce(.milliseconds(500), scheduler: MainScheduler.instance)
-            .bind(to: viewModel.input.nfcIdInputButton)
+            .subscribe(onNext:{
+                if let viewController = self.storyboard?.instantiateViewController(withIdentifier: "NFCInputVC") as? ConnectRefrigeratorByNFCInputViewController{
+                    viewController.completion = self.handleConnectResult
+                    self.present(viewController, animated: true, completion: nil)
+                }
+                
+            })
             .disposed(by: disposeBag)
         
         
@@ -102,5 +108,5 @@ extension ConnectRefrigeratorViewController {
         nfcIdInputButton.titleLabel?.textAlignment = .center
     }
     
-
+    
 }

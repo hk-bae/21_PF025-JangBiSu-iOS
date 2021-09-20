@@ -23,4 +23,9 @@ class ConnectRefrigeratorUsecase {
             }
         }
     }
+    
+    func connectRefrigeratorByNFCInput(shelfId:String,completion:@escaping(_ errorMessage:String?) -> Void){
+        let shelf = Shelf(id: shelfId, row: 2, col: 3)
+        self.repository.connectRefrigerator(shelf: shelf , completion: completion)
+    }
 }

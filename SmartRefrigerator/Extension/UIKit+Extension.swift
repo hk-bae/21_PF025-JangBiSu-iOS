@@ -33,3 +33,51 @@ extension UIView {
         }
     }
 }
+//자연스러운 팝업을 위한 클래스
+class OverrappingViewController: UIViewController {
+    
+    final private var dimmedBackgroundColor: UIColor = UIColor(red: 0, green: 0, blue: 0, alpha: 1)
+    final private var dimmedTiming = 0.3
+    final var dimmedTimingDisclouse: Double?
+    
+    fileprivate var dimmedBackgroundView: UIView?
+    
+    
+    //뷰 생성 직전
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        //해당 뷰컨트롤러를 가져온다.
+        guard let presentingViewController = presentingViewController ?? parent else {
+            fatalError()
+        }
+        
+        //뷰컨트롤러의 뷰의 바운드를 전체로 하는 뷰를 생성
+        dimmedBackgroundView = UIView(frame: presentingViewController.view.bounds)
+        //backgroundColor 지정
+        dimmedBackgroundView!.backgroundColor = dimmedBackgroundColor
+        //alpha 지정
+        dimmedBackgroundView!.alpha = 0.0
+        //superview 크기에 따라 자동 조정
+        dimmedBackgroundView!.autoresizingMask = [.flexibleWidth, .flexibleHeight]
+        
+        dimmedBackgroundView!.translatesAutoresizingMaskIntoConstraints = true
+        //해당 뷰를 서브뷰로 추가
+        presentingViewController.view.addSubview(dimmedBackgroundView!)
+        //0.3초 후에 alpha를 0.5로 (반투명하게) 변경
+        UIView.animate(withDuration: dimmedTiming, animations: { [weak self] in
+            self?.dimmedBackgroundView!.alpha = 0.8
+        })
+    }
+    
+    //뷰 소멸 직전
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        
+        UIView.animate(withDuration: dimmedTimingDisclouse ?? dimmedTiming, animations: { [weak self] in
+            self?.dimmedBackgroundView!.alpha = 0.0 //dimmedBaackgroundView를 우선적으로 완전 투명하게 변경
+        }, completion: { [weak self] _ in
+            self?.dimmedBackgroundView!.removeFromSuperview() //완료 후 superview에서 제거
+        })
+    }
+}
