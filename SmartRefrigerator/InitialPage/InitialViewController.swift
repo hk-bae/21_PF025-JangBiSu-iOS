@@ -13,7 +13,7 @@ class InitialViewController: UIViewController {
     @IBOutlet weak var moveToRegisterPageButton: UIButton!
     
     override func viewWillAppear(_ animated: Bool) {
-      
+        
         self.navigationController?.isNavigationBarHidden = true
         configureNavigationController()
     }
@@ -47,7 +47,8 @@ extension InitialViewController {
         // 전체 네비게이션 바에 대해서 라인을 없앤다
         self.navigationController?.navigationBar.setBackgroundImage(UIImage(), for: .default)
         self.navigationController?.navigationBar.shadowImage = UIImage()
-        self.navigationController?.navigationBar.titleTextAttributes = [NSAttributedString.Key.font : UIFont.Service.notoSans_regular(_size: 20).value]
+        self.navigationController?.navigationBar.titleTextAttributes = [.foregroundColor : UIColor.white, .font : UIFont.Service.notoSans_regular(_size: 20).value]
+        
     }
     
     func createGradeint(){
@@ -66,7 +67,7 @@ extension InitialViewController {
     func createMoveToLoginButton(){
         
         moveToLoginPageButton.setTitleColor(UIColor.Service.red.value, for: .normal)
-
+        
         moveToLoginPageButton.layer.cornerRadius = moveToLoginPageButton.frame.height / 2.0
         moveToLoginPageButton.layer.backgroundColor = UIColor.Service.white100.value.cgColor
         

@@ -322,29 +322,53 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="808"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="b0w-k7-ypF">
-                                <rect key="frame" x="184" y="357" width="46" height="62"/>
-                                <state key="normal" title="Button"/>
-                                <connections>
-                                    <action selector="test:" destination="INl-IV-QQu" eventType="touchUpInside" id="zJK-Nm-RaJ"/>
-                                </connections>
-                            </button>
+                            <stackView opaque="NO" contentMode="scaleToFill" distribution="equalSpacing" translatesAutoresizingMaskIntoConstraints="NO" id="arh-Uq-F5Z">
+                                <rect key="frame" x="32" y="303" width="350" height="202"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Jnt-qo-nmt">
+                                        <rect key="frame" x="0.0" y="0.0" width="167.5" height="202"/>
+                                        <color key="backgroundColor" red="1" green="0.80000000000000004" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                        <fontDescription key="fontDescription" name="NotoSansCJKkr-Bold" family="Noto Sans CJK KR" pointSize="24"/>
+                                        <state key="normal" title="NFC 태그하기">
+                                            <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        </state>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="93O-9f-njL">
+                                        <rect key="frame" x="182.5" y="0.0" width="167.5" height="202"/>
+                                        <color key="backgroundColor" red="1" green="0.80000000000000004" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                        <fontDescription key="fontDescription" name="NotoSansCJKkr-Bold" family="Noto Sans CJK KR" pointSize="24"/>
+                                        <state key="normal" title="고유번호 입력하기">
+                                            <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        </state>
+                                    </button>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="arh-Uq-F5Z" secondAttribute="height" multiplier="330:190" id="Uxf-99-o6q"/>
+                                    <constraint firstItem="93O-9f-njL" firstAttribute="width" secondItem="arh-Uq-F5Z" secondAttribute="width" multiplier="158:330" id="WQJ-bl-uXX"/>
+                                    <constraint firstItem="Jnt-qo-nmt" firstAttribute="width" secondItem="arh-Uq-F5Z" secondAttribute="width" multiplier="158:330" id="bF4-yd-adr"/>
+                                </constraints>
+                            </stackView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="avB-KY-XxT"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstItem="b0w-k7-ypF" firstAttribute="centerX" secondItem="eyM-Qf-JQj" secondAttribute="centerX" id="1Wl-rl-NEc"/>
-                            <constraint firstItem="b0w-k7-ypF" firstAttribute="centerY" secondItem="eyM-Qf-JQj" secondAttribute="centerY" id="6IU-2i-LPf"/>
+                            <constraint firstItem="arh-Uq-F5Z" firstAttribute="centerY" secondItem="eyM-Qf-JQj" secondAttribute="centerY" id="0PC-UK-pAc"/>
+                            <constraint firstItem="arh-Uq-F5Z" firstAttribute="centerX" secondItem="eyM-Qf-JQj" secondAttribute="centerX" id="36D-Ro-JND"/>
+                            <constraint firstItem="arh-Uq-F5Z" firstAttribute="width" secondItem="eyM-Qf-JQj" secondAttribute="width" multiplier="330:390" id="xz9-zp-7XR"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="사용자 등록" id="Oy0-D8-0wV">
-                        <barButtonItem key="leftBarButtonItem" title="Item" image="back" id="4tf-3v-L4C">
-                            <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <barButtonItem key="leftBarButtonItem" title="Item" image="arrow.backward" catalog="system" id="4tf-3v-L4C">
+                            <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             <connections>
                                 <action selector="backToInitalPage:" destination="INl-IV-QQu" id="eNt-E2-Q5t"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
+                    <connections>
+                        <outlet property="nfcButton" destination="Jnt-qo-nmt" id="RmG-2R-Wry"/>
+                        <outlet property="nfcIdInputButton" destination="93O-9f-njL" id="4bH-bt-RJU"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="3ht-tj-RlN" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -515,6 +539,7 @@
         </designable>
     </designables>
     <resources>
+        <image name="arrow.backward" catalog="system" width="128" height="98"/>
         <image name="back" width="32" height="32"/>
         <image name="uncheck_light" width="10" height="10"/>
         <systemColor name="systemBackgroundColor">

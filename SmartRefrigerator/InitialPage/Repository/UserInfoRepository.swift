@@ -8,6 +8,32 @@
 import Foundation
 
 class UserInfoRepository {
+    
+    // 냉장고 등록
+    func connectRefrigerator(shelf : Shelf, completion: @escaping(_ errorMessage:String?) -> Void){
+        if let userId = UserInfo.savedUser?.id{
+            AlamofireManager
+                .shared
+                .session
+                .request(UserInfoRouter.connect(id: userId, shelfId: shelf.id))
+                .responseJSON{ response in
+                    if response.response?.statusCode == 204{
+                        // 성공
+                        UserInfo.savedUser?.shelf = shelf
+                        completion(nil)
+                    }else{
+                        // 실패 : 존재하는 shelfID가 DB에 없는 경우
+                        let result = response.value as? [String : Any]
+                        let errorMessage = result?["errorMessage"] as? String
+                        completion(errorMessage)
+                    }
+                }
+        }else{
+            // 실패
+            completion("등록된 사용자가 없습니다.")
+        }
+    }
+    
     // 서버에 로그인 시도
     func login(id:String,pw:String,completion: @escaping (_ user:UserInfo?,_ errorMessage:String?) -> Void){
         AlamofireManager
