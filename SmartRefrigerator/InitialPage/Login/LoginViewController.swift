@@ -21,15 +21,9 @@ class LoginViewController: UIViewController {
     @IBOutlet weak var saveIdCheckBox: UIImageView!
     @IBOutlet weak var loginFailLabel: UILabel!
     
-    private final let check_image : UIImage = {
-        let image = UIImage(systemName: "circle", compatibleWith: nil)?.withTintColor(UIColor.Service.yellow.value,renderingMode: .alwaysTemplate)
-        return image!
-    }()
+    private final let  uncheck_image = UIImage(systemName: "circle", compatibleWith: nil)
     
-    private final let uncheck_image : UIImage = {
-        let image = UIImage(systemName: "checkmark.circle.fill", compatibleWith: nil)?.withTintColor(UIColor.Service.yellow.value,renderingMode: .alwaysTemplate)
-        return image!
-    }()
+    private final let check_image = UIImage(systemName: "checkmark.circle.fill", compatibleWith: nil)
     
     @IBOutlet weak var loginFailLabelHeight: NSLayoutConstraint!
     
@@ -150,13 +144,14 @@ extension LoginViewController {
         createPasswordInputTextField()
         createLoginButton()
         configureLoginFailLabel(true)
+        configureViews()
         createAutoLogin()
         createSaveId()
-        configureViews()
+        
     }
     
     func createIdInputTextField(){
-        passwordTextField.setPlaceHolder("아이디를 입력해 주세요.")
+        idTextField.setPlaceHolder("아이디를 입력해 주세요.")
         idTextField.keyboardType = .alphabet
         
         // 아이디 저장이 설정되어 있다면 아이디를 불러온다.
