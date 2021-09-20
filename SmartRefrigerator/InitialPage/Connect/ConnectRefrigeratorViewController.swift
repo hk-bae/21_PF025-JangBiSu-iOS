@@ -21,6 +21,7 @@ class ConnectRefrigeratorViewController : UIViewController{
     
     override func viewDidLoad(){
         super.viewDidLoad()
+        view.layer.backgroundColor = UIColor.Service.defaultBlack.value.cgColor
         createView()
         input()
         output()
@@ -86,14 +87,16 @@ extension ConnectRefrigeratorViewController {
     }
     
     func createNfcButton(){
-        print(nfcButton.frame.height)
+        nfcButton.layer.backgroundColor = UIColor.Service.yellow.value.cgColor
+        nfcButton.titleLabel?.textColor = UIColor.Service.defaultBlack.value
         nfcButton.layer.cornerRadius = 16
-        print(nfcButton.frame.height)
         nfcButton.titleLabel?.numberOfLines = 0
         nfcButton.titleLabel?.textAlignment = .center
     }
     
     func createNfcIdButton(){
+        nfcIdInputButton.layer.backgroundColor = UIColor.Service.yellow.value.cgColor
+        nfcIdInputButton.titleLabel?.textColor = UIColor.Service.defaultBlack.value
         nfcIdInputButton.layer.cornerRadius = 16
         nfcIdInputButton.titleLabel?.numberOfLines = 0
         nfcIdInputButton.titleLabel?.textAlignment = .center

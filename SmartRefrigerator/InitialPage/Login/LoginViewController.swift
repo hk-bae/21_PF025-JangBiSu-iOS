@@ -21,8 +21,15 @@ class LoginViewController: UIViewController {
     @IBOutlet weak var saveIdCheckBox: UIImageView!
     @IBOutlet weak var loginFailLabel: UILabel!
     
-    private final let check_image = UIImage(named: "check_light")
-    private final let uncheck_image = UIImage(named: "uncheck_light")
+    private final let check_image : UIImage = {
+        let image = UIImage(systemName: "circle", compatibleWith: nil)?.withTintColor(UIColor.Service.yellow.value,renderingMode: .alwaysTemplate)
+        return image!
+    }()
+    
+    private final let uncheck_image : UIImage = {
+        let image = UIImage(systemName: "checkmark.circle.fill", compatibleWith: nil)?.withTintColor(UIColor.Service.yellow.value,renderingMode: .alwaysTemplate)
+        return image!
+    }()
     
     @IBOutlet weak var loginFailLabelHeight: NSLayoutConstraint!
     
@@ -31,7 +38,7 @@ class LoginViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        view.backgroundColor = UIColor.Service.backgroundWhite.value
+        view.backgroundColor = UIColor.Service.defaultBlack.value
         createView()
         input()
         output()
@@ -145,11 +152,11 @@ extension LoginViewController {
         configureLoginFailLabel(true)
         createAutoLogin()
         createSaveId()
+        configureViews()
     }
     
     func createIdInputTextField(){
-        idTextField.initView()
-        idTextField.placeholder = "아이디를 입력해 주세요."
+        passwordTextField.setPlaceHolder("아이디를 입력해 주세요.")
         idTextField.keyboardType = .alphabet
         
         // 아이디 저장이 설정되어 있다면 아이디를 불러온다.
@@ -160,14 +167,15 @@ extension LoginViewController {
     }
     
     func createPasswordInputTextField(){
-        passwordTextField.initView()
-        passwordTextField.placeholder = "비밀번호를 입력해 주세요."
+        passwordTextField.setPlaceHolder("비밀번호를 입력해 주세요.")
         passwordTextField.keyboardType = .default
         passwordTextField.isSecureTextEntry = true
     }
     
     func createLoginButton(){
-        loginButton.layer.cornerRadius = loginButton.frame.height / 2.0
+        loginButton.layer.backgroundColor = UIColor.Service.yellow.value.cgColor
+        loginButton.layer.shadowColor  = UIColor.Service.black.value.cgColor
+        loginButton.titleLabel?.textColor = UIColor.Service.defaultBlack.value
     }
     
     func configureLoginFailLabel(_ bool : Bool){
@@ -178,7 +186,7 @@ extension LoginViewController {
             // label 높이가 0일 때 높이  변경
             if loginFailLabelHeight.constant == 0 {
                 loginFailLabelHeight.constant = loginFailLabel.intrinsicContentSize.height
-                
+                loginFailLabel.textColor = UIColor.Service.orange.value
                 UIView.animate(withDuration: 0.2) {
                     self.loginFailLabel.layoutIfNeeded()
                 }
@@ -187,8 +195,16 @@ extension LoginViewController {
         
     }
     
+    func configureViews(){
+        view.layoutIfNeeded()
+        loginButton.layer.cornerRadius = loginButton.frame.height / 2.0
+        idTextField.initView()
+        passwordTextField.initView()
+    }
     
     func createAutoLogin(){
+        autoLoginCheckBox.tintColor = UIColor.Service.yellow.value
+        
         let tapGesture = UITapGestureRecognizer(target: self, action: #selector(autoLogin(_:)))
         autoLogin.addGestureRecognizer(tapGesture)
         
@@ -199,6 +215,7 @@ extension LoginViewController {
     }
     
     func createSaveId(){
+        saveIdCheckBox.tintColor = UIColor.Service.yellow.value
         let tapGesture = UITapGestureRecognizer(target: self, action: #selector(saveId(_:)))
         saveId.addGestureRecognizer(tapGesture)
         

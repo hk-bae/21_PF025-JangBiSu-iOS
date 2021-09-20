@@ -29,7 +29,7 @@ class RegisterViewController: UIViewController,UITextFieldDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        view.backgroundColor = UIColor.Service.backgroundWhite.value
+        view.backgroundColor = UIColor.Service.defaultBlack.value
         setDelegate()
         createView()
         input()
@@ -112,38 +112,47 @@ extension RegisterViewController {
         createPasswordInputTextField()
         createCheckPasswordInputTextField()
         createRegisterButton()
+        configureViews()
     }
     
     func createNameInputTextField(){
         nameInputTextField.initView()
-        nameInputTextField.placeholder = "이름을 입력해 주세요."
+        nameInputTextField.setPlaceHolder("이름을 입력해 주세요.")
         nameInputTextField.keyboardType = .default
     }
     
     
     func createIdInputTextField(){
-        idInputTextField.initView()
-        idInputTextField.placeholder = "아이디를 입력하세요.(영문,숫자)"
+        idInputTextField.setPlaceHolder("아이디를 입력하세요.(영문,숫자)")
         idInputTextField.keyboardType = .alphabet
         
     }
     
     func createPasswordInputTextField(){
-        pwInputTextField.initView()
-        pwInputTextField.placeholder = "비밀번호를 입력하세요.(6자리 이상)"
+        pwInputTextField.setPlaceHolder("비밀번호를 입력하세요.(6자리 이상)")
         pwInputTextField.keyboardType = .default
         pwInputTextField.isSecureTextEntry = true
     }
     
     func createCheckPasswordInputTextField(){
-        pwCheckInputTextField.initView()
-        pwCheckInputTextField.placeholder = "비밀번호를 다시 입력하세요."
+        pwCheckInputTextField.setPlaceHolder("비밀번호를 다시 입력하세요.")
         pwCheckInputTextField.keyboardType = .default
         pwCheckInputTextField.isSecureTextEntry = true
     }
     
     func createRegisterButton(){
+        registerButton.layer.backgroundColor = UIColor.Service.yellow.value.cgColor
+        registerButton.titleLabel?.textColor = UIColor.Service.defaultBlack.value
+        registerFailLabel.textColor = UIColor.Service.orange.value
+    }
+    
+    func configureViews(){
+        view.layoutIfNeeded()
         registerButton.layer.cornerRadius = registerButton.frame.height / 2.0
+        idInputTextField.initView()
+        pwInputTextField.initView()
+        nameInputTextField.initView()
+        pwCheckInputTextField.initView()
     }
 }
 

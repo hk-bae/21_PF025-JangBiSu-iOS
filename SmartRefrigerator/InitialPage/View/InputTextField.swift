@@ -25,9 +25,6 @@ class InputTextField : UITextField {
 
 extension InputTextField {
     func createView(){
-        self.attributedPlaceholder = NSAttributedString(string: "",attributes: [NSAttributedString.Key.foregroundColor: UIColor.Service.gray.value,NSAttributedString.Key.font: UIFont.Service.notoSans_regular(_size: 14).value])
-        
-        
         self.leftView = UIView()
         self.leftViewMode = .always
         
@@ -39,7 +36,7 @@ extension InputTextField {
         self.rightView = rightPadding
         self.rightViewMode = .always
         
-        self.layer.borderColor = UIColor.Service.gray.value.cgColor
+        self.layer.borderColor = UIColor.Service.borderGray.value.cgColor
         self.layer.borderWidth = 2
         
         self.layer.backgroundColor = UIColor(red: 241.0/255.0, green: 241.0/255.0, blue: 244.0/255.0, alpha: 1).cgColor
@@ -61,9 +58,13 @@ extension InputTextField {
     
     func configureView(_ isWrong : Bool){
         if isWrong {
-            self.layer.borderColor = UIColor.Service.red.value.cgColor
+            self.layer.borderColor = UIColor.Service.orange.value.cgColor
         }else{
-            self.layer.borderColor = UIColor.Service.gray.value.cgColor
+            self.layer.borderColor = UIColor.Service.borderGray.value.cgColor
         }
+    }
+    
+    func setPlaceHolder(_ text:String){
+        self.attributedPlaceholder = NSAttributedString(string: text,attributes: [NSAttributedString.Key.foregroundColor: UIColor.Service.gray.value,NSAttributedString.Key.font: UIFont.Service.notoSans_regular(_size: 14).value])
     }
 }

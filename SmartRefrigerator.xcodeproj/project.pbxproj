@@ -8,7 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		200EC95D26E11FCC00186F28 /* InputTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 200EC95C26E11FCC00186F28 /* InputTextField.swift */; };
-		200EC96026E1253700186F28 /* RedButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 200EC95F26E1253700186F28 /* RedButton.swift */; };
+		200EC96026E1253700186F28 /* ShadowingButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 200EC95F26E1253700186F28 /* ShadowingButton.swift */; };
 		200EC96426E13E3A00186F28 /* ConnectRefrigeratorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 200EC96326E13E3A00186F28 /* ConnectRefrigeratorViewController.swift */; };
 		2047DDAB26D3EF9A00326003 /* Initial.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2047DDAA26D3EF9A00326003 /* Initial.storyboard */; };
 		2047DDC326D3FF3100326003 /* LoginViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2047DDC226D3FF3100326003 /* LoginViewModel.swift */; };
@@ -50,7 +50,7 @@
 
 /* Begin PBXFileReference section */
 		200EC95C26E11FCC00186F28 /* InputTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InputTextField.swift; sourceTree = "<group>"; };
-		200EC95F26E1253700186F28 /* RedButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RedButton.swift; sourceTree = "<group>"; };
+		200EC95F26E1253700186F28 /* ShadowingButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShadowingButton.swift; sourceTree = "<group>"; };
 		200EC96326E13E3A00186F28 /* ConnectRefrigeratorViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConnectRefrigeratorViewController.swift; sourceTree = "<group>"; };
 		200EC96C26E1DA8600186F28 /* SmartRefrigerator.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = SmartRefrigerator.entitlements; sourceTree = "<group>"; };
 		2047DDAA26D3EF9A00326003 /* Initial.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Initial.storyboard; sourceTree = "<group>"; };
@@ -111,7 +111,7 @@
 			isa = PBXGroup;
 			children = (
 				200EC95C26E11FCC00186F28 /* InputTextField.swift */,
-				200EC95F26E1253700186F28 /* RedButton.swift */,
+				200EC95F26E1253700186F28 /* ShadowingButton.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -449,7 +449,7 @@
 				2062434A26CD2E8C00A9018A /* MainView.swift in Sources */,
 				2047DDDB26D4D9B700326003 /* BaseInterceptor.swift in Sources */,
 				2047DDC626D4193200326003 /* CommonString.swift in Sources */,
-				200EC96026E1253700186F28 /* RedButton.swift in Sources */,
+				200EC96026E1253700186F28 /* ShadowingButton.swift in Sources */,
 				2062435726CD2EC000A9018A /* IceView.swift in Sources */,
 				200EC96426E13E3A00186F28 /* ConnectRefrigeratorViewController.swift in Sources */,
 				2047DE1926DE0FDD00326003 /* UIFont+Service.swift in Sources */,

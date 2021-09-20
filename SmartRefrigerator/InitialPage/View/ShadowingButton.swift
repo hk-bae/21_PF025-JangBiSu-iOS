@@ -8,7 +8,7 @@
 import UIKit
 
 @IBDesignable
-class RedButton : UIButton{
+class ShadowingButton : UIButton{
     override init(frame: CGRect) {
         super.init(frame: frame)
         createView()
@@ -20,18 +20,21 @@ class RedButton : UIButton{
     }
 }
 
-extension RedButton {
+extension ShadowingButton {
     func createView(){
-        self.setTitleColor(UIColor.Service.white100.value, for: .normal)
-        self.layer.backgroundColor = UIColor.Service.red.value.cgColor
-        
-        self.layer.borderWidth = 2
-        self.layer.borderColor = UIColor.red.cgColor
-        
-        self.layer.shadowColor = UIColor.Service.red.value.cgColor
+//        self.setTitleColor(UIColor.Service.white100.value, for: .normal)
+//        self.layer.backgroundColor = UIColor.Service.red.value.cgColor
+//
+//        self.layer.borderWidth = 2
+//        self.layer.borderColor = UIColor.red.cgColor
         self.layer.shadowOffset = CGSize(width:0,height:5)
         self.layer.shadowOpacity = 0.2
         self.layer.shadowRadius = 5
         self.layer.masksToBounds = false
     }
+    
+    func configureShadowColor(_ color : UIColor){
+        self.layer.shadowColor = color.cgColor
+    }
+
 }

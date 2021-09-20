@@ -41,6 +41,7 @@ extension InitialViewController {
         createGradeint()
         createMoveToLoginButton()
         createMoveToRegisterButton()
+        configureCornerRadius()
     }
     
     func configureNavigationController(){
@@ -56,8 +57,8 @@ extension InitialViewController {
         let gradient = CAGradientLayer()
         gradient.frame = self.view.frame
         gradient.colors = [
-            UIColor.Service.orange.value.cgColor,
-            UIColor.Service.yellow.value.cgColor
+            UIColor.Service.black.value.cgColor,
+            UIColor.Service.darkGray.value.cgColor
         ]
         gradient.startPoint = CGPoint(x: 0.35, y: 0)
         gradient.endPoint = CGPoint(x: 0.65, y: 1)
@@ -66,38 +67,25 @@ extension InitialViewController {
     
     func createMoveToLoginButton(){
         
-        moveToLoginPageButton.setTitleColor(UIColor.Service.red.value, for: .normal)
+        moveToLoginPageButton.setTitleColor(UIColor.Service.yellow.value, for: .normal)
+        moveToLoginPageButton.layer.backgroundColor = UIColor.Service.defaultBlack.value.cgColor
         
-        moveToLoginPageButton.layer.cornerRadius = moveToLoginPageButton.frame.height / 2.0
-        moveToLoginPageButton.layer.backgroundColor = UIColor.Service.white100.value.cgColor
         
         moveToLoginPageButton.layer.borderWidth = 2
-        moveToLoginPageButton.layer.borderColor = UIColor.red.cgColor
-        
-        moveToLoginPageButton.layer.shadowColor = UIColor.Service.red.value.cgColor
-        moveToLoginPageButton.layer.shadowOffset = CGSize(width:0,height:5)
-        moveToLoginPageButton.layer.shadowOpacity = 0.2
-        moveToLoginPageButton.layer.shadowRadius = 5
-        moveToLoginPageButton.layer.masksToBounds = false
-        
-        
-        
+        moveToLoginPageButton.layer.borderColor = UIColor.Service.yellow.value.cgColor
+        moveToLoginPageButton.layer.shadowColor = UIColor.Service.shadwGray.value.cgColor
     }
     
     func createMoveToRegisterButton(){
-        
-        moveToRegisterPageButton.setTitleColor(UIColor.Service.white100.value, for: .normal)
+        moveToRegisterPageButton.setTitleColor(UIColor.Service.defaultBlack.value, for: .normal)
+        moveToRegisterPageButton.layer.backgroundColor = UIColor.Service.yellow.value.cgColor
+        moveToRegisterPageButton.layer.shadowColor = UIColor.Service.shadwGray.value.cgColor
+    }
+    
+    func configureCornerRadius(){
+        view.layoutIfNeeded()
         moveToRegisterPageButton.layer.cornerRadius = moveToRegisterPageButton.frame.height / 2.0
-        moveToRegisterPageButton.layer.backgroundColor = UIColor.Service.red.value.cgColor
-        
-        moveToRegisterPageButton.layer.borderWidth = 2
-        moveToRegisterPageButton.layer.borderColor = UIColor.red.cgColor
-        
-        moveToRegisterPageButton.layer.shadowColor = UIColor.Service.red.value.cgColor
-        moveToRegisterPageButton.layer.shadowOffset = CGSize(width:0,height:5)
-        moveToRegisterPageButton.layer.shadowOpacity = 0.2
-        moveToRegisterPageButton.layer.shadowRadius = 5
-        moveToRegisterPageButton.layer.masksToBounds = false
+        moveToLoginPageButton.layer.cornerRadius = moveToLoginPageButton.frame.height / 2.0
     }
 }
 
