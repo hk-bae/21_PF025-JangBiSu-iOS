@@ -36,6 +36,8 @@ class UserInfoRepository {
     
     // 서버에 로그인 시도
     func login(id:String,pw:String,completion: @escaping (_ user:UserInfo?,_ errorMessage:String?) -> Void){
+        
+        
         AlamofireManager
             .shared
             .session

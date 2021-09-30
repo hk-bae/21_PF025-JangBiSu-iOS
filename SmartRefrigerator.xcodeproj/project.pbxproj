@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2009CC2D27058EF500C22D72 /* TTSUtility.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2009CC2C27058EF500C22D72 /* TTSUtility.swift */; };
 		200EC95D26E11FCC00186F28 /* InputTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 200EC95C26E11FCC00186F28 /* InputTextField.swift */; };
 		200EC96026E1253700186F28 /* ShadowingButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 200EC95F26E1253700186F28 /* ShadowingButton.swift */; };
 		200EC96426E13E3A00186F28 /* ConnectRefrigeratorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 200EC96326E13E3A00186F28 /* ConnectRefrigeratorViewController.swift */; };
@@ -51,6 +52,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		2009CC2C27058EF500C22D72 /* TTSUtility.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TTSUtility.swift; sourceTree = "<group>"; };
 		200EC95C26E11FCC00186F28 /* InputTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InputTextField.swift; sourceTree = "<group>"; };
 		200EC95F26E1253700186F28 /* ShadowingButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShadowingButton.swift; sourceTree = "<group>"; };
 		200EC96326E13E3A00186F28 /* ConnectRefrigeratorViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConnectRefrigeratorViewController.swift; sourceTree = "<group>"; };
@@ -310,6 +312,7 @@
 			isa = PBXGroup;
 			children = (
 				20FD7ECF26E20070005B8122 /* NFCUtility.swift */,
+				2009CC2C27058EF500C22D72 /* TTSUtility.swift */,
 			);
 			path = Utilites;
 			sourceTree = "<group>";
@@ -475,6 +478,7 @@
 				200EC95D26E11FCC00186F28 /* InputTextField.swift in Sources */,
 				2047DDC326D3FF3100326003 /* LoginViewModel.swift in Sources */,
 				2062432526CD2CFF00A9018A /* SceneDelegate.swift in Sources */,
+				2009CC2D27058EF500C22D72 /* TTSUtility.swift in Sources */,
 				20966E7926EDB44800A109BD /* RegisterUsecase.swift in Sources */,
 				2047DDF626D5363B00326003 /* RegisterViewModel.swift in Sources */,
 				20FD7ED026E20070005B8122 /* NFCUtility.swift in Sources */,

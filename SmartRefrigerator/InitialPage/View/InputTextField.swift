@@ -40,6 +40,8 @@ extension InputTextField {
         self.layer.borderWidth = 2
         
         self.layer.backgroundColor = UIColor(red: 241.0/255.0, green: 241.0/255.0, blue: 244.0/255.0, alpha: 1).cgColor
+        
+        clearButton.accessibilityLabel = "입력 내용 초기화"
     }
     
     func initView(){

@@ -17,9 +17,12 @@ class LoginViewController: UIViewController {
     @IBOutlet weak var passwordTextField: InputTextField!
     @IBOutlet weak var autoLogin: UIStackView!
     @IBOutlet weak var autoLoginCheckBox: UIImageView!
+    @IBOutlet weak var saveIdLabel: UILabel!
     @IBOutlet weak var saveId: UIStackView!
+    @IBOutlet weak var autoLoginLabel: UILabel!
     @IBOutlet weak var saveIdCheckBox: UIImageView!
     @IBOutlet weak var loginFailLabel: UILabel!
+    @IBOutlet weak var backButton: UIBarButtonItem!
     
     private final let  uncheck_image = UIImage(systemName: "circle", compatibleWith: nil)
     
@@ -147,6 +150,7 @@ extension LoginViewController {
         configureViews()
         createAutoLogin()
         createSaveId()
+        configureAccessibilityLabel()
         
     }
     
@@ -171,6 +175,10 @@ extension LoginViewController {
         loginButton.layer.backgroundColor = UIColor.Service.yellow.value.cgColor
         loginButton.layer.shadowColor  = UIColor.Service.black.value.cgColor
         loginButton.titleLabel?.textColor = UIColor.Service.defaultBlack.value
+    }
+    
+    func configureAccessibilityLabel(){
+        backButton.accessibilityLabel = "뒤로가기"
     }
     
     func configureLoginFailLabel(_ bool : Bool){
@@ -206,6 +214,7 @@ extension LoginViewController {
         let state = UserDefaults.standard.bool(forKey: CommonString.AUTO_LOGIN.rawValue)
         if state {
             autoLoginCheckBox.image = check_image
+            autoLoginLabel.accessibilityLabel = "자동 로그인 설정됨"
         }
     }
     
@@ -217,6 +226,7 @@ extension LoginViewController {
         let state = UserDefaults.standard.bool(forKey: CommonString.SAVE_ID.rawValue)
         if state {
             saveIdCheckBox.image = check_image
+            saveIdLabel.accessibilityLabel = "아이디 저장 설정됨"
         }
     }
     
@@ -253,10 +263,12 @@ extension LoginViewController {
         if before {
             autoLoginCheckBox.image = uncheck_image
             UserDefaults.standard.set(false,forKey: CommonString.AUTO_LOGIN.rawValue)
+            autoLoginLabel.accessibilityLabel = "자동 로그인"
         }
         else {
             autoLoginCheckBox.image = check_image
             UserDefaults.standard.set(true,forKey: CommonString.AUTO_LOGIN.rawValue)
+            autoLoginLabel.accessibilityLabel = "자동 로그인 설정됨"
         }
     }
     
@@ -267,10 +279,12 @@ extension LoginViewController {
         if before {
             saveIdCheckBox.image = uncheck_image
             UserDefaults.standard.set(false,forKey: CommonString.SAVE_ID.rawValue)
+            saveIdLabel.accessibilityLabel = "아이디 저장"
         }
         else {
             saveIdCheckBox.image = check_image
             UserDefaults.standard.set(true,forKey: CommonString.SAVE_ID.rawValue)
+            saveIdLabel.accessibilityLabel = "아이디 저장 설정됨"
         }
     }
 }

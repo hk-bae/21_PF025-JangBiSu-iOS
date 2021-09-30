@@ -8,6 +8,7 @@
 import UIKit
 import RxSwift
 import RxCocoa
+import AVFoundation
 
 class RegisterViewController: UIViewController,UITextFieldDelegate {
     
@@ -17,6 +18,7 @@ class RegisterViewController: UIViewController,UITextFieldDelegate {
     @IBOutlet weak var pwInputTextField: InputTextField!
     @IBOutlet weak var pwCheckInputTextField: InputTextField!
     
+    @IBOutlet weak var backButton: UIBarButtonItem!
     @IBOutlet weak var registerButton: UIButton!
     @IBOutlet weak var goToLoginButton: UIButton!
     
@@ -112,6 +114,7 @@ extension RegisterViewController {
         createPasswordInputTextField()
         createCheckPasswordInputTextField()
         createRegisterButton()
+        configureAccessibilityLabel()
         configureViews()
     }
     
@@ -145,6 +148,10 @@ extension RegisterViewController {
         registerFailLabel.textColor = UIColor.Service.orange.value
     }
     
+    func configureAccessibilityLabel(){
+        backButton.accessibilityLabel = "뒤로가기"
+    }
+    
     func configureViews(){
         view.layoutIfNeeded()
         registerButton.layer.cornerRadius = registerButton.frame.height / 2.0
@@ -176,6 +183,8 @@ extension RegisterViewController {
             self.idInputTextField.configureView(true)
             self.registerFailLabel.isHidden = false
             self.registerFailLabel.text = "이미 존재하는 아이디 입니다."
+            TTSUtility.speak(string: self.registerFailLabel.text!)
+            
         case .invalidPassword :
             self.pwInputTextField.configureView(true)
         case .validPassword :
@@ -187,6 +196,7 @@ extension RegisterViewController {
         case let .invalidInputRegister(term) :
             self.registerFailLabel.isHidden = false
             self.registerFailLabel.text = term
+            TTSUtility.speak(string: term)
         }
     }
     

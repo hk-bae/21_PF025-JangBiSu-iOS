@@ -44,7 +44,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="390" height="756"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ifk-pz-FE5">
+                            <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ifk-pz-FE5">
                                 <rect key="frame" x="121" y="692" width="148" height="30"/>
                                 <state key="normal" title="메인페이지로 이동 (dev)"/>
                                 <connections>
@@ -305,6 +305,8 @@
                     <connections>
                         <outlet property="autoLogin" destination="Udh-tr-f9i" id="cBc-pM-uxl"/>
                         <outlet property="autoLoginCheckBox" destination="9C4-6y-Wox" id="Zqi-oz-lMc"/>
+                        <outlet property="autoLoginLabel" destination="h8A-My-Y3u" id="YoM-b2-YdL"/>
+                        <outlet property="backButton" destination="Jcn-9c-vYA" id="tHI-Jv-FoC"/>
                         <outlet property="idTextField" destination="U0x-c5-kRE" id="huN-qL-48S"/>
                         <outlet property="loginButton" destination="nFh-hT-KlB" id="hv6-vG-MxO"/>
                         <outlet property="loginFailLabel" destination="lMB-jm-hQL" id="QKf-Ft-D83"/>
@@ -312,6 +314,7 @@
                         <outlet property="passwordTextField" destination="14F-uD-KsJ" id="uiO-Wl-D8d"/>
                         <outlet property="saveId" destination="7IG-ua-nNL" id="T45-1d-4lm"/>
                         <outlet property="saveIdCheckBox" destination="r1V-Av-Wnf" id="h9i-65-uYJ"/>
+                        <outlet property="saveIdLabel" destination="XNk-8b-DxK" id="LpF-AY-V2A"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="vxs-bw-R2w" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -622,6 +625,7 @@
                     </navigationItem>
                     <nil key="simulatedBottomBarMetrics"/>
                     <connections>
+                        <outlet property="backButton" destination="63M-pC-5oG" id="npI-BX-tax"/>
                         <outlet property="goToLoginButton" destination="8Pf-ld-Eoo" id="ZQ4-b7-kmf"/>
                         <outlet property="idInputTextField" destination="K7Q-eW-Odl" id="VgX-vc-Ghj"/>
                         <outlet property="nameInputTextField" destination="XKZ-fF-VKT" id="JlA-5x-ETV"/>
