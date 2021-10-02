@@ -25,8 +25,8 @@ class RegisterFoodViewController: OverrappingViewController,UITextFieldDelegate 
     @IBOutlet weak var containerView: UIView!
     @IBOutlet weak var foodNameTextField: InputTextField!
     @IBOutlet weak var dateLabel: UILabel!
-    @IBOutlet weak var submitButton: UIButton!
-    @IBOutlet weak var cancelButton: UIButton!
+    @IBOutlet weak var submitButton: ShadowingButton!
+    @IBOutlet weak var cancelButton: ShadowingButton!
     
     var completion : ((String) -> Void)?
     var type : RegisterType = .register
@@ -162,11 +162,13 @@ extension RegisterFoodViewController{
     func createCancelButton(){
         cancelButton.layer.backgroundColor = UIColor.Service.yellow.value.cgColor
         cancelButton.titleLabel?.textColor = UIColor.Service.defaultBlack.value
+        cancelButton.configureShadowColor(.black)
     }
     
     func createSubmitButton(){
         submitButton.layer.backgroundColor = UIColor.Service.yellow.value.cgColor
         submitButton.titleLabel?.textColor = UIColor.Service.defaultBlack.value
+        submitButton.configureShadowColor(.black)
     }
     
     func configureViews(){

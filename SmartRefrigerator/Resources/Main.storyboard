@@ -19,6 +19,77 @@
         </array>
     </customFonts>
     <scenes>
+        <!--Manage Account View Controller-->
+        <scene sceneID="q8B-05-lEL">
+            <objects>
+                <viewController id="XWi-0h-1sJ" customClass="ManageAccountViewController" customModule="SmartRefrigerator" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="nDP-M5-G2e">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="계정 관리" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="e5M-m1-wyT">
+                                <rect key="frame" x="167.5" y="60" width="79.5" height="30"/>
+                                <fontDescription key="fontDescription" name="NotoSansCJKkr-Regular" family="Noto Sans CJK KR" pointSize="20"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="160-nu-QaC">
+                                <rect key="frame" x="30" y="60" width="19.5" height="30"/>
+                                <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <state key="normal" image="arrow.backward" catalog="system"/>
+                            </button>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="eTa-kI-mqd">
+                                <rect key="frame" x="32" y="125" width="350" height="120.5"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cln-gN-UwV" customClass="ShadowingButton" customModule="SmartRefrigerator" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="0.0" width="350" height="55"/>
+                                        <color key="backgroundColor" red="1" green="0.80000000000000004" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" secondItem="cln-gN-UwV" secondAttribute="height" multiplier="330:52" id="tJq-tz-cIJ"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" name="NotoSansCJKkr-Bold" family="Noto Sans CJK KR" pointSize="20"/>
+                                        <state key="normal" title="선반 NFC 재등록">
+                                            <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        </state>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zIQ-EC-bvj" customClass="ShadowingButton" customModule="SmartRefrigerator" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="65" width="350" height="55.5"/>
+                                        <color key="backgroundColor" red="1" green="0.80000000000000004" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" secondItem="zIQ-EC-bvj" secondAttribute="height" multiplier="330:52" id="OAd-an-Nfg"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" name="NotoSansCJKkr-Bold" family="Noto Sans CJK KR" pointSize="20"/>
+                                        <state key="normal" title="로그아웃">
+                                            <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        </state>
+                                    </button>
+                                </subviews>
+                            </stackView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="U8m-p6-B5c"/>
+                        <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="e5M-m1-wyT" firstAttribute="centerX" secondItem="nDP-M5-G2e" secondAttribute="centerX" id="18G-kT-Zum"/>
+                            <constraint firstItem="eTa-kI-mqd" firstAttribute="width" secondItem="nDP-M5-G2e" secondAttribute="width" multiplier="330:390" id="C58-N9-eF9"/>
+                            <constraint firstItem="160-nu-QaC" firstAttribute="bottom" secondItem="e5M-m1-wyT" secondAttribute="bottom" id="CWT-sG-2Lq"/>
+                            <constraint firstItem="eTa-kI-mqd" firstAttribute="centerX" secondItem="nDP-M5-G2e" secondAttribute="centerX" id="RWN-P4-Xu8"/>
+                            <constraint firstItem="eTa-kI-mqd" firstAttribute="top" secondItem="e5M-m1-wyT" secondAttribute="bottom" constant="35" id="cor-oV-qpY"/>
+                            <constraint firstItem="e5M-m1-wyT" firstAttribute="top" secondItem="U8m-p6-B5c" secondAttribute="top" constant="16" id="g0S-qu-enw"/>
+                            <constraint firstItem="160-nu-QaC" firstAttribute="top" secondItem="e5M-m1-wyT" secondAttribute="top" id="iRT-z4-iyu"/>
+                            <constraint firstItem="160-nu-QaC" firstAttribute="leading" secondItem="U8m-p6-B5c" secondAttribute="leading" constant="30" id="yKI-Iu-CiV"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="0Yf-KJ-aTI"/>
+                    <connections>
+                        <outlet property="backButton" destination="160-nu-QaC" id="rE0-IF-35b"/>
+                        <outlet property="logoutButton" destination="zIQ-EC-bvj" id="6WQ-jN-5xP"/>
+                        <outlet property="nfcButton" destination="cln-gN-UwV" id="iAD-WS-1Pm"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="1JI-Ee-2gp" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="160.86956521739131" y="734.59821428571422"/>
+        </scene>
         <!--Main View Controller-->
         <scene sceneID="s0d-6b-0kx">
             <objects>
@@ -36,7 +107,7 @@
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="equalSpacing" translatesAutoresizingMaskIntoConstraints="NO" id="LQ3-yX-Dw3">
                                 <rect key="frame" x="32" y="532.5" width="350" height="114.5"/>
                                 <subviews>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wRT-am-0wU">
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wRT-am-0wU" customClass="ShadowingButton" customModule="SmartRefrigerator" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="0.0" width="350" height="55"/>
                                         <color key="backgroundColor" red="1" green="0.80000000000000004" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                         <fontDescription key="fontDescription" name="NotoSansCJKkr-Bold" family="Noto Sans CJK KR" pointSize="24"/>
@@ -50,6 +121,9 @@
                                         <state key="normal" title="계정 관리">
                                             <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         </state>
+                                        <connections>
+                                            <segue destination="XWi-0h-1sJ" kind="presentation" modalPresentationStyle="fullScreen" modalTransitionStyle="crossDissolve" id="fAD-ch-0mJ"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                                 <constraints>
@@ -222,7 +296,7 @@
                                     <stackView opaque="NO" contentMode="scaleToFill" distribution="equalSpacing" translatesAutoresizingMaskIntoConstraints="NO" id="kGy-ER-tyH">
                                         <rect key="frame" x="32" y="199.5" width="350" height="55"/>
                                         <subviews>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ERH-CR-YsC">
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ERH-CR-YsC" customClass="ShadowingButton" customModule="SmartRefrigerator" customModuleProvider="target">
                                                 <rect key="frame" x="0.0" y="0.0" width="167.5" height="55"/>
                                                 <color key="backgroundColor" red="1" green="0.80000000000000004" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                 <fontDescription key="fontDescription" name="NotoSansCJKkr-Bold" family="Noto Sans CJK KR" pointSize="20"/>
@@ -230,7 +304,7 @@
                                                     <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 </state>
                                             </button>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="72J-Ki-DEY">
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="72J-Ki-DEY" customClass="ShadowingButton" customModule="SmartRefrigerator" customModuleProvider="target">
                                                 <rect key="frame" x="182.5" y="0.0" width="167.5" height="55"/>
                                                 <color key="backgroundColor" red="1" green="0.80000000000000004" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                 <fontDescription key="fontDescription" name="NotoSansCJKkr-Bold" family="Noto Sans CJK KR" pointSize="20"/>
@@ -530,6 +604,7 @@
         </designable>
     </designables>
     <resources>
+        <image name="arrow.backward" catalog="system" width="128" height="98"/>
         <image name="ice" width="70" height="76"/>
     </resources>
 </document>

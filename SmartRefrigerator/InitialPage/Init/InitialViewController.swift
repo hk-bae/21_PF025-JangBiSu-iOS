@@ -14,9 +14,9 @@ class InitialViewController: UIViewController {
     @IBOutlet weak var moveToRegisterPageButton: ShadowingButton!
     
     override func viewWillAppear(_ animated: Bool) {
-        
         self.navigationController?.isNavigationBarHidden = true
         configureNavigationController()
+        autoLogin()
     }
     
     override func viewDidLoad() {
@@ -28,13 +28,6 @@ class InitialViewController: UIViewController {
         self.navigationController?.isNavigationBarHidden = false
     }
     
-    // 개발 중 임시용
-//    @IBAction func moveToMainPage(_ sender: Any) {
-//        let main = MainViewController()
-//        main.modalTransitionStyle = .crossDissolve
-//        main.modalPresentationStyle = .overFullScreen
-//        self.present(main, animated: true,completion: nil)
-//    }
 }
 
 extension InitialViewController {
@@ -94,11 +87,12 @@ extension InitialViewController {
 extension InitialViewController {
     func autoLogin(){
         if UserDefaults.standard.bool(forKey: CommonString.AUTO_LOGIN.rawValue), let _ = UserInfo.savedUser {
-            // 자동로그인
-            //            let main = UIHostingController(rootView: MainView())
-            //            main.modalTransitionStyle = .crossDissolve
-            //            main.modalPresentationStyle = .overFullScreen
-            //            self.present(main, animated: true,completion: nil)
+            //자동로그인
+            let mainStoryboard = UIStoryboard.init(name: "Main", bundle: nil)
+            let main = mainStoryboard.instantiateViewController(identifier: "MainVC") as! MainViewController
+            main.modalTransitionStyle = .crossDissolve
+            main.modalPresentationStyle = .overFullScreen
+            self.present(main, animated: true)
         }
     }
 }
