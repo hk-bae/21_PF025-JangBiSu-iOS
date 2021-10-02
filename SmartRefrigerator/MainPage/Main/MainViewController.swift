@@ -57,7 +57,12 @@ extension MainViewController{
         
         checkIceButton.rx.tap.asObservable()
             .subscribe(onNext:{
-                
+                if let viewController = self.storyboard?.instantiateViewController(identifier: "CheckIceVC") as? CheckIceViewController{
+                    // ===========서버 통신을 통해 얼음이 얼었는지 가져오기===========
+                    var isIceMade = false
+                    viewController.isIceMade = isIceMade
+                    self.present(viewController, animated: true, completion: nil)
+                }
             })
             .disposed(by: disposeBag)
     }
@@ -123,7 +128,7 @@ extension MainViewController {
                 }
             }
             self.present(viewController, animated: true, completion: nil)
-          
+            
         }
     }
     

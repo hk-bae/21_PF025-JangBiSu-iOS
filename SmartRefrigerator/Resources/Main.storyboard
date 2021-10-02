@@ -412,6 +412,81 @@
             </objects>
             <point key="canvasLocation" x="1930.4347826086957" y="71.651785714285708"/>
         </scene>
+        <!--Check Ice View Controller-->
+        <scene sceneID="YGV-Zy-BMx">
+            <objects>
+                <viewController storyboardIdentifier="CheckIceVC" id="TaE-mP-peh" customClass="CheckIceViewController" customModule="SmartRefrigerator" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="oGM-b3-RkO">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="EHL-gm-XiH">
+                                <rect key="frame" x="0.0" y="427" width="414" height="469"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="얼음 상태 확인" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZP1-hr-RZ0">
+                                        <rect key="frame" x="109.5" y="30" width="195" height="47.5"/>
+                                        <fontDescription key="fontDescription" name="NotoSansCJKkr-Regular" family="Noto Sans CJK KR" pointSize="32"/>
+                                        <color key="textColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="얼음을 생성 중 입니다." textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Grb-CC-Iny">
+                                        <rect key="frame" x="94" y="285" width="226" height="36"/>
+                                        <fontDescription key="fontDescription" name="NotoSansCJKkr-Regular" family="Noto Sans CJK KR" pointSize="24"/>
+                                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ice" translatesAutoresizingMaskIntoConstraints="NO" id="Ufm-Ak-jYO">
+                                        <rect key="frame" x="0.0" y="97.5" width="414" height="157.5"/>
+                                    </imageView>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9UJ-km-E5K" customClass="ShadowingButton" customModule="SmartRefrigerator" customModuleProvider="target">
+                                        <rect key="frame" x="63.5" y="364" width="287" height="55"/>
+                                        <color key="backgroundColor" red="1" green="0.80000000000000004" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" secondItem="9UJ-km-E5K" secondAttribute="height" multiplier="270:52" id="O4i-fL-Hch"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" name="NotoSansCJKkr-Bold" family="Noto Sans CJK KR" pointSize="20"/>
+                                        <state key="normal" title="확인">
+                                            <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        </state>
+                                    </button>
+                                </subviews>
+                                <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="bottom" secondItem="9UJ-km-E5K" secondAttribute="bottom" constant="50" id="2I3-3f-1zz"/>
+                                    <constraint firstItem="ZP1-hr-RZ0" firstAttribute="centerX" secondItem="EHL-gm-XiH" secondAttribute="centerX" id="46l-0x-FbQ"/>
+                                    <constraint firstItem="Grb-CC-Iny" firstAttribute="centerX" secondItem="EHL-gm-XiH" secondAttribute="centerX" id="4Nn-Ak-sD4"/>
+                                    <constraint firstItem="9UJ-km-E5K" firstAttribute="centerX" secondItem="EHL-gm-XiH" secondAttribute="centerX" id="8zQ-gd-loq"/>
+                                    <constraint firstItem="ZP1-hr-RZ0" firstAttribute="top" secondItem="EHL-gm-XiH" secondAttribute="top" constant="30" id="CUy-2n-x9S"/>
+                                    <constraint firstItem="Grb-CC-Iny" firstAttribute="top" secondItem="Ufm-Ak-jYO" secondAttribute="bottom" constant="30" id="CzS-XC-qGM"/>
+                                    <constraint firstItem="Ufm-Ak-jYO" firstAttribute="leading" secondItem="EHL-gm-XiH" secondAttribute="leading" id="Vgk-KI-ZY3"/>
+                                    <constraint firstItem="Ufm-Ak-jYO" firstAttribute="height" secondItem="EHL-gm-XiH" secondAttribute="width" multiplier="148:390" id="YUv-5K-IPs"/>
+                                    <constraint firstItem="Ufm-Ak-jYO" firstAttribute="top" secondItem="ZP1-hr-RZ0" secondAttribute="bottom" constant="20" id="b47-Mz-dYt"/>
+                                    <constraint firstItem="9UJ-km-E5K" firstAttribute="top" secondItem="Grb-CC-Iny" secondAttribute="bottom" constant="43" id="eNu-bz-whS"/>
+                                    <constraint firstAttribute="trailing" secondItem="Ufm-Ak-jYO" secondAttribute="trailing" id="fja-hd-aXW"/>
+                                    <constraint firstItem="9UJ-km-E5K" firstAttribute="width" secondItem="EHL-gm-XiH" secondAttribute="width" multiplier="270:390" id="gJ4-02-Oaw"/>
+                                </constraints>
+                            </view>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="IyR-dG-TLg"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstAttribute="bottom" secondItem="EHL-gm-XiH" secondAttribute="bottom" id="VPh-tp-w0i"/>
+                            <constraint firstItem="EHL-gm-XiH" firstAttribute="leading" secondItem="IyR-dG-TLg" secondAttribute="leading" id="fdC-GS-YHr"/>
+                            <constraint firstItem="IyR-dG-TLg" firstAttribute="trailing" secondItem="EHL-gm-XiH" secondAttribute="trailing" id="lXd-Mx-tEu"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="containerView" destination="EHL-gm-XiH" id="rkf-O4-1oC"/>
+                        <outlet property="descriptionLabel" destination="Grb-CC-Iny" id="BXx-14-wLC"/>
+                        <outlet property="iceImageview" destination="Ufm-Ak-jYO" id="YLv-DV-THN"/>
+                        <outlet property="okButton" destination="9UJ-km-E5K" id="Tvj-zR-9aq"/>
+                        <outlet property="titleLabel" destination="ZP1-hr-RZ0" id="kph-Jt-APF"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="UOa-a2-3iG" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1921.7391304347827" y="-601.33928571428567"/>
+        </scene>
     </scenes>
     <designables>
         <designable name="3rs-ry-Nso">
@@ -419,6 +494,9 @@
         </designable>
         <designable name="87p-eR-xya">
             <size key="intrinsicContentSize" width="128" height="42"/>
+        </designable>
+        <designable name="9UJ-km-E5K">
+            <size key="intrinsicContentSize" width="37" height="42"/>
         </designable>
         <designable name="Qox-ro-Op8">
             <size key="intrinsicContentSize" width="45" height="84"/>
@@ -451,4 +529,7 @@
             <size key="intrinsicContentSize" width="45" height="84"/>
         </designable>
     </designables>
+    <resources>
+        <image name="ice" width="70" height="76"/>
+    </resources>
 </document>
