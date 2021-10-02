@@ -293,10 +293,138 @@
             </objects>
             <point key="canvasLocation" x="968" y="72"/>
         </scene>
+        <!--Inquire View Controller-->
+        <scene sceneID="ICV-B3-PBS">
+            <objects>
+                <viewController storyboardIdentifier="InquireFoodVC" id="yAQ-fD-Xhb" customClass="InquireViewController" customModule="SmartRefrigerator" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="rR3-Gz-kE0">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="WnY-YW-ZU9">
+                                <rect key="frame" x="0.0" y="421.5" width="414" height="474.5"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="반찬 정보" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YHW-Ud-fVi">
+                                        <rect key="frame" x="143.5" y="39" width="127" height="47.5"/>
+                                        <fontDescription key="fontDescription" name="NotoSansCJKkr-Regular" family="Noto Sans CJK KR" pointSize="32"/>
+                                        <color key="textColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillProportionally" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="MSL-s1-dQH">
+                                        <rect key="frame" x="63.5" y="106.5" width="287" height="186.5"/>
+                                        <subviews>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="q0H-uj-dsX" customClass="ShadowingButton" customModule="SmartRefrigerator" customModuleProvider="target">
+                                                <rect key="frame" x="0.0" y="0.0" width="287" height="53.5"/>
+                                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <fontDescription key="fontDescription" name="NotoSansCJKkr-Bold" family="Noto Sans CJK KR" pointSize="20"/>
+                                                <state key="normal" title="반찬 이름">
+                                                    <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                </state>
+                                            </button>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3rs-ry-Nso" customClass="ShadowingButton" customModule="SmartRefrigerator" customModuleProvider="target">
+                                                <rect key="frame" x="0.0" y="63.5" width="287" height="54"/>
+                                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <fontDescription key="fontDescription" name="NotoSansCJKkr-Bold" family="Noto Sans CJK KR" pointSize="20"/>
+                                                <state key="normal" title="잔여량 0%">
+                                                    <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                </state>
+                                            </button>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="87p-eR-xya" customClass="ShadowingButton" customModule="SmartRefrigerator" customModuleProvider="target">
+                                                <rect key="frame" x="0.0" y="127.5" width="287" height="59"/>
+                                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <fontDescription key="fontDescription" name="NotoSansCJKkr-Bold" family="Noto Sans CJK KR" pointSize="20"/>
+                                                <state key="normal" title="2021 - 10 - 02">
+                                                    <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                </state>
+                                            </button>
+                                        </subviews>
+                                        <constraints>
+                                            <constraint firstAttribute="width" secondItem="MSL-s1-dQH" secondAttribute="height" multiplier="270:176" id="ccL-c2-L8z"/>
+                                        </constraints>
+                                    </stackView>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="등록일로부터 1일 지났습니다." textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8Wa-md-3ty">
+                                        <rect key="frame" x="83" y="303" width="248" height="30"/>
+                                        <fontDescription key="fontDescription" name="NotoSansCJKkr-Regular" family="Noto Sans CJK KR" pointSize="20"/>
+                                        <color key="textColor" red="1" green="0.80000000000000004" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="14" translatesAutoresizingMaskIntoConstraints="NO" id="37F-B6-t86">
+                                        <rect key="frame" x="32" y="368" width="350" height="55.5"/>
+                                        <subviews>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uH3-n0-h3t" customClass="ShadowingButton" customModule="SmartRefrigerator" customModuleProvider="target">
+                                                <rect key="frame" x="0.0" y="0.0" width="168" height="55.5"/>
+                                                <color key="backgroundColor" red="1" green="0.80000000000000004" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" secondItem="uH3-n0-h3t" secondAttribute="height" multiplier="158:52" id="P7E-of-oB3"/>
+                                                </constraints>
+                                                <fontDescription key="fontDescription" name="NotoSansCJKkr-Bold" family="Noto Sans CJK KR" pointSize="20"/>
+                                                <state key="normal" title="변경하기">
+                                                    <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                </state>
+                                            </button>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eKe-7m-jjP" customClass="ShadowingButton" customModule="SmartRefrigerator" customModuleProvider="target">
+                                                <rect key="frame" x="182" y="0.0" width="168" height="55.5"/>
+                                                <color key="backgroundColor" red="1" green="0.80000000000000004" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                                <fontDescription key="fontDescription" name="NotoSansCJKkr-Bold" family="Noto Sans CJK KR" pointSize="20"/>
+                                                <state key="normal" title="확인">
+                                                    <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                </state>
+                                            </button>
+                                        </subviews>
+                                    </stackView>
+                                </subviews>
+                                <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstItem="YHW-Ud-fVi" firstAttribute="centerX" secondItem="WnY-YW-ZU9" secondAttribute="centerX" id="2TC-i8-8lA"/>
+                                    <constraint firstItem="37F-B6-t86" firstAttribute="centerX" secondItem="WnY-YW-ZU9" secondAttribute="centerX" id="76e-IR-aNb"/>
+                                    <constraint firstItem="8Wa-md-3ty" firstAttribute="top" secondItem="MSL-s1-dQH" secondAttribute="bottom" constant="10" id="C2v-B8-w2r"/>
+                                    <constraint firstItem="37F-B6-t86" firstAttribute="width" secondItem="WnY-YW-ZU9" secondAttribute="width" multiplier="330:390" id="CCA-wI-9k2"/>
+                                    <constraint firstItem="MSL-s1-dQH" firstAttribute="centerX" secondItem="WnY-YW-ZU9" secondAttribute="centerX" id="HXV-U9-EKD"/>
+                                    <constraint firstItem="YHW-Ud-fVi" firstAttribute="top" secondItem="WnY-YW-ZU9" secondAttribute="top" constant="39" id="IV8-Dq-08E"/>
+                                    <constraint firstItem="MSL-s1-dQH" firstAttribute="top" secondItem="YHW-Ud-fVi" secondAttribute="bottom" constant="20" id="LL1-DV-vLw"/>
+                                    <constraint firstAttribute="bottom" secondItem="37F-B6-t86" secondAttribute="bottom" constant="51" id="TIf-CZ-tUp"/>
+                                    <constraint firstItem="37F-B6-t86" firstAttribute="top" secondItem="8Wa-md-3ty" secondAttribute="bottom" constant="35" id="unf-ES-zfz"/>
+                                    <constraint firstItem="8Wa-md-3ty" firstAttribute="centerX" secondItem="WnY-YW-ZU9" secondAttribute="centerX" id="wgl-ZG-tYL"/>
+                                    <constraint firstItem="MSL-s1-dQH" firstAttribute="width" secondItem="WnY-YW-ZU9" secondAttribute="width" multiplier="270:390" id="xfM-7m-sgj"/>
+                                </constraints>
+                            </view>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="Kbx-Id-Z0m"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="WnY-YW-ZU9" firstAttribute="leading" secondItem="Kbx-Id-Z0m" secondAttribute="leading" id="1c4-vU-W72"/>
+                            <constraint firstAttribute="bottom" secondItem="WnY-YW-ZU9" secondAttribute="bottom" id="uMk-gr-wzo"/>
+                            <constraint firstItem="Kbx-Id-Z0m" firstAttribute="trailing" secondItem="WnY-YW-ZU9" secondAttribute="trailing" id="vJ9-54-bez"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="containerView" destination="WnY-YW-ZU9" id="xHZ-VJ-DOt"/>
+                        <outlet property="ddayInfoLabel" destination="8Wa-md-3ty" id="2fa-ky-p87"/>
+                        <outlet property="foodNameButton" destination="q0H-uj-dsX" id="CZQ-ic-NfH"/>
+                        <outlet property="modifyButton" destination="uH3-n0-h3t" id="iHX-qt-HqF"/>
+                        <outlet property="okButton" destination="eKe-7m-jjP" id="S3K-Hn-put"/>
+                        <outlet property="registeredDateButton" destination="87p-eR-xya" id="Ccx-7d-CRZ"/>
+                        <outlet property="remainedWeightButton" destination="3rs-ry-Nso" id="BTK-8Q-ckp"/>
+                        <outlet property="titleLabel" destination="YHW-Ud-fVi" id="MSW-9p-Ze3"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="p4A-KE-CMg" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1930.4347826086957" y="71.651785714285708"/>
+        </scene>
     </scenes>
     <designables>
+        <designable name="3rs-ry-Nso">
+            <size key="intrinsicContentSize" width="91" height="42"/>
+        </designable>
+        <designable name="87p-eR-xya">
+            <size key="intrinsicContentSize" width="128" height="42"/>
+        </designable>
         <designable name="Qox-ro-Op8">
             <size key="intrinsicContentSize" width="45" height="84"/>
+        </designable>
+        <designable name="eKe-7m-jjP">
+            <size key="intrinsicContentSize" width="37" height="42"/>
         </designable>
         <designable name="gwE-V1-xVn">
             <size key="intrinsicContentSize" width="45" height="84"/>
@@ -312,6 +440,12 @@
         </designable>
         <designable name="ltR-1e-kW9">
             <size key="intrinsicContentSize" width="45" height="84"/>
+        </designable>
+        <designable name="q0H-uj-dsX">
+            <size key="intrinsicContentSize" width="80" height="42"/>
+        </designable>
+        <designable name="uH3-n0-h3t">
+            <size key="intrinsicContentSize" width="74" height="42"/>
         </designable>
         <designable name="x4o-VV-tCN">
             <size key="intrinsicContentSize" width="45" height="84"/>

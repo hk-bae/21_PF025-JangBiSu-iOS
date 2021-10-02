@@ -39,8 +39,8 @@ class MainUsecase {
         }
     }
     
-    func inquireFood(){
-        
+    func inquireFood(foodId:String,foodName:String,completion:@escaping () -> Void){
+        repository.modifyFood(foodId: foodId, foodName: foodName, completion: completion)
     }
     
     

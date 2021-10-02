@@ -9,11 +9,11 @@ import Foundation
 
 struct Food: Codable {
     let id: String
-    let foodName: String
-    let foodRow, foodCol: Int
-    let foodWeight : Float
-    let registeredDate : String
-    let shelfID: Shelf
+    var foodName: String
+    var foodRow, foodCol: Int
+    var foodWeight : Float
+    var registeredDate : String
+    var shelfID: Shelf
     
     
     enum CodingKeys: String, CodingKey {
@@ -36,6 +36,6 @@ extension Food {
         
         let days = Calendar.current.dateComponents([.day], from: date!, to:today).day! + 1
 
-        return days
+        return days - 1
     }
 }

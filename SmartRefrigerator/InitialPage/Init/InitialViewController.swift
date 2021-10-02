@@ -10,8 +10,8 @@ import UIKit
 
 class InitialViewController: UIViewController {
     
-    @IBOutlet weak var moveToLoginPageButton: UIButton!
-    @IBOutlet weak var moveToRegisterPageButton: UIButton!
+    @IBOutlet weak var moveToLoginPageButton: ShadowingButton!
+    @IBOutlet weak var moveToRegisterPageButton: ShadowingButton!
     
     override func viewWillAppear(_ animated: Bool) {
         
@@ -75,6 +75,7 @@ extension InitialViewController {
         moveToLoginPageButton.layer.borderWidth = 2
         moveToLoginPageButton.layer.borderColor = UIColor.Service.yellow.value.cgColor
         moveToLoginPageButton.layer.shadowColor = UIColor.Service.shadwGray.value.cgColor
+        
     }
     
     func createMoveToRegisterButton(){
