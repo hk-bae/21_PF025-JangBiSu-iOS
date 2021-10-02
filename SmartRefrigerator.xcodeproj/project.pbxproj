@@ -8,6 +8,12 @@
 
 /* Begin PBXBuildFile section */
 		2009CC2D27058EF500C22D72 /* TTSUtility.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2009CC2C27058EF500C22D72 /* TTSUtility.swift */; };
+		2009CC2F2705B30800C22D72 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2009CC2E2705B30800C22D72 /* MainViewController.swift */; };
+		2009CC312705B3B900C22D72 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2009CC302705B3B900C22D72 /* Main.storyboard */; };
+		2009CC332705C2A800C22D72 /* FoodRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2009CC322705C2A800C22D72 /* FoodRouter.swift */; };
+		2009CC352705C45000C22D72 /* MainViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2009CC342705C45000C22D72 /* MainViewModel.swift */; };
+		2009CC372705C45C00C22D72 /* MainUsecase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2009CC362705C45C00C22D72 /* MainUsecase.swift */; };
+		2009CC3A2705C4A200C22D72 /* MainRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2009CC392705C4A200C22D72 /* MainRepository.swift */; };
 		200EC95D26E11FCC00186F28 /* InputTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 200EC95C26E11FCC00186F28 /* InputTextField.swift */; };
 		200EC96026E1253700186F28 /* ShadowingButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 200EC95F26E1253700186F28 /* ShadowingButton.swift */; };
 		200EC96426E13E3A00186F28 /* ConnectRefrigeratorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 200EC96326E13E3A00186F28 /* ConnectRefrigeratorViewController.swift */; };
@@ -35,9 +41,6 @@
 		2062432F26CD2D0000A9018A /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2062432D26CD2D0000A9018A /* LaunchScreen.storyboard */; };
 		2062433C26CD2DEA00A9018A /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2062433B26CD2DEA00A9018A /* LoginViewController.swift */; };
 		2062434026CD2DF900A9018A /* RegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2062433F26CD2DF900A9018A /* RegisterViewController.swift */; };
-		2062434A26CD2E8C00A9018A /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2062434926CD2E8C00A9018A /* MainView.swift */; };
-		2062435426CD2EB500A9018A /* StatusView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2062435326CD2EB500A9018A /* StatusView.swift */; };
-		2062435726CD2EC000A9018A /* IceView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2062435626CD2EC000A9018A /* IceView.swift */; };
 		2062435C26CD2EE600A9018A /* UIKit+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2062435B26CD2EE600A9018A /* UIKit+Extension.swift */; };
 		20966E7226ECF6AF00A109BD /* UserInfoRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20966E7126ECF6AF00A109BD /* UserInfoRepository.swift */; };
 		20966E7426ECF6B700A109BD /* LoginUsecase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20966E7326ECF6B700A109BD /* LoginUsecase.swift */; };
@@ -46,13 +49,20 @@
 		20A5A75C26F89D1A008354A1 /* ConnectRefrigeratorUsercase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20A5A75B26F89D1A008354A1 /* ConnectRefrigeratorUsercase.swift */; };
 		20A5A75E26F8D356008354A1 /* ConnectRefrigeratorByNFCInputViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20A5A75D26F8D356008354A1 /* ConnectRefrigeratorByNFCInputViewController.swift */; };
 		20A5A76026F8D46A008354A1 /* ConnectRefrigeratorByNFCInputViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20A5A75F26F8D46A008354A1 /* ConnectRefrigeratorByNFCInputViewModel.swift */; };
+		20ED6F7F2706CFF1002C66EA /* RegisterFoodViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20ED6F7E2706CFF1002C66EA /* RegisterFoodViewController.swift */; };
+		20ED6F812706D3F7002C66EA /* RegisterFoodViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20ED6F802706D3F7002C66EA /* RegisterFoodViewModel.swift */; };
 		20FD7ED026E20070005B8122 /* NFCUtility.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20FD7ECF26E20070005B8122 /* NFCUtility.swift */; };
 		23C7FC2E8D430D4AB1B0D073 /* Pods_SmartRefrigerator.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EB8CF1F1CE19EC438F39B09A /* Pods_SmartRefrigerator.framework */; };
-		E57A51FB26E2117C007A6419 /* RegisterFoodView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E57A51FA26E2117C007A6419 /* RegisterFoodView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		2009CC2C27058EF500C22D72 /* TTSUtility.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TTSUtility.swift; sourceTree = "<group>"; };
+		2009CC2E2705B30800C22D72 /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
+		2009CC302705B3B900C22D72 /* Main.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
+		2009CC322705C2A800C22D72 /* FoodRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodRouter.swift; sourceTree = "<group>"; };
+		2009CC342705C45000C22D72 /* MainViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewModel.swift; sourceTree = "<group>"; };
+		2009CC362705C45C00C22D72 /* MainUsecase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainUsecase.swift; sourceTree = "<group>"; };
+		2009CC392705C4A200C22D72 /* MainRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainRepository.swift; sourceTree = "<group>"; };
 		200EC95C26E11FCC00186F28 /* InputTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InputTextField.swift; sourceTree = "<group>"; };
 		200EC95F26E1253700186F28 /* ShadowingButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShadowingButton.swift; sourceTree = "<group>"; };
 		200EC96326E13E3A00186F28 /* ConnectRefrigeratorViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConnectRefrigeratorViewController.swift; sourceTree = "<group>"; };
@@ -83,9 +93,6 @@
 		2062433026CD2D0000A9018A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		2062433B26CD2DEA00A9018A /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		2062433F26CD2DF900A9018A /* RegisterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterViewController.swift; sourceTree = "<group>"; };
-		2062434926CD2E8C00A9018A /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
-		2062435326CD2EB500A9018A /* StatusView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatusView.swift; sourceTree = "<group>"; };
-		2062435626CD2EC000A9018A /* IceView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IceView.swift; sourceTree = "<group>"; };
 		2062435B26CD2EE600A9018A /* UIKit+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIKit+Extension.swift"; sourceTree = "<group>"; };
 		20966E7126ECF6AF00A109BD /* UserInfoRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserInfoRepository.swift; sourceTree = "<group>"; };
 		20966E7326ECF6B700A109BD /* LoginUsecase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginUsecase.swift; sourceTree = "<group>"; };
@@ -94,9 +101,10 @@
 		20A5A75B26F89D1A008354A1 /* ConnectRefrigeratorUsercase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConnectRefrigeratorUsercase.swift; sourceTree = "<group>"; };
 		20A5A75D26F8D356008354A1 /* ConnectRefrigeratorByNFCInputViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConnectRefrigeratorByNFCInputViewController.swift; sourceTree = "<group>"; };
 		20A5A75F26F8D46A008354A1 /* ConnectRefrigeratorByNFCInputViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConnectRefrigeratorByNFCInputViewModel.swift; sourceTree = "<group>"; };
+		20ED6F7E2706CFF1002C66EA /* RegisterFoodViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterFoodViewController.swift; sourceTree = "<group>"; };
+		20ED6F802706D3F7002C66EA /* RegisterFoodViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterFoodViewModel.swift; sourceTree = "<group>"; };
 		20FD7ECF26E20070005B8122 /* NFCUtility.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NFCUtility.swift; sourceTree = "<group>"; };
 		54E29ABB2C357B27FADF4CAC /* Pods-SmartRefrigerator.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SmartRefrigerator.release.xcconfig"; path = "Target Support Files/Pods-SmartRefrigerator/Pods-SmartRefrigerator.release.xcconfig"; sourceTree = "<group>"; };
-		E57A51FA26E2117C007A6419 /* RegisterFoodView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterFoodView.swift; sourceTree = "<group>"; };
 		EB8CF1F1CE19EC438F39B09A /* Pods_SmartRefrigerator.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SmartRefrigerator.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		EFEC73D11130E75BAAF3D395 /* Pods-SmartRefrigerator.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SmartRefrigerator.debug.xcconfig"; path = "Target Support Files/Pods-SmartRefrigerator/Pods-SmartRefrigerator.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -113,6 +121,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		2009CC382705C49900C22D72 /* Repository */ = {
+			isa = PBXGroup;
+			children = (
+				2009CC392705C4A200C22D72 /* MainRepository.swift */,
+			);
+			path = Repository;
+			sourceTree = "<group>";
+		};
 		200EC95B26E11FB300186F28 /* View */ = {
 			isa = PBXGroup;
 			children = (
@@ -163,6 +179,7 @@
 				2047DDDA26D4D9B700326003 /* BaseInterceptor.swift */,
 				2047DDE526D4E06E00326003 /* EventLogger.swift */,
 				2047DDE126D4DC8600326003 /* UserInfoRouter.swift */,
+				2009CC322705C2A800C22D72 /* FoodRouter.swift */,
 			);
 			path = Service;
 			sourceTree = "<group>";
@@ -199,6 +216,7 @@
 		2062432126CD2CFF00A9018A /* SmartRefrigerator */ = {
 			isa = PBXGroup;
 			children = (
+				20ED6F7A2706CE59002C66EA /* Resources */,
 				200EC96C26E1DA8600186F28 /* SmartRefrigerator.entitlements */,
 				2062433926CD2DC600A9018A /* InitialPage */,
 				2062434326CD2E1600A9018A /* MainPage */,
@@ -206,7 +224,6 @@
 				2047DDCA26D4D49F00326003 /* Common */,
 				2062432226CD2CFF00A9018A /* AppDelegate.swift */,
 				2062432426CD2CFF00A9018A /* SceneDelegate.swift */,
-				2062432B26CD2D0000A9018A /* Assets.xcassets */,
 				2062432D26CD2D0000A9018A /* LaunchScreen.storyboard */,
 				2062433026CD2D0000A9018A /* Info.plist */,
 			);
@@ -216,13 +233,12 @@
 		2062433926CD2DC600A9018A /* InitialPage */ = {
 			isa = PBXGroup;
 			children = (
+				20ED6F7B2706CE88002C66EA /* Init */,
 				2062433A26CD2DE000A9018A /* Login */,
 				2062433E26CD2DF100A9018A /* Register */,
 				200EC96226E13E2800186F28 /* Connect */,
 				200EC95B26E11FB300186F28 /* View */,
 				20966E7526EDA19200A109BD /* Repository */,
-				2062432626CD2CFF00A9018A /* InitialViewController.swift */,
-				2047DDAA26D3EF9A00326003 /* Initial.storyboard */,
 			);
 			path = InitialPage;
 			sourceTree = "<group>";
@@ -250,6 +266,8 @@
 		2062434326CD2E1600A9018A /* MainPage */ = {
 			isa = PBXGroup;
 			children = (
+				20ED6F8227076181002C66EA /* Model */,
+				2009CC382705C49900C22D72 /* Repository */,
 				2062434826CD2E4C00A9018A /* Main */,
 				2062434726CD2E4600A9018A /* RegisterFood */,
 				2062434526CD2E3400A9018A /* CheckStatus */,
@@ -261,7 +279,6 @@
 		2062434426CD2E2800A9018A /* CheckIce */ = {
 			isa = PBXGroup;
 			children = (
-				2062435626CD2EC000A9018A /* IceView.swift */,
 			);
 			path = CheckIce;
 			sourceTree = "<group>";
@@ -269,7 +286,6 @@
 		2062434526CD2E3400A9018A /* CheckStatus */ = {
 			isa = PBXGroup;
 			children = (
-				2062435326CD2EB500A9018A /* StatusView.swift */,
 			);
 			path = CheckStatus;
 			sourceTree = "<group>";
@@ -277,7 +293,8 @@
 		2062434726CD2E4600A9018A /* RegisterFood */ = {
 			isa = PBXGroup;
 			children = (
-				E57A51FA26E2117C007A6419 /* RegisterFoodView.swift */,
+				20ED6F7E2706CFF1002C66EA /* RegisterFoodViewController.swift */,
+				20ED6F802706D3F7002C66EA /* RegisterFoodViewModel.swift */,
 			);
 			path = RegisterFood;
 			sourceTree = "<group>";
@@ -285,7 +302,9 @@
 		2062434826CD2E4C00A9018A /* Main */ = {
 			isa = PBXGroup;
 			children = (
-				2062434926CD2E8C00A9018A /* MainView.swift */,
+				2009CC2E2705B30800C22D72 /* MainViewController.swift */,
+				2009CC342705C45000C22D72 /* MainViewModel.swift */,
+				2009CC362705C45C00C22D72 /* MainUsecase.swift */,
 			);
 			path = Main;
 			sourceTree = "<group>";
@@ -306,6 +325,31 @@
 				20966E7126ECF6AF00A109BD /* UserInfoRepository.swift */,
 			);
 			path = Repository;
+			sourceTree = "<group>";
+		};
+		20ED6F7A2706CE59002C66EA /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				2062432B26CD2D0000A9018A /* Assets.xcassets */,
+				2009CC302705B3B900C22D72 /* Main.storyboard */,
+				2047DDAA26D3EF9A00326003 /* Initial.storyboard */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		20ED6F7B2706CE88002C66EA /* Init */ = {
+			isa = PBXGroup;
+			children = (
+				2062432626CD2CFF00A9018A /* InitialViewController.swift */,
+			);
+			path = Init;
+			sourceTree = "<group>";
+		};
+		20ED6F8227076181002C66EA /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
 			sourceTree = "<group>";
 		};
 		20FD7ECE26E20056005B8122 /* Utilites */ = {
@@ -396,6 +440,7 @@
 				2047DDAB26D3EF9A00326003 /* Initial.storyboard in Resources */,
 				2047DE3026DE12D500326003 /* NotoSansCJKkr-Medium.otf in Resources */,
 				2047DE2F26DE12D500326003 /* NotoSansCJKkr-Regular.otf in Resources */,
+				2009CC312705B3B900C22D72 /* Main.storyboard in Resources */,
 				2047DE2726DE122F00326003 /* NotoSansCJKkr-Bold.otf in Resources */,
 				2062432F26CD2D0000A9018A /* LaunchScreen.storyboard in Resources */,
 				2062432C26CD2D0000A9018A /* Assets.xcassets in Resources */,
@@ -452,17 +497,17 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2009CC3A2705C4A200C22D72 /* MainRepository.swift in Sources */,
+				2009CC372705C45C00C22D72 /* MainUsecase.swift in Sources */,
 				2062433C26CD2DEA00A9018A /* LoginViewController.swift in Sources */,
 				2047DE1C26DE0FE500326003 /* UIColor+Service.swift in Sources */,
 				20966E7426ECF6B700A109BD /* LoginUsecase.swift in Sources */,
-				2062434A26CD2E8C00A9018A /* MainView.swift in Sources */,
 				2047DDDB26D4D9B700326003 /* BaseInterceptor.swift in Sources */,
 				2047DDC626D4193200326003 /* CommonString.swift in Sources */,
 				200EC96026E1253700186F28 /* ShadowingButton.swift in Sources */,
-				2062435726CD2EC000A9018A /* IceView.swift in Sources */,
+				2009CC2F2705B30800C22D72 /* MainViewController.swift in Sources */,
 				200EC96426E13E3A00186F28 /* ConnectRefrigeratorViewController.swift in Sources */,
 				2047DE1926DE0FDD00326003 /* UIFont+Service.swift in Sources */,
-				2062435426CD2EB500A9018A /* StatusView.swift in Sources */,
 				2047DDE226D4DC8600326003 /* UserInfoRouter.swift in Sources */,
 				2062434026CD2DF900A9018A /* RegisterViewController.swift in Sources */,
 				2047DDD026D4D60900326003 /* Shelf.swift in Sources */,
@@ -478,6 +523,7 @@
 				200EC95D26E11FCC00186F28 /* InputTextField.swift in Sources */,
 				2047DDC326D3FF3100326003 /* LoginViewModel.swift in Sources */,
 				2062432526CD2CFF00A9018A /* SceneDelegate.swift in Sources */,
+				20ED6F7F2706CFF1002C66EA /* RegisterFoodViewController.swift in Sources */,
 				2009CC2D27058EF500C22D72 /* TTSUtility.swift in Sources */,
 				20966E7926EDB44800A109BD /* RegisterUsecase.swift in Sources */,
 				2047DDF626D5363B00326003 /* RegisterViewModel.swift in Sources */,
@@ -485,7 +531,9 @@
 				2047DDD326D4D60F00326003 /* Food.swift in Sources */,
 				2047DDCD26D4D52D00326003 /* UserInfo.swift in Sources */,
 				2047DDD626D4D8EC00326003 /* AlamofireManager.swift in Sources */,
-				E57A51FB26E2117C007A6419 /* RegisterFoodView.swift in Sources */,
+				20ED6F812706D3F7002C66EA /* RegisterFoodViewModel.swift in Sources */,
+				2009CC332705C2A800C22D72 /* FoodRouter.swift in Sources */,
+				2009CC352705C45000C22D72 /* MainViewModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

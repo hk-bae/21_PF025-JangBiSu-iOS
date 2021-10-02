@@ -6,7 +6,8 @@
 //
 
 import UIKit
-import SwiftUI
+
+
 class InitialViewController: UIViewController {
     
     @IBOutlet weak var moveToLoginPageButton: UIButton!
@@ -28,12 +29,12 @@ class InitialViewController: UIViewController {
     }
     
     // 개발 중 임시용
-    @IBAction func moveToMainPage(_ sender: Any) {
-        let main = UIHostingController(rootView: MainView())
-        main.modalTransitionStyle = .crossDissolve
-        main.modalPresentationStyle = .overFullScreen
-        self.present(main, animated: true,completion: nil)
-    }
+//    @IBAction func moveToMainPage(_ sender: Any) {
+//        let main = MainViewController()
+//        main.modalTransitionStyle = .crossDissolve
+//        main.modalPresentationStyle = .overFullScreen
+//        self.present(main, animated: true,completion: nil)
+//    }
 }
 
 extension InitialViewController {

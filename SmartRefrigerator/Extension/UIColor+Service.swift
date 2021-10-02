@@ -20,6 +20,8 @@ extension UIColor {
         case backgroundWhite
         case shadwGray
         case gray
+        case foodGray
+        case bottomSheetDialogGray
         
         var value : UIColor {
             switch self {
@@ -27,8 +29,12 @@ extension UIColor {
                 return UIColor(red: 8.0/255.0, green: 8.0/255.0, blue: 8.0/255.0, alpha: 1)
             case .defaultBlack :
                 return UIColor(red: 25.0/255.0, green: 25.0/255.0, blue: 25.0/255.0, alpha: 1)
+            case .foodGray :
+                return UIColor(red: 104.0/255.0, green: 104.0/255.0, blue: 104.0/255.0, alpha: 1)
             case .darkGray :
                 return UIColor(red: 53.0/255.0, green: 53.0/255.0, blue: 53.0/255.0, alpha: 1)
+            case .bottomSheetDialogGray :
+                return UIColor(red: 37.0/255.0, green: 37.0/255.0, blue: 37.0/255.0, alpha: 1)
             case .borderGray :
                 return UIColor(red: 104.0/255.0, green: 104.0/255.0, blue: 104.0/255.0, alpha: 1)
             case .backgroundWhite :

@@ -9,7 +9,6 @@ import UIKit
 import CoreNFC
 import RxSwift
 import RxCocoa
-import SwiftUI
 
 class ConnectRefrigeratorViewController : UIViewController{
     
@@ -18,7 +17,7 @@ class ConnectRefrigeratorViewController : UIViewController{
     
     private let viewModel = ConnectRefrigeratorViewModel()
     private let disposeBag = DisposeBag()
-    
+        
     override func viewDidLoad(){
         super.viewDidLoad()
         view.layer.backgroundColor = UIColor.Service.defaultBlack.value.cgColor
@@ -70,7 +69,8 @@ extension ConnectRefrigeratorViewController{
         switch result {
         case .success:
             if let _ = UserInfo.savedUser?.shelf {
-                let main = UIHostingController(rootView: MainView())
+                let mainStoryboard = UIStoryboard.init(name: "Main", bundle: nil)
+                let main = mainStoryboard.instantiateViewController(identifier: "MainVC") as! MainViewController
                 main.modalTransitionStyle = .crossDissolve
                 main.modalPresentationStyle = .overFullScreen
                 let navigationViewController = self.navigationController

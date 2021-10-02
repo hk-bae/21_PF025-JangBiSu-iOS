@@ -8,7 +8,7 @@
 import CoreNFC
 import Foundation
 
-typealias ShelfIdReadingCompletion = (Result<Shelf,Error>) -> Void
+typealias nfcIdReadingCompletion = (Result<String,Error>) -> Void
 
 enum NFCError : LocalizedError {
     case unavailable
@@ -25,13 +25,22 @@ enum NFCError : LocalizedError {
 }
 
 class NFCUtility : NSObject {
+    
+    enum Kind{
+        case shelf
+        case food
+    }
+    
     enum NFCAction {
-        case readNFCIdentifier
+        case readNFCIdentifier(kindOf:Kind)
         
         var alertMessage : String {
             switch self {
-            case .readNFCIdentifier:
-                return "선반 태그 스티커 위에 핸드폰을 접촉해 주세요."
+            case .readNFCIdentifier(let kind):
+                if kind == Kind.shelf {
+                    return "선반 태그 스티커 위에 핸드폰을 접촉해 주세요."
+                }
+                return "반찬통 태그 스티커 위에 핸드폰을 접촉해 주세요."
             }
         }
     }
@@ -40,11 +49,11 @@ class NFCUtility : NSObject {
     private var action : NFCAction?
     
     private var session : NFCTagReaderSession?
-    private var completion : ShelfIdReadingCompletion?
+    private var completion : nfcIdReadingCompletion?
     
     static func performAction(
         _ action : NFCAction,
-        completion : ShelfIdReadingCompletion? = nil
+        completion : nfcIdReadingCompletion? = nil
     ){
         guard NFCNDEFReaderSession.readingAvailable else {
             completion?(.failure(NFCError.unavailable))
@@ -124,8 +133,9 @@ extension NFCUtility : NFCTagReaderSessionDelegate {
                     }
                 }
                 
-                self.connectShelf(shelfId : uidString)
-                
+                self.completion?(.success(uidString))
+                self.session?.alertMessage = "태그가 성공적으로 완료되었습니다."
+                self.session?.invalidate()
                 debugPrint("\(byteData) converted to Tag UID: \(uidString)")
                 
             }else{
@@ -135,11 +145,6 @@ extension NFCUtility : NFCTagReaderSessionDelegate {
         }
     }
 
-    func connectShelf(shelfId : String){
-        let shelf = Shelf(id: shelfId, row: 2, col: 3)
-        self.completion?(.success(shelf))
-        self.session?.alertMessage = "태그가 성공적으로 안료되었습니다."
-        self.session?.invalidate()
-    }
+
     
 }

@@ -13,9 +13,10 @@ class ConnectRefrigeratorUsecase {
     
     func connectRefrigeratorByNFCTag(completion: @escaping(_ errorMessage:String?) -> Void){
         // 태그 시도
-        NFCUtility.performAction(.readNFCIdentifier) { [weak self] result in
+        NFCUtility.performAction(.readNFCIdentifier(kindOf: .shelf)) { [weak self] result in
             do{
-                let shelf = try result.get()
+                let shelfId = try result.get()
+                let shelf = Shelf(id: shelfId, row: 2, col: 3)
                 self?.repository.connectRefrigerator(shelf: shelf, completion: completion)
             }catch{
                 // 태깅 실패

@@ -8,7 +8,6 @@
 import UIKit
 import RxSwift
 import RxCocoa
-import SwiftUI
 
 class LoginViewController: UIViewController {
     
@@ -88,17 +87,16 @@ extension LoginViewController {
         case .success :
             // 로그인 성공 처리 -> 메인 페이지로 이동
             if let _ = UserInfo.savedUser?.shelf {
-                let main = UIHostingController(rootView: MainView())
+                let mainStoryboard = UIStoryboard.init(name: "Main", bundle: nil)
+                let main = mainStoryboard.instantiateViewController(identifier: "MainVC") as! MainViewController
                 main.modalTransitionStyle = .crossDissolve
                 main.modalPresentationStyle = .overFullScreen
                 let navigationViewController = self.navigationController
-                
                 self.present(main, animated: true) {
                     navigationViewController?.popViewController(animated: true)
                 }
             }else{
                 // 냉장고 등록 페이지로 이동
-
                 guard let connectVC = self.storyboard?.instantiateViewController(identifier: "connectVC") else { fatalError() }
                 navigationController?.pushViewController(connectVC, animated: true)
                 
