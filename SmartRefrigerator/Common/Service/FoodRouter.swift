@@ -12,7 +12,7 @@ enum FoodRouter : URLRequestConvertible {
     
     case registerFood(id:String,food_name:String,food_row:Int,food_col:Int,registered_date:String,shelf_id:String)
     case fetchFoods(shelf_id:String)
-    case modifyFood(id:String,food_name:String)
+    case modifyFood(id:String,food_name:String,registered_date:String)
     
     var method : HTTPMethod {
         switch self {
@@ -24,7 +24,7 @@ enum FoodRouter : URLRequestConvertible {
     
     var endPoint : String {
         switch self {
-        case .registerFood(let id,_,_,_,_,_),.modifyFood(let id, _):
+        case .registerFood(let id,_,_,_,_,_),.modifyFood(let id, _,_):
             return "food/\(id)"
         case .fetchFoods :
             return "food/all"
@@ -37,8 +37,8 @@ enum FoodRouter : URLRequestConvertible {
             return ["food_name":food_name,"shelf_id":shelf_id,"food_row":String(food_row),"food_col":String(food_col),"registered_date" : registered_date]
         case .fetchFoods(let shelf_id) :
             return ["shelf_id":shelf_id]
-        case .modifyFood(_, let food_name):
-            return ["name" : food_name]
+        case .modifyFood(_, let food_name,let registered_date):
+            return ["name" : food_name,"registered_date":registered_date]
         }
         
     }

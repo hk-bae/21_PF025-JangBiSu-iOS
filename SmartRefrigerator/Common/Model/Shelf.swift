@@ -9,4 +9,5 @@ import Foundation
 struct Shelf: Codable {
     let id: String
     let row, col: Int
+    var ice : Bool = false
 }

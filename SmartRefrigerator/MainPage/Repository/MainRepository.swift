@@ -65,11 +65,11 @@ class MainRepository{
     }
     
     //반찬통 정보 갱신
-    func modifyFood(foodId:String, foodName:String, completion: @escaping () -> Void){
+    func modifyFood(foodId:String, foodName:String, registeredDate : String, completion: @escaping () -> Void){
         AlamofireManager
             .shared
             .session
-            .request(FoodRouter.modifyFood(id: foodId, food_name: foodName))
+            .request(FoodRouter.modifyFood(id: foodId, food_name: foodName, registered_date : registeredDate))
             .responseJSON { response in
                 if response.response?.statusCode == 204 {
                     completion()

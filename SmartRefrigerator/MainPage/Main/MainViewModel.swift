@@ -99,8 +99,8 @@ extension MainViewModel {
         let index = foodInfo.0
         let foodName = foodInfo.1
         if let foodId = foods.value[index]?.id {
-            usecase.inquireFood(foodId: foodId, foodName: foodName, completion: {
-                self.updateFoods(index: index, foodName: foodName)
+            usecase.modifyFood(foodId: foodId, foodName: foodName, completion: {
+                self.fetchData()
             })
         }
         
@@ -112,11 +112,7 @@ extension MainViewModel {
         self.foods.accept(newValue)
     }
     
-    func updateFoods(index:Int,foodName:String){
-        var newValue = self.foods.value
-        newValue[index]?.foodName = foodName
-        self.foods.accept(newValue)
-    }
+
     
     func handleCheckingIce(){
         

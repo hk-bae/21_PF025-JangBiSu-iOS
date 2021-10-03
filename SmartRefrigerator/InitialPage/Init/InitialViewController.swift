@@ -86,7 +86,7 @@ extension InitialViewController {
 
 extension InitialViewController {
     func autoLogin(){
-        if UserDefaults.standard.bool(forKey: CommonString.AUTO_LOGIN.rawValue), let _ = UserInfo.savedUser {
+        if UserDefaults.standard.bool(forKey: CommonString.AUTO_LOGIN.rawValue), let _ = UserInfo.savedUser?.shelf {
             //자동로그인
             let mainStoryboard = UIStoryboard.init(name: "Main", bundle: nil)
             let main = mainStoryboard.instantiateViewController(identifier: "MainVC") as! MainViewController

@@ -25,8 +25,8 @@ class ConnectRefrigeratorByNFCInputViewController: OverrappingViewController, UI
     
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var subtitleLabel: UILabel!
-    @IBOutlet weak var cancelButton: UIButton!
-    @IBOutlet weak var submitButton: UIButton!
+    @IBOutlet weak var cancelButton: ShadowingButton!
+    @IBOutlet weak var submitButton: ShadowingButton!
     
     @IBOutlet weak var shelfIdInputTextField: InputTextField!
     
@@ -118,7 +118,7 @@ extension ConnectRefrigeratorByNFCInputViewController{
 
 extension ConnectRefrigeratorByNFCInputViewController{
     func createView(){
-        containerView.layer.backgroundColor = UIColor.Service.defaultBlack.value.cgColor
+        containerView.layer.backgroundColor = UIColor.Service.bottomSheetDialogGray.value.cgColor
         createTitleLabel()
         createShelfIdInputTextField()
         createSubtitleLabel()
@@ -144,11 +144,13 @@ extension ConnectRefrigeratorByNFCInputViewController{
     func createCancelButton(){
         cancelButton.layer.backgroundColor = UIColor.Service.yellow.value.cgColor
         cancelButton.titleLabel?.textColor = UIColor.Service.defaultBlack.value
+        cancelButton.configureShadowColor(.black)
     }
     
     func createSubmitButton(){
         submitButton.layer.backgroundColor = UIColor.Service.yellow.value.cgColor
         submitButton.titleLabel?.textColor = UIColor.Service.defaultBlack.value
+        submitButton.configureShadowColor(.black)
     }
     
     func configureViews(){

@@ -35,9 +35,13 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="160-nu-QaC">
-                                <rect key="frame" x="30" y="60" width="19.5" height="30"/>
+                                <rect key="frame" x="30" y="63.5" width="28" height="23"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="28" id="LsE-JI-Q2y"/>
+                                    <constraint firstAttribute="width" constant="28" id="yi4-gF-fsN"/>
+                                </constraints>
                                 <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <state key="normal" image="arrow.backward" catalog="system"/>
+                                <state key="normal" backgroundImage="arrow.backward" catalog="system"/>
                             </button>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="eTa-kI-mqd">
                                 <rect key="frame" x="32" y="125" width="350" height="120.5"/>
@@ -72,11 +76,10 @@
                         <constraints>
                             <constraint firstItem="e5M-m1-wyT" firstAttribute="centerX" secondItem="nDP-M5-G2e" secondAttribute="centerX" id="18G-kT-Zum"/>
                             <constraint firstItem="eTa-kI-mqd" firstAttribute="width" secondItem="nDP-M5-G2e" secondAttribute="width" multiplier="330:390" id="C58-N9-eF9"/>
-                            <constraint firstItem="160-nu-QaC" firstAttribute="bottom" secondItem="e5M-m1-wyT" secondAttribute="bottom" id="CWT-sG-2Lq"/>
                             <constraint firstItem="eTa-kI-mqd" firstAttribute="centerX" secondItem="nDP-M5-G2e" secondAttribute="centerX" id="RWN-P4-Xu8"/>
                             <constraint firstItem="eTa-kI-mqd" firstAttribute="top" secondItem="e5M-m1-wyT" secondAttribute="bottom" constant="35" id="cor-oV-qpY"/>
                             <constraint firstItem="e5M-m1-wyT" firstAttribute="top" secondItem="U8m-p6-B5c" secondAttribute="top" constant="16" id="g0S-qu-enw"/>
-                            <constraint firstItem="160-nu-QaC" firstAttribute="top" secondItem="e5M-m1-wyT" secondAttribute="top" id="iRT-z4-iyu"/>
+                            <constraint firstItem="160-nu-QaC" firstAttribute="centerY" secondItem="e5M-m1-wyT" secondAttribute="centerY" id="tws-uU-v1k"/>
                             <constraint firstItem="160-nu-QaC" firstAttribute="leading" secondItem="U8m-p6-B5c" secondAttribute="leading" constant="30" id="yKI-Iu-CiV"/>
                         </constraints>
                     </view>
@@ -102,15 +105,6 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="mGg-U5-uLO">
                                 <rect key="frame" x="16" y="315.5" width="382" height="265"/>
                                 <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eVY-fD-Kf8">
-                                        <rect key="frame" x="0.0" y="40" width="382" height="89"/>
-                                        <string key="text">선반 재등록을 진행하면 
-현재 등록된 정보는 모두 사라집니다. 
-정말로 진행하시겠습니까?</string>
-                                        <fontDescription key="fontDescription" name="NotoSansCJKkr-Regular" family="Noto Sans CJK KR" pointSize="20"/>
-                                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
                                     <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="14" translatesAutoresizingMaskIntoConstraints="NO" id="vqv-DJ-5tS">
                                         <rect key="frame" x="14.5" y="159" width="353" height="56"/>
                                         <subviews>
@@ -141,6 +135,15 @@
                                             <constraint firstAttribute="width" secondItem="vqv-DJ-5tS" secondAttribute="height" multiplier="330:52" id="Otf-2H-5zr"/>
                                         </constraints>
                                     </stackView>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eVY-fD-Kf8">
+                                        <rect key="frame" x="14" y="28" width="382" height="89"/>
+                                        <string key="text">선반 재등록을 진행하면 
+현재 등록된 정보는 모두 사라집니다. 
+정말로 진행하시겠습니까?</string>
+                                        <fontDescription key="fontDescription" name="NotoSansCJKkr-Regular" family="Noto Sans CJK KR" pointSize="20"/>
+                                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
                                 </subviews>
                                 <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
@@ -166,6 +169,7 @@
                     <connections>
                         <outlet property="cancelButton" destination="Jn0-dx-Gcx" id="C2r-xZ-CPG"/>
                         <outlet property="containerView" destination="mGg-U5-uLO" id="Zg0-4z-maY"/>
+                        <outlet property="descriptionLabel" destination="eVY-fD-Kf8" id="eZS-lG-Jos"/>
                         <outlet property="nfcButton" destination="1BQ-r7-QUS" id="3B5-5j-Qvw"/>
                     </connections>
                 </viewController>

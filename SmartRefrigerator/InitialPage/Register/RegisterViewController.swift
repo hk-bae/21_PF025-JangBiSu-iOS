@@ -98,7 +98,10 @@ extension RegisterViewController {
             .subscribe(onNext: clearInputPwCheck)
             .disposed(by: disposeBag)
         
-        
+        goToLoginButton.rx.tap
+            .asObservable()
+            .subscribe(onNext:goToLoginPage)
+            .disposed(by: disposeBag)
     }
     
     func output(){
@@ -199,6 +202,20 @@ extension RegisterViewController {
             TTSUtility.speak(string: term)
         }
     }
+    
+    func goToLoginPage(){
+        guard let loginVC = self.storyboard?.instantiateViewController(identifier: "LoginVC") as? LoginViewController else{
+            fatalError()
+        }
+        let nc = self.navigationController
+        CATransaction.begin()
+        CATransaction.setCompletionBlock {
+            nc?.pushViewController(loginVC, animated: true)
+        }
+        self.navigationController?.popViewController(animated: true)
+        CATransaction.commit()
+    }
+
     
     func clearInputId(){
         self.idInputTextField.text = ""

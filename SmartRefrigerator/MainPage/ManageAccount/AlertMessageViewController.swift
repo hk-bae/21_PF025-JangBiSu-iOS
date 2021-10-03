@@ -17,6 +17,7 @@ extension AlertMessageViewController{
 class AlertMessageViewController: OverrappingViewController {
     
     @IBOutlet weak var containerView: UIView!
+    @IBOutlet weak var descriptionLabel: UILabel!
     @IBOutlet weak var cancelButton: ShadowingButton!
     @IBOutlet weak var nfcButton: ShadowingButton!
     
@@ -59,6 +60,7 @@ class AlertMessageViewController: OverrappingViewController {
 extension AlertMessageViewController {
     func createView(){
         createContainerView()
+        createDescriptionLabel()
         createCancelButton()
         createNFCButton()
         configureViews()
@@ -67,6 +69,14 @@ extension AlertMessageViewController {
     func createContainerView(){
         containerView.layer.backgroundColor = UIColor.Service.bottomSheetDialogGray.value.cgColor
         containerView.layer.cornerRadius = 15
+    }
+    
+    func createDescriptionLabel(){
+        let paragraphStyle = NSMutableParagraphStyle()
+               paragraphStyle.lineHeightMultiple = 1.2
+        descriptionLabel.attributedText = NSMutableAttributedString(string: "선반 재등록이 완료되면\n현재 선반 정보를 조회할 수 없습니다.\n정말로 진행하시겠습니까?", attributes: [NSAttributedString.Key.paragraphStyle: paragraphStyle])
+        descriptionLabel.textAlignment = .center
+        
     }
     
     func createCancelButton(){

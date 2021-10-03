@@ -39,8 +39,13 @@ class MainUsecase {
         }
     }
     
-    func inquireFood(foodId:String,foodName:String,completion:@escaping () -> Void){
-        repository.modifyFood(foodId: foodId, foodName: foodName, completion: completion)
+    func modifyFood(foodId:String,foodName:String,completion:@escaping () -> Void){
+        
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "yyyy - MM - dd"
+        let registeredDate = dateFormatter.string(from: Date())
+        
+        repository.modifyFood(foodId: foodId, foodName: foodName,registeredDate : registeredDate, completion: completion)
     }
     
     
