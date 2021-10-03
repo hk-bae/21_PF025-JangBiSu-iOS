@@ -5,6 +5,7 @@
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="18093"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <customFonts key="customFonts">
@@ -89,6 +90,88 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="1JI-Ee-2gp" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="160.86956521739131" y="734.59821428571422"/>
+        </scene>
+        <!--Alert Message View Controller-->
+        <scene sceneID="A3q-vx-aGC">
+            <objects>
+                <viewController storyboardIdentifier="AlertMesageVC" id="kID-UN-DSe" customClass="AlertMessageViewController" customModule="SmartRefrigerator" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="7bP-rR-7jw">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="mGg-U5-uLO">
+                                <rect key="frame" x="16" y="315.5" width="382" height="265"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eVY-fD-Kf8">
+                                        <rect key="frame" x="0.0" y="40" width="382" height="89"/>
+                                        <string key="text">선반 재등록을 진행하면 
+현재 등록된 정보는 모두 사라집니다. 
+정말로 진행하시겠습니까?</string>
+                                        <fontDescription key="fontDescription" name="NotoSansCJKkr-Regular" family="Noto Sans CJK KR" pointSize="20"/>
+                                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="14" translatesAutoresizingMaskIntoConstraints="NO" id="vqv-DJ-5tS">
+                                        <rect key="frame" x="14.5" y="159" width="353" height="56"/>
+                                        <subviews>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Jn0-dx-Gcx" customClass="ShadowingButton" customModule="SmartRefrigerator" customModuleProvider="target">
+                                                <rect key="frame" x="0.0" y="0.0" width="169.5" height="56"/>
+                                                <color key="backgroundColor" red="1" green="0.80000000000000004" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                                <fontDescription key="fontDescription" name="NotoSansCJKkr-Bold" family="Noto Sans CJK KR" pointSize="20"/>
+                                                <state key="normal" title="취소">
+                                                    <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                </state>
+                                                <connections>
+                                                    <action selector="cacnel:" destination="kID-UN-DSe" eventType="touchUpInside" id="Ddd-hn-NeG"/>
+                                                </connections>
+                                            </button>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1BQ-r7-QUS" customClass="ShadowingButton" customModule="SmartRefrigerator" customModuleProvider="target">
+                                                <rect key="frame" x="183.5" y="0.0" width="169.5" height="56"/>
+                                                <color key="backgroundColor" red="1" green="0.80000000000000004" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                                <fontDescription key="fontDescription" name="NotoSansCJKkr-Bold" family="Noto Sans CJK KR" pointSize="20"/>
+                                                <state key="normal" title="NFC 재등록">
+                                                    <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                </state>
+                                                <connections>
+                                                    <action selector="nfc:" destination="kID-UN-DSe" eventType="touchUpInside" id="3BF-pc-YUz"/>
+                                                </connections>
+                                            </button>
+                                        </subviews>
+                                        <constraints>
+                                            <constraint firstAttribute="width" secondItem="vqv-DJ-5tS" secondAttribute="height" multiplier="330:52" id="Otf-2H-5zr"/>
+                                        </constraints>
+                                    </stackView>
+                                </subviews>
+                                <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstItem="vqv-DJ-5tS" firstAttribute="width" secondItem="mGg-U5-uLO" secondAttribute="width" multiplier="360:390" id="5W0-n2-E6E"/>
+                                    <constraint firstAttribute="trailing" secondItem="eVY-fD-Kf8" secondAttribute="trailing" id="A4u-FK-M5M"/>
+                                    <constraint firstItem="vqv-DJ-5tS" firstAttribute="top" secondItem="eVY-fD-Kf8" secondAttribute="bottom" constant="30" id="Obt-Tt-Ju7"/>
+                                    <constraint firstItem="eVY-fD-Kf8" firstAttribute="centerX" secondItem="mGg-U5-uLO" secondAttribute="centerX" id="T7r-Vl-sdm"/>
+                                    <constraint firstItem="vqv-DJ-5tS" firstAttribute="centerX" secondItem="mGg-U5-uLO" secondAttribute="centerX" id="d44-ay-256"/>
+                                    <constraint firstAttribute="bottom" secondItem="vqv-DJ-5tS" secondAttribute="bottom" constant="50" id="fkB-Ip-lBm"/>
+                                    <constraint firstItem="eVY-fD-Kf8" firstAttribute="top" secondItem="mGg-U5-uLO" secondAttribute="top" constant="40" id="u1A-OM-gcv"/>
+                                    <constraint firstItem="eVY-fD-Kf8" firstAttribute="leading" secondItem="mGg-U5-uLO" secondAttribute="leading" id="x9X-cS-sBO"/>
+                                </constraints>
+                            </view>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="Q29-A9-AVD"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="mGg-U5-uLO" firstAttribute="centerY" secondItem="7bP-rR-7jw" secondAttribute="centerY" id="6Ut-SA-SbF"/>
+                            <constraint firstItem="mGg-U5-uLO" firstAttribute="centerX" secondItem="7bP-rR-7jw" secondAttribute="centerX" id="Ywb-zf-PtC"/>
+                            <constraint firstItem="mGg-U5-uLO" firstAttribute="width" secondItem="7bP-rR-7jw" secondAttribute="width" multiplier="360:390" id="bHZ-Gf-9fJ"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="cancelButton" destination="Jn0-dx-Gcx" id="C2r-xZ-CPG"/>
+                        <outlet property="containerView" destination="mGg-U5-uLO" id="Zg0-4z-maY"/>
+                        <outlet property="nfcButton" destination="1BQ-r7-QUS" id="3B5-5j-Qvw"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="GZ4-G6-tqx" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="153.62318840579712" y="1401.5625"/>
         </scene>
         <!--Main View Controller-->
         <scene sceneID="s0d-6b-0kx">
@@ -364,6 +447,12 @@
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="jJi-aa-UXa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <view contentMode="scaleToFill" id="gdS-wp-7AM">
+                    <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <viewLayoutGuide key="safeArea" id="yIw-jr-b3M"/>
+                    <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                </view>
             </objects>
             <point key="canvasLocation" x="968" y="72"/>
         </scene>
@@ -559,12 +648,18 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="UOa-a2-3iG" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1921.7391304347827" y="-601.33928571428567"/>
+            <point key="canvasLocation" x="967" y="735"/>
         </scene>
     </scenes>
     <designables>
+        <designable name="1BQ-r7-QUS">
+            <size key="intrinsicContentSize" width="100" height="42"/>
+        </designable>
         <designable name="3rs-ry-Nso">
             <size key="intrinsicContentSize" width="91" height="42"/>
+        </designable>
+        <designable name="72J-Ki-DEY">
+            <size key="intrinsicContentSize" width="80" height="42"/>
         </designable>
         <designable name="87p-eR-xya">
             <size key="intrinsicContentSize" width="128" height="42"/>
@@ -572,8 +667,17 @@
         <designable name="9UJ-km-E5K">
             <size key="intrinsicContentSize" width="37" height="42"/>
         </designable>
+        <designable name="ERH-CR-YsC">
+            <size key="intrinsicContentSize" width="37" height="42"/>
+        </designable>
+        <designable name="Jn0-dx-Gcx">
+            <size key="intrinsicContentSize" width="37" height="42"/>
+        </designable>
         <designable name="Qox-ro-Op8">
             <size key="intrinsicContentSize" width="45" height="84"/>
+        </designable>
+        <designable name="cln-gN-UwV">
+            <size key="intrinsicContentSize" width="141" height="42"/>
         </designable>
         <designable name="eKe-7m-jjP">
             <size key="intrinsicContentSize" width="37" height="42"/>
@@ -599,12 +703,21 @@
         <designable name="uH3-n0-h3t">
             <size key="intrinsicContentSize" width="74" height="42"/>
         </designable>
+        <designable name="wRT-am-0wU">
+            <size key="intrinsicContentSize" width="96" height="48"/>
+        </designable>
         <designable name="x4o-VV-tCN">
             <size key="intrinsicContentSize" width="45" height="84"/>
+        </designable>
+        <designable name="zIQ-EC-bvj">
+            <size key="intrinsicContentSize" width="74" height="42"/>
         </designable>
     </designables>
     <resources>
         <image name="arrow.backward" catalog="system" width="128" height="98"/>
         <image name="ice" width="70" height="76"/>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
     </resources>
 </document>

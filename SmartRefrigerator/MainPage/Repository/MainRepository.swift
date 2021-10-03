@@ -25,9 +25,11 @@ class MainRepository{
                 if let datas = result?["data"] as? [[String:Any]]{
                     var newFoods : [Food] = []
                     for data in datas {
-                        
+                        if let _ = data["food_row"] as? Int ,let _ =  data["food_col"] as? Int{
                         let newFood = Food(id: data["id"] as! String, foodName: data["food_name"] as! String, foodRow: data["food_row"] as! Int, foodCol: data["food_col"] as! Int, foodWeight: data["food_weight"] as? Float ?? 0.0,  registeredDate: data["registered_date"] as! String, shelfID: Shelf(id: shelfID, row: 2, col: 3))
-                        newFoods.append(newFood)
+                            newFoods.append(newFood)
+                        }
+                        
                         
                     }
                     completion(newFoods,nil)

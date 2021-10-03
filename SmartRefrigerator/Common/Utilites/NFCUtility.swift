@@ -126,12 +126,16 @@ extension NFCUtility : NFCTagReaderSessionDelegate {
                 var uidString = ""
                 for byte in byteData {
                     let decimalNumber = String(byte, radix: 16)
-                    if (Int(decimalNumber) ?? 0) < 16 { // add leading zero
+                    if decimalNumber.count < 2 { // add leading zero
                         uidString.append("0\(decimalNumber)")
                     } else {
                         uidString.append(decimalNumber)
                     }
+                    
+                    // 04 9d e8 02 70 71 80
+                    // 04 9d e8 02 70 71 80
                 }
+                print("#####",uidString)
                 
                 self.completion?(.success(uidString))
                 self.session?.alertMessage = "태그가 성공적으로 완료되었습니다."

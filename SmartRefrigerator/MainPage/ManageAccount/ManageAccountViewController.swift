@@ -18,6 +18,18 @@ class ManageAccountViewController: UIViewController {
     let viewModel = ManageAccountViewModel()
     let disposeBag = DisposeBag()
     
+    init(){
+        super.init(nibName: nil, bundle: nil)
+        self.modalTransitionStyle = .crossDissolve
+        self.modalPresentationStyle = .fullScreen
+    }
+    
+    required init?(coder: NSCoder) {
+        super.init(coder: coder)
+        self.modalTransitionStyle = .crossDissolve
+        self.modalPresentationStyle = .fullScreen
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         createView()
@@ -64,6 +76,20 @@ extension ManageAccountViewController{
             }
             break
         case .nfc:
+            guard let alertVC = self.storyboard?.instantiateViewController(identifier: "AlertMesageVC") as? AlertMessageViewController else { fatalError() }
+            alertVC.completion = { result in
+                switch result{
+                case .continueNFC :
+                    let storyboard = UIStoryboard.init(name: "Initial", bundle: nil)
+                    guard let connectVC = storyboard.instantiateViewController(identifier: "connectVC") as? ConnectRefrigeratorViewController else { fatalError() }
+                    connectVC.modalTransitionStyle = .crossDissolve
+                    connectVC.modalPresentationStyle = .overFullScreen
+                    self.present(connectVC, animated: true,completion: nil)
+                case .cancel :
+                    break
+                }
+            }
+            self.present(alertVC, animated: true, completion: nil)
             break
         }
     }
