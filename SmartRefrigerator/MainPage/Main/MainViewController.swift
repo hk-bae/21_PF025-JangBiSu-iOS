@@ -30,7 +30,7 @@ class MainViewController: UIViewController {
     let disposeBag = DisposeBag()
     
     override func viewWillAppear(_ animated: Bool) {
-//         fetch Data
+        //         fetch Data
         viewModel.fetchData()
     }
     
@@ -57,7 +57,12 @@ extension MainViewController{
         
         checkIceButton.rx.tap.asObservable()
             .subscribe(onNext:{
-                
+                if let viewController = self.storyboard?.instantiateViewController(identifier: "CheckIceVC") as? CheckIceViewController{
+                    // ===========서버 통신을 통해 얼음이 얼었는지 가져오기===========
+                    var isIceMade = false
+                    viewController.isIceMade = isIceMade
+                    self.present(viewController, animated: true, completion: nil)
+                }
             })
             .disposed(by: disposeBag)
     }
@@ -67,14 +72,22 @@ extension MainViewController{
             .subscribe(onNext:{ result in
                 switch result{
                 case .needToRegister(let index) :
-                    if let viewController = self.storyboard?.instantiateViewController(withIdentifier: "FoodRegisterVC") as? RegisterFoodViewController{
-                        viewController.completion = { foodName in
-                            self.viewModel.input.registerFood.accept((index,foodName))
+                    self.popUpRegisterFoodVC(index: index)
+                case .inquireResult(let index) :
+                    if let viewController = self.storyboard?.instantiateViewController(identifier: "InquireFoodVC") as? InquireViewController{
+                        viewController.food = self.viewModel.foods.value[index]
+                        viewController.completion = { result in
+                            
+                            switch result{
+                            case .modify:
+                                //modify dialog 띄우기
+                                self.popUpRegisterFoodVC(index: index,type: .modify)
+                                break
+                            case .ok: break
+                            }
                         }
-                        self.present(viewController, animated: true, completion: nil)
+                        self.present(viewController,animated: true,completion: nil)
                     }
-                case .inquireResult :
-                    
                     return
                 }
             })
@@ -98,6 +111,24 @@ extension MainViewController {
             break
         case .failure(let errorMessage) :
             TTSUtility.speak(string: errorMessage)
+        }
+    }
+    
+    func popUpRegisterFoodVC(index:Int,type : RegisterFoodViewController.RegisterType = .register){
+        if let viewController = self.storyboard?.instantiateViewController(withIdentifier: "FoodRegisterVC") as? RegisterFoodViewController{
+            switch type {
+            case .register:
+                viewController.completion = { foodName in
+                    self.viewModel.input.registerFood.accept((index,foodName))
+                }
+            case .modify :
+                viewController.type = type
+                viewController.completion = { foodName in
+                    self.viewModel.input.modifyFood.accept((index,foodName))
+                }
+            }
+            self.present(viewController, animated: true, completion: nil)
+            
         }
     }
     

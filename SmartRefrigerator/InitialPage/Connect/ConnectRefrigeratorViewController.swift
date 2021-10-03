@@ -73,10 +73,12 @@ extension ConnectRefrigeratorViewController{
                 let main = mainStoryboard.instantiateViewController(identifier: "MainVC") as! MainViewController
                 main.modalTransitionStyle = .crossDissolve
                 main.modalPresentationStyle = .overFullScreen
-                let navigationViewController = self.navigationController
-                
-                self.present(main, animated: true) {
-                    navigationViewController?.popViewController(animated: true)
+                if let navigationViewController = self.navigationController{
+                    self.present(main, animated: true) {
+                        navigationViewController.popViewController(animated: true)
+                    }
+                }else{
+                    self.dismiss(animated: true, completion: nil)
                 }
             }
         case .failure(let message) :

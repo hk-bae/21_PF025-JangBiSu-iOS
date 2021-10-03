@@ -9,6 +9,14 @@ import UIKit
 import RxSwift
 import RxCocoa
 
+extension RegisterFoodViewController{
+    enum RegisterType{
+        case register
+        case modify
+    }
+    
+}
+
 class RegisterFoodViewController: OverrappingViewController,UITextFieldDelegate {
 
     @IBOutlet weak var titleLabel: UILabel!
@@ -17,10 +25,11 @@ class RegisterFoodViewController: OverrappingViewController,UITextFieldDelegate 
     @IBOutlet weak var containerView: UIView!
     @IBOutlet weak var foodNameTextField: InputTextField!
     @IBOutlet weak var dateLabel: UILabel!
-    @IBOutlet weak var submitButton: UIButton!
-    @IBOutlet weak var cancelButton: UIButton!
+    @IBOutlet weak var submitButton: ShadowingButton!
+    @IBOutlet weak var cancelButton: ShadowingButton!
     
     var completion : ((String) -> Void)?
+    var type : RegisterType = .register
     
     let viewModel = RegisterFoodViewModel()
     let disposeBag = DisposeBag()
@@ -129,6 +138,12 @@ extension RegisterFoodViewController{
     
     func createTitleLabel(){
         titleLabel.textColor = UIColor.Service.defaultWhite.value
+        switch type {
+        case .register:
+            titleLabel.text = "반찬통 등록하기"
+        case .modify:
+            titleLabel.text = "반찬통 변경하기"
+        }
     }
     
     
@@ -147,11 +162,13 @@ extension RegisterFoodViewController{
     func createCancelButton(){
         cancelButton.layer.backgroundColor = UIColor.Service.yellow.value.cgColor
         cancelButton.titleLabel?.textColor = UIColor.Service.defaultBlack.value
+        cancelButton.configureShadowColor(.black)
     }
     
     func createSubmitButton(){
         submitButton.layer.backgroundColor = UIColor.Service.yellow.value.cgColor
         submitButton.titleLabel?.textColor = UIColor.Service.defaultBlack.value
+        submitButton.configureShadowColor(.black)
     }
     
     func configureViews(){

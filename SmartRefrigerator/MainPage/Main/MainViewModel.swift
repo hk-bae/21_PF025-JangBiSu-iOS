@@ -24,6 +24,7 @@ class MainViewModel : ViewModelType {
     struct Input {
         let foodTouch = PublishRelay<Int>() // i번째 위치에서 탭이 이루어짐
         let registerFood = PublishRelay<(Int,String)>()
+        let modifyFood = PublishRelay<(Int,String)>()
         let checkIce = PublishRelay<Void>()
     }
     
@@ -41,7 +42,10 @@ class MainViewModel : ViewModelType {
         input.registerFood.asObservable()
             .subscribe(onNext:registerFood)
             .disposed(by: disposeBag)
-        
+       
+        input.modifyFood.asObservable()
+            .subscribe(onNext:modifyFood)
+            .disposed(by: disposeBag)
         
         input.checkIce.asObservable()
             .subscribe(onNext:handleCheckingIce)
@@ -69,7 +73,7 @@ extension MainViewModel {
     // 초기 반찬통 터치 시에 handle
     func handleTouchingFood(_ index : Int){
         if let _ = foods.value[index] {
-            output.foodTouch.accept(.inquireResult)
+            output.foodTouch.accept(.inquireResult(index:index))
         }else{
             // 반찬 등록을 위해 반찬이름 bottom sheet 띄우라고 알림
             output.foodTouch.accept(.needToRegister(index: index))
@@ -87,13 +91,32 @@ extension MainViewModel {
                 self.output.registerFood.accept(.failure(errorMessage))
                 return
             }
-        
-            var newValue = self.foods.value
-            newValue[index] = food
-            self.foods.accept(newValue)
+            self.updateFoods(index: index, food: food)
         }
     }
     
+    func modifyFood(_ foodInfo : (Int,String)){
+        let index = foodInfo.0
+        let foodName = foodInfo.1
+        if let foodId = foods.value[index]?.id {
+            usecase.inquireFood(foodId: foodId, foodName: foodName, completion: {
+                self.updateFoods(index: index, foodName: foodName)
+            })
+        }
+        
+    }
+    
+    func updateFoods(index: Int,food : Food?){
+        var newValue = self.foods.value
+        newValue[index] = food
+        self.foods.accept(newValue)
+    }
+    
+    func updateFoods(index:Int,foodName:String){
+        var newValue = self.foods.value
+        newValue[index]?.foodName = foodName
+        self.foods.accept(newValue)
+    }
     
     func handleCheckingIce(){
         
@@ -104,7 +127,7 @@ extension MainViewModel {
     
     enum FoodTouchResult{
         case needToRegister(index:Int)
-        case inquireResult
+        case inquireResult(index:Int)
     }
     
     enum FoodRegisterResult{
@@ -112,8 +135,4 @@ extension MainViewModel {
         case failure(_ errorMessage: String)
     }
     
-    enum SearchFoodResult{
-        case success(food:Food)
-        case failure
-    }
 }
