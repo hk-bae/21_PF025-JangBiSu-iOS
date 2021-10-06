@@ -36,50 +36,39 @@
 
 * 로그인 및 회원가입 기능
 
-  <img width="787" alt="스크린샷 2021-09-21 오후 4 22 00" src="https://user-images.githubusercontent.com/68215452/134128561-29ba698f-f918-4f96-8387-ff74e61d8578.png">
-
-  * RxSwift + MVVM / Alamofire
-
+   <img src = "https://user-images.githubusercontent.com/68215452/136070636-1e685633-bda3-4918-aeb0-81e102a002a3.gif" width="25%" height="20%">   <img src = "https://user-images.githubusercontent.com/68215452/136070875-87f77c30-7fc4-4d5c-a2d7-7b2388e09b30.gif" width="25%" height="20%">
     
 
-* 냉장고 선반 등록 기능 
+* 냉장고 선반 등록 기능 (NFC 태그, 고유번호 입력) 
 
-  <img width="891" alt="스크린샷 2021-09-21 오후 4 25 53" src="https://user-images.githubusercontent.com/68215452/134129096-40a3d54c-8dbf-4f55-bfeb-0f0dc4bdfa4d.png">
+  <img src = "https://user-images.githubusercontent.com/68215452/136071084-bf5309f4-b045-416d-a153-16c5bb656ced.gif" width="25%" height="20%"> <img src = "https://user-images.githubusercontent.com/68215452/136070977-fc17e8bd-3c14-45af-b63a-d929dfad29b6.gif" width="25%" height="20%">
+  
 
-  <img width="814" alt="스크린샷 2021-09-21 오후 4 31 11" src="https://user-images.githubusercontent.com/68215452/134129927-f8638eb9-6199-4032-a279-aabc7b01fc22.png">
+* 반찬통 등록 기능
 
-  * CoreNFC / Alamofire / RxSwift + MVVM
-
+  <img src = "https://user-images.githubusercontent.com/68215452/136072329-d65cd8c9-df1a-4e0b-8a10-8e08b55d722c.gif" width="25%" height="20%">
     
+
+* 반찬통 정보 조회 및 변경 기능
+
+  <img src = "https://user-images.githubusercontent.com/68215452/136070745-d5662c34-4327-4cf7-bd93-a39b0b84a51a.gif" width="25%" height="20%">
+  
+
+   
+* 얼음 상태 확인 기능 
+
+  <img src = "https://user-images.githubusercontent.com/68215452/136068844-711540d3-346d-45ba-aecb-56c12ffed6e5.gif" width="25%" height="20%">
+
+
+
+* 계정 관리 (선반 재등록, 로그아웃)
+
+  <img src = "https://user-images.githubusercontent.com/68215452/136068121-ce8689b9-5f1a-409a-a897-73fc11792496.gif" width="25%" height="20%">
+
 
 * 냉장고 이상 감지 알림 기능 (진행중)
 
-  * Push Notification / CoreBluetooth / RxSwift + MVVM
-
-  
-
-* 반찬통 등록 기능 (진행중)
-
-  <img width="886" alt="스크린샷 2021-09-21 오후 4 33 43" src="https://user-images.githubusercontent.com/68215452/134130304-20e28471-3da5-49cf-97e8-74ab6db1efdf.png">
-
-  * SwiftUI / CoreNFC / Alamofire
-
-    
-
-* 반찬통 정보 조회 및 변경 기능 (진행중)
-
-  <img width="881" alt="스크린샷 2021-09-21 오후 4 36 17" src="https://user-images.githubusercontent.com/68215452/134130665-b4724e3b-0a80-460f-8d08-998589a1de32.png">
-
-  * SwiftUI / Alamofire
-
-    
-
-* 얼음 상태 확인 기능 (진행중)
-
-  <img width="819" alt="스크린샷 2021-09-21 오후 4 38 45" src="https://user-images.githubusercontent.com/68215452/134131006-756b1279-381d-45e6-be17-f66ee14a1753.png">
-
-  * SwiftUI / Alamofire
-
+  * Push Notification / CoreBluetooth
 
 
 ## 3. Requirements
