@@ -56,14 +56,7 @@ extension MainViewController{
         }
         
         checkIceButton.rx.tap.asObservable()
-            .subscribe(onNext:{
-                if let viewController = self.storyboard?.instantiateViewController(identifier: "CheckIceVC") as? CheckIceViewController{
-                    // ===========서버 통신을 통해 얼음이 얼었는지 가져오기===========
-                    var isIceMade = false
-                    viewController.isIceMade = isIceMade
-                    self.present(viewController, animated: true, completion: nil)
-                }
-            })
+            .bind(to: viewModel.input.checkIce)
             .disposed(by: disposeBag)
     }
     
@@ -100,6 +93,15 @@ extension MainViewController{
         viewModel.output.updateFoods.asObservable()
             .subscribe(onNext:updateFoods)
             .disposed(by: disposeBag)
+        
+        viewModel.output.checkIce.asObservable()
+            .subscribe(onNext:{ isIce in
+                if let viewController = self.storyboard?.instantiateViewController(identifier: "CheckIceVC") as? CheckIceViewController{
+                    viewController.isIceMade = isIce
+                    self.present(viewController, animated: true, completion: nil)
+                }
+            })
+            .disposed(by:disposeBag)
     }
 }
 
@@ -154,7 +156,7 @@ extension MainViewController {
     }
     
     func createTitleLabel(){
-        titleLabel.text = "\(UserInfo.savedUser?.id ?? "이름없음")님의 냉장고"
+        titleLabel.text = "\(UserInfo.savedUser?.name ?? "이름없음")님의 냉장고"
     }
     
     func createFoodsButton(){

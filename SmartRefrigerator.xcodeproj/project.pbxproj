@@ -54,6 +54,7 @@
 		20C0EC772708608100B3FD98 /* ManageAccountViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20C0EC762708608100B3FD98 /* ManageAccountViewController.swift */; };
 		20C0EC79270865D800B3FD98 /* ManageAccountViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20C0EC78270865D800B3FD98 /* ManageAccountViewModel.swift */; };
 		20C0EC7B27096A6800B3FD98 /* AlertMessageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20C0EC7A27096A6800B3FD98 /* AlertMessageViewController.swift */; };
+		20C0EC9D2709FDFB00B3FD98 /* ShelfRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20C0EC9C2709FDFB00B3FD98 /* ShelfRouter.swift */; };
 		20ED6F7F2706CFF1002C66EA /* RegisterFoodViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20ED6F7E2706CFF1002C66EA /* RegisterFoodViewController.swift */; };
 		20ED6F812706D3F7002C66EA /* RegisterFoodViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20ED6F802706D3F7002C66EA /* RegisterFoodViewModel.swift */; };
 		20FD7ED026E20070005B8122 /* NFCUtility.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20FD7ECF26E20070005B8122 /* NFCUtility.swift */; };
@@ -111,6 +112,7 @@
 		20C0EC762708608100B3FD98 /* ManageAccountViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ManageAccountViewController.swift; sourceTree = "<group>"; };
 		20C0EC78270865D800B3FD98 /* ManageAccountViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ManageAccountViewModel.swift; sourceTree = "<group>"; };
 		20C0EC7A27096A6800B3FD98 /* AlertMessageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertMessageViewController.swift; sourceTree = "<group>"; };
+		20C0EC9C2709FDFB00B3FD98 /* ShelfRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShelfRouter.swift; sourceTree = "<group>"; };
 		20ED6F7E2706CFF1002C66EA /* RegisterFoodViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterFoodViewController.swift; sourceTree = "<group>"; };
 		20ED6F802706D3F7002C66EA /* RegisterFoodViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterFoodViewModel.swift; sourceTree = "<group>"; };
 		20FD7ECF26E20070005B8122 /* NFCUtility.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NFCUtility.swift; sourceTree = "<group>"; };
@@ -190,6 +192,7 @@
 				2047DDE526D4E06E00326003 /* EventLogger.swift */,
 				2047DDE126D4DC8600326003 /* UserInfoRouter.swift */,
 				2009CC322705C2A800C22D72 /* FoodRouter.swift */,
+				20C0EC9C2709FDFB00B3FD98 /* ShelfRouter.swift */,
 			);
 			path = Service;
 			sourceTree = "<group>";
@@ -539,6 +542,7 @@
 				20A5A75E26F8D356008354A1 /* ConnectRefrigeratorByNFCInputViewController.swift in Sources */,
 				20A5A75C26F89D1A008354A1 /* ConnectRefrigeratorUsercase.swift in Sources */,
 				20966E7226ECF6AF00A109BD /* UserInfoRepository.swift in Sources */,
+				20C0EC9D2709FDFB00B3FD98 /* ShelfRouter.swift in Sources */,
 				20A5A75A26F88367008354A1 /* ConnectRefrigeratorViewModel.swift in Sources */,
 				200EC95D26E11FCC00186F28 /* InputTextField.swift in Sources */,
 				2047DDC326D3FF3100326003 /* LoginViewModel.swift in Sources */,

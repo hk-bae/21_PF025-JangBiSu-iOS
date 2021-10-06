@@ -54,7 +54,6 @@
   <img src = "https://user-images.githubusercontent.com/68215452/136070745-d5662c34-4327-4cf7-bd93-a39b0b84a51a.gif" width="25%" height="20%">
   
 
-   
 * 얼음 상태 확인 기능 
 
   <img src = "https://user-images.githubusercontent.com/68215452/136068844-711540d3-346d-45ba-aecb-56c12ffed6e5.gif" width="25%" height="20%">
@@ -64,6 +63,8 @@
 * 계정 관리 (선반 재등록, 로그아웃)
 
   <img src = "https://user-images.githubusercontent.com/68215452/136068121-ce8689b9-5f1a-409a-a897-73fc11792496.gif" width="25%" height="20%">
+    
+
 
 
 * 냉장고 이상 감지 알림 기능 (진행중)
@@ -105,19 +106,21 @@
     * NFC 통신을 위한 Apple Framework
     * 큐브 냉장고 선반 및 반찬통의 NFC 태그와 통신
 
+* **Voice Over**
+    * 화면을 보지 않고도 아이폰을 사용할 수 있도록 도와주는 제스처 기반 화면 읽기 기능
+    * 시각 장애인들의 원활한 앱 사용을 돕기 위해 Voice Over 기능 활용 
+    * `UIAccessibilityElementProperty` 의 프로퍼티들에 적절한 값 부여
+* **TTS(Text To Speech)**
+    * 사용자에게 필요한 순간 적절한 음성 가이드 제공을 위한 기술
+    * Apple의 미디어 Framework인 `AVFoundation` 사용
+    
 * 사용 예정 기술
   * **CoreBluetooth**
     * Bluetooth 통신을 위한 Apple Framework
     * 냉장고 이상 확인을 위해 냉장고 선반과의 직접적인 통신
   * **Push Notification**
     * 사용자에게 냉장고 이상을 알리기 위한 기술로 사용 예정
-  * **Voice Over**
-    * 화면을 보지 않고도 아이폰을 사용할 수 있도록 도와주는 제스처 기반 화면 읽기 기능
-    * 시각 장애인들의 원활한 앱 사용을 돕기 위해 Voice Over 기능 활용 예정
-    * `UIAccessibilityElementProperty` 의 프로퍼티들에 적절한 값 부여
-  * **TTS(Text To Speech)**
-    * 사용자에게 필요한 순간 적절한 음성 가이드 제공을 위한 기술
-    * Apple의 미디어 Framework인 `AVFoundation` 사용 예정
+  
 
 
 

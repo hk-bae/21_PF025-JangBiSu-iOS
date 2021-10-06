@@ -76,4 +76,19 @@ class MainRepository{
                 }
             }
     }
+    
+    // 얼음 정보 조회
+    func getIceInfo(completion : @escaping (Bool) -> Void){
+        AlamofireManager
+            .shared
+            .session
+            .request(ShelfRouter.getShelfInfo(shelfId: UserInfo.savedUser!.shelf!.id))
+            .responseJSON { response in
+                let result = response.value as? [String:Any]
+                let data = result?["data"] as? [String:Any]
+                if let ice = data?["ice"] as? Bool {
+                    completion(ice)
+                }
+            }
+    }
 }

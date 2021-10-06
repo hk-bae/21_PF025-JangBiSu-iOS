@@ -32,6 +32,7 @@ class MainViewModel : ViewModelType {
         let foodTouch = PublishRelay<FoodTouchResult>()
         let registerFood = PublishRelay<FoodRegisterResult>()
         let updateFoods = PublishRelay<Void>()
+        let checkIce = PublishRelay<Bool>()
     }
     
     init(){
@@ -115,7 +116,9 @@ extension MainViewModel {
 
     
     func handleCheckingIce(){
-        
+        usecase.handleCheckingIce { isIce in
+            self.output.checkIce.accept(isIce)
+        }
     }
 }
 

@@ -49,7 +49,8 @@ class MainUsecase {
     }
     
     
-    func handleCheckingIce(){
-        
+    func handleCheckingIce(completion:@escaping (Bool) -> Void){
+        repository.getIceInfo(completion:completion)
     }
+
 }
