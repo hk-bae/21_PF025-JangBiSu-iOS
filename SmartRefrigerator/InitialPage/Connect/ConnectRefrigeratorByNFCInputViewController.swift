@@ -154,6 +154,15 @@ extension ConnectRefrigeratorByNFCInputViewController{
         cancelButton.layer.cornerRadius =
             cancelButton.frame.height / 2.0
         shelfIdInputTextField.initView()
+        
+        // 폰트 크기 조정
+        let currentFontName = subtitleLabel.font.fontName
+        var currentFontSize = CGFloat(18)
+        while subtitleLabel.frame.maxX >= containerView.bounds.maxX {
+            currentFontSize -= 1
+            subtitleLabel.font = UIFont(name: currentFontName, size: currentFontSize)
+            subtitleLabel.layoutIfNeeded()
+        }
             
     }
 

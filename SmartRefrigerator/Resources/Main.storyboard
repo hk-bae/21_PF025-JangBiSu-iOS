@@ -135,8 +135,8 @@
                                             <constraint firstAttribute="width" secondItem="vqv-DJ-5tS" secondAttribute="height" multiplier="330:52" id="Otf-2H-5zr"/>
                                         </constraints>
                                     </stackView>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eVY-fD-Kf8">
-                                        <rect key="frame" x="14" y="28" width="382" height="89"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eVY-fD-Kf8">
+                                        <rect key="frame" x="39" y="40" width="304" height="89"/>
                                         <string key="text">선반 재등록을 진행하면 
 현재 등록된 정보는 모두 사라집니다. 
 정말로 진행하시겠습니까?</string>
@@ -148,13 +148,11 @@
                                 <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstItem="vqv-DJ-5tS" firstAttribute="width" secondItem="mGg-U5-uLO" secondAttribute="width" multiplier="360:390" id="5W0-n2-E6E"/>
-                                    <constraint firstAttribute="trailing" secondItem="eVY-fD-Kf8" secondAttribute="trailing" id="A4u-FK-M5M"/>
                                     <constraint firstItem="vqv-DJ-5tS" firstAttribute="top" secondItem="eVY-fD-Kf8" secondAttribute="bottom" constant="30" id="Obt-Tt-Ju7"/>
                                     <constraint firstItem="eVY-fD-Kf8" firstAttribute="centerX" secondItem="mGg-U5-uLO" secondAttribute="centerX" id="T7r-Vl-sdm"/>
                                     <constraint firstItem="vqv-DJ-5tS" firstAttribute="centerX" secondItem="mGg-U5-uLO" secondAttribute="centerX" id="d44-ay-256"/>
                                     <constraint firstAttribute="bottom" secondItem="vqv-DJ-5tS" secondAttribute="bottom" constant="50" id="fkB-Ip-lBm"/>
                                     <constraint firstItem="eVY-fD-Kf8" firstAttribute="top" secondItem="mGg-U5-uLO" secondAttribute="top" constant="40" id="u1A-OM-gcv"/>
-                                    <constraint firstItem="eVY-fD-Kf8" firstAttribute="leading" secondItem="mGg-U5-uLO" secondAttribute="leading" id="x9X-cS-sBO"/>
                                 </constraints>
                             </view>
                         </subviews>

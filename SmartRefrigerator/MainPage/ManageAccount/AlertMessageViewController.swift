@@ -94,6 +94,14 @@ extension AlertMessageViewController {
         nfcButton.layer.cornerRadius = nfcButton.frame.height / 2.0
         cancelButton.layer.cornerRadius =
             cancelButton.frame.height / 2.0
+        
+        let currentFontName = descriptionLabel.font.fontName
+        var currentFontSize = CGFloat(18)
+        while descriptionLabel.frame.maxX >= containerView.bounds.maxX {
+            currentFontSize -= 1
+            descriptionLabel.font = UIFont(name: currentFontName, size: currentFontSize)
+            descriptionLabel.layoutIfNeeded()
+        }
     }
 }
 
