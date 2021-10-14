@@ -190,10 +190,12 @@ extension ShadowingButton {
             self.layer.backgroundColor = UIColor.Service.yellow.value.cgColor
             self.setTitleColor(UIColor.black, for: .normal)
             self.setTitle(food.foodName, for: .normal)
+            self.accessibilityLabel = food.foodInfoText
         }else{
             self.layer.backgroundColor = UIColor.Service.foodGray.value.cgColor
             self.setTitleColor(UIColor.Service.yellow.value, for: .normal)
             self.setTitle("반찬\n등록", for: .normal)
+            self.accessibilityLabel = "반찬 등록"
         }
     }
 }

@@ -17,7 +17,9 @@ class MainUsecase {
                 let row = food.foodRow
                 let col = food.foodCol
                 let index = row * 3 + col
-                foodsArray[index] = food
+                if index < foodsArray.count {
+                    foodsArray[index] = food
+                }
             }
             completion(foodsArray)
         }

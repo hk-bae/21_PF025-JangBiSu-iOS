@@ -104,7 +104,7 @@ extension ManageAccountViewController {
     }
     
     func createBackButton(){
-        
+        backButton.accessibilityLabel = "뒤로가기"
     }
     func createLogoutButton(){
         logoutButton.layer.backgroundColor = UIColor.Service.yellow.value.cgColor

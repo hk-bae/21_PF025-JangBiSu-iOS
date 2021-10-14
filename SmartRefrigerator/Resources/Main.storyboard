@@ -352,10 +352,6 @@
                                     <constraint firstAttribute="height" id="vnF-Iu-JS7"/>
                                 </constraints>
                             </view>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="OD4-aR-e1z">
-                                <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
-                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                            </button>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Tby-Va-32e">
                                 <rect key="frame" x="0.0" y="591.5" width="414" height="304.5"/>
                                 <subviews>
@@ -427,13 +423,9 @@
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstAttribute="bottom" secondItem="MCz-6A-oAo" secondAttribute="bottom" id="1Rn-QP-zfd"/>
-                            <constraint firstAttribute="bottom" secondItem="OD4-aR-e1z" secondAttribute="bottom" id="3FO-No-0Sc"/>
-                            <constraint firstItem="OD4-aR-e1z" firstAttribute="top" secondItem="5Ue-s6-Ew9" secondAttribute="top" id="3Tx-x8-mC9"/>
                             <constraint firstItem="y9i-Fb-GT0" firstAttribute="trailing" secondItem="MCz-6A-oAo" secondAttribute="trailing" id="AOj-I9-ph8"/>
                             <constraint firstItem="Tby-Va-32e" firstAttribute="trailing" secondItem="y9i-Fb-GT0" secondAttribute="trailing" id="DBG-6h-uOk"/>
-                            <constraint firstItem="y9i-Fb-GT0" firstAttribute="trailing" secondItem="OD4-aR-e1z" secondAttribute="trailing" id="EwN-oZ-j1x"/>
                             <constraint firstItem="MCz-6A-oAo" firstAttribute="leading" secondItem="y9i-Fb-GT0" secondAttribute="leading" id="LkE-rS-J5y"/>
-                            <constraint firstItem="OD4-aR-e1z" firstAttribute="leading" secondItem="y9i-Fb-GT0" secondAttribute="leading" id="VMu-Cy-vhg"/>
                             <constraint firstItem="MCz-6A-oAo" firstAttribute="top" secondItem="Tby-Va-32e" secondAttribute="bottom" id="qeo-9x-xsj"/>
                             <constraint firstItem="Tby-Va-32e" firstAttribute="leading" secondItem="y9i-Fb-GT0" secondAttribute="leading" id="sct-Ul-1VH"/>
                         </constraints>
@@ -443,7 +435,6 @@
                         <outlet property="cancelButton" destination="ERH-CR-YsC" id="SXs-dr-2gp"/>
                         <outlet property="containerView" destination="Tby-Va-32e" id="bLd-3Z-Ljg"/>
                         <outlet property="dateLabel" destination="1ie-Pi-OTT" id="EU9-9Y-Nj8"/>
-                        <outlet property="dimButton" destination="OD4-aR-e1z" id="cFv-mH-tiD"/>
                         <outlet property="foodNameTextField" destination="iAH-Ve-Mje" id="AmR-bQ-h4Y"/>
                         <outlet property="keyboardHeightConstraint" destination="vnF-Iu-JS7" id="ehn-Qm-IOX"/>
                         <outlet property="submitButton" destination="72J-Ki-DEY" id="m6O-Q1-YGg"/>

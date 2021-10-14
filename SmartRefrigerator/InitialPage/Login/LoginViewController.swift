@@ -118,18 +118,21 @@ extension LoginViewController {
             }
 
             loginFailLabel.text = "\(text)을(를) 입력해주세요."
+            TTSUtility.speak(string: loginFailLabel.text!)
             
         case .nonexistentUser:
             configureLoginFailLabel(false)
             idTextField.configureView(true)
             passwordTextField.configureView(false)
             loginFailLabel.text = "존재하지 않는 아이디 입니다."
+            TTSUtility.speak(string: loginFailLabel.text!)
             break
         case .inconsistentUser:
             configureLoginFailLabel(false)
             idTextField.configureView(false)
             passwordTextField.configureView(true)
             loginFailLabel.text = "아이디와 비밀번호가 일치하지 않습니다."
+            TTSUtility.speak(string: loginFailLabel.text!)
             break
         case .failure :
             break
@@ -155,6 +158,7 @@ extension LoginViewController {
     func createIdInputTextField(){
         idTextField.setPlaceHolder("아이디를 입력해 주세요.")
         idTextField.keyboardType = .alphabet
+        idTextField.configureAccessibilityLabel("아이디")
         
         // 아이디 저장이 설정되어 있다면 아이디를 불러온다.
         if UserDefaults.standard.bool(forKey: CommonString.SAVE_ID.rawValue){
@@ -167,6 +171,7 @@ extension LoginViewController {
         passwordTextField.setPlaceHolder("비밀번호를 입력해 주세요.")
         passwordTextField.keyboardType = .default
         passwordTextField.isSecureTextEntry = true
+        passwordTextField.configureAccessibilityLabel("비밀번호")
     }
     
     func createLoginButton(){
@@ -213,6 +218,8 @@ extension LoginViewController {
         if state {
             autoLoginCheckBox.image = check_image
             autoLoginLabel.accessibilityLabel = "자동 로그인 설정됨"
+        }else{
+            autoLoginLabel.accessibilityLabel = "자동 로그인 설정을 하려면 이중탭 하십시오"
         }
     }
     
@@ -225,6 +232,8 @@ extension LoginViewController {
         if state {
             saveIdCheckBox.image = check_image
             saveIdLabel.accessibilityLabel = "아이디 저장 설정됨"
+        }else{
+            saveIdLabel.accessibilityLabel = "아이디 저장 설정 하려면 이중탭 하십시오"
         }
     }
     
@@ -261,7 +270,7 @@ extension LoginViewController {
         if before {
             autoLoginCheckBox.image = uncheck_image
             UserDefaults.standard.set(false,forKey: CommonString.AUTO_LOGIN.rawValue)
-            autoLoginLabel.accessibilityLabel = "자동 로그인"
+            autoLoginLabel.accessibilityLabel = "자동 로그인 설정을 하려면 이중탭 하십시오"
         }
         else {
             autoLoginCheckBox.image = check_image
@@ -277,7 +286,7 @@ extension LoginViewController {
         if before {
             saveIdCheckBox.image = uncheck_image
             UserDefaults.standard.set(false,forKey: CommonString.SAVE_ID.rawValue)
-            saveIdLabel.accessibilityLabel = "아이디 저장"
+            saveIdLabel.accessibilityLabel = "아이디 저장 설정을 하려면 이중탭 하십시오"
         }
         else {
             saveIdCheckBox.image = check_image

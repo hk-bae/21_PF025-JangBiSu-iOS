@@ -26,7 +26,7 @@ class MainRepository{
                     var newFoods : [Food] = []
                     for data in datas {
                         if let _ = data["food_row"] as? Int ,let _ =  data["food_col"] as? Int{
-                        let newFood = Food(id: data["id"] as! String, foodName: data["food_name"] as! String, foodRow: data["food_row"] as! Int, foodCol: data["food_col"] as! Int, foodWeight: data["food_weight"] as? Float ?? 0.0,  registeredDate: data["registered_date"] as! String, shelfID: Shelf(id: shelfID, row: 2, col: 3))
+                            let newFood = Food(id: data["id"] as! String, foodName: data["food_name"] as! String, foodRow: data["food_row"] as! Int, foodCol: data["food_col"] as! Int, foodWeight: data["food_weight"] as? Float ?? 0.0, maxWeight: data["max_weight"] as? Float ?? 0.0,  registeredDate: data["registered_date"] as! String, shelfID: Shelf(id: shelfID, row: 2, col: 3))
                             newFoods.append(newFood)
                         }
                         
@@ -51,7 +51,7 @@ class MainRepository{
             .responseJSON { response in
                 
                 if response.response?.statusCode == 204{ // 성공
-                    let newFood = Food(id: foodId, foodName: foodName, foodRow: foodRow, foodCol: foodCol, foodWeight: 0.0, registeredDate: registeredDate, shelfID: Shelf(id: shelfID, row: 2, col: 3))
+                    let newFood = Food(id: foodId, foodName: foodName, foodRow: foodRow, foodCol: foodCol, foodWeight: 0.0, maxWeight: 0.0, registeredDate: registeredDate, shelfID: Shelf(id: shelfID, row: 2, col: 3))
                     completion(newFood,nil)
                 }else{
                     // 존재하지 않는 선반 정보 또는 이미 등록된 반찬통

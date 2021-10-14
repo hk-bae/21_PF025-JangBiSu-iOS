@@ -78,7 +78,11 @@ extension ConnectRefrigeratorViewController{
                         navigationViewController.popViewController(animated: true)
                     }
                 }else{
-                    self.dismiss(animated: true, completion: nil)
+                    let presentingVC = presentingViewController
+                    self.dismiss(animated: true) {
+                        presentingVC?.dismiss(animated: true, completion: nil)
+                    }
+                    
                 }
             }
         case .failure(let message) :

@@ -69,4 +69,8 @@ extension InputTextField {
     func setPlaceHolder(_ text:String){
         self.attributedPlaceholder = NSAttributedString(string: text,attributes: [NSAttributedString.Key.foregroundColor: UIColor.Service.gray.value,NSAttributedString.Key.font: UIFont.Service.notoSans_regular(_size: 14).value])
     }
+    
+    func configureAccessibilityLabel(_ text:String){
+        clearButton.accessibilityLabel = "\(text) 입력 내용 초기화"
+    }
 }

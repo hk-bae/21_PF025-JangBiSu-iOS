@@ -123,24 +123,28 @@ extension RegisterViewController {
     
     func createNameInputTextField(){
         nameInputTextField.setPlaceHolder("이름을 입력해 주세요.")
+        nameInputTextField.configureAccessibilityLabel("이름")
         nameInputTextField.keyboardType = .default
     }
     
     
     func createIdInputTextField(){
         idInputTextField.setPlaceHolder("아이디를 입력하세요.(영문,숫자)")
+        idInputTextField.configureAccessibilityLabel("아이디")
         idInputTextField.keyboardType = .alphabet
         
     }
     
     func createPasswordInputTextField(){
         pwInputTextField.setPlaceHolder("비밀번호를 입력하세요.(6자리 이상)")
+        pwInputTextField.configureAccessibilityLabel("비밀번호")
         pwInputTextField.keyboardType = .default
         pwInputTextField.isSecureTextEntry = true
     }
     
     func createCheckPasswordInputTextField(){
         pwCheckInputTextField.setPlaceHolder("비밀번호를 다시 입력하세요.")
+        pwCheckInputTextField.configureAccessibilityLabel("비밀번호 재입력")
         pwCheckInputTextField.keyboardType = .default
         pwCheckInputTextField.isSecureTextEntry = true
     }

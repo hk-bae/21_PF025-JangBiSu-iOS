@@ -1,0 +1,155 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>SmartRefrigerator.ipa</key>
+	<array>
+		<dict>
+			<key>architectures</key>
+			<array>
+				<string>arm64</string>
+			</array>
+			<key>certificate</key>
+			<dict>
+				<key>SHA1</key>
+				<string>21838D2271B02BCAF21CCD218D8482D5EB07BA3B</string>
+				<key>dateExpires</key>
+				<string>2022/10/14</string>
+				<key>type</key>
+				<string>Apple Distribution</string>
+			</dict>
+			<key>embeddedBinaries</key>
+			<array>
+				<dict>
+					<key>architectures</key>
+					<array>
+						<string>arm64</string>
+					</array>
+					<key>certificate</key>
+					<dict>
+						<key>SHA1</key>
+						<string>21838D2271B02BCAF21CCD218D8482D5EB07BA3B</string>
+						<key>dateExpires</key>
+						<string>2022/10/14</string>
+						<key>type</key>
+						<string>Apple Distribution</string>
+					</dict>
+					<key>name</key>
+					<string>Alamofire.framework</string>
+					<key>team</key>
+					<dict>
+						<key>id</key>
+						<string>X26CZ6CG2J</string>
+						<key>name</key>
+						<string>hankyeol Bae</string>
+					</dict>
+				</dict>
+				<dict>
+					<key>architectures</key>
+					<array>
+						<string>arm64</string>
+					</array>
+					<key>certificate</key>
+					<dict>
+						<key>SHA1</key>
+						<string>21838D2271B02BCAF21CCD218D8482D5EB07BA3B</string>
+						<key>dateExpires</key>
+						<string>2022/10/14</string>
+						<key>type</key>
+						<string>Apple Distribution</string>
+					</dict>
+					<key>name</key>
+					<string>RxCocoa.framework</string>
+					<key>team</key>
+					<dict>
+						<key>id</key>
+						<string>X26CZ6CG2J</string>
+						<key>name</key>
+						<string>hankyeol Bae</string>
+					</dict>
+				</dict>
+				<dict>
+					<key>architectures</key>
+					<array>
+						<string>arm64</string>
+					</array>
+					<key>certificate</key>
+					<dict>
+						<key>SHA1</key>
+						<string>21838D2271B02BCAF21CCD218D8482D5EB07BA3B</string>
+						<key>dateExpires</key>
+						<string>2022/10/14</string>
+						<key>type</key>
+						<string>Apple Distribution</string>
+					</dict>
+					<key>name</key>
+					<string>RxRelay.framework</string>
+					<key>team</key>
+					<dict>
+						<key>id</key>
+						<string>X26CZ6CG2J</string>
+						<key>name</key>
+						<string>hankyeol Bae</string>
+					</dict>
+				</dict>
+				<dict>
+					<key>architectures</key>
+					<array>
+						<string>arm64</string>
+					</array>
+					<key>certificate</key>
+					<dict>
+						<key>SHA1</key>
+						<string>21838D2271B02BCAF21CCD218D8482D5EB07BA3B</string>
+						<key>dateExpires</key>
+						<string>2022/10/14</string>
+						<key>type</key>
+						<string>Apple Distribution</string>
+					</dict>
+					<key>name</key>
+					<string>RxSwift.framework</string>
+					<key>team</key>
+					<dict>
+						<key>id</key>
+						<string>X26CZ6CG2J</string>
+						<key>name</key>
+						<string>hankyeol Bae</string>
+					</dict>
+				</dict>
+			</array>
+			<key>entitlements</key>
+			<dict>
+				<key>application-identifier</key>
+				<string>X26CZ6CG2J.com.porbono-21PF025.SmartRefrigerator</string>
+				<key>com.apple.developer.associated-domains</key>
+				<array/>
+				<key>com.apple.developer.nfc.readersession.formats</key>
+				<array>
+					<string>NDEF</string>
+					<string>TAG</string>
+				</array>
+				<key>com.apple.developer.team-identifier</key>
+				<string>X26CZ6CG2J</string>
+				<key>get-task-allow</key>
+				<false/>
+			</dict>
+			<key>name</key>
+			<string>SmartRefrigerator.app</string>
+			<key>profile</key>
+			<dict>
+				<key>UUID</key>
+				<string>dfa680b7-81a1-45e7-8a40-7b03538ee640</string>
+				<key>name</key>
+				<string>iOS Team Ad Hoc Provisioning Profile: com.porbono-21PF025.SmartRefrigerator</string>
+			</dict>
+			<key>team</key>
+			<dict>
+				<key>id</key>
+				<string>X26CZ6CG2J</string>
+				<key>name</key>
+				<string>hankyeol Bae</string>
+			</dict>
+		</dict>
+	</array>
+</dict>
+</plist>

@@ -73,9 +73,11 @@ extension CheckIceViewController{
     
     func createDescriptionLabel(){
         if isIceMade {
+            titleLabel.accessibilityLabel = "얼음 상태 확인\n얼음이 완성되었습니다."
             descriptionLabel.text = "얼음이 완성되었습니다."
         }else{
             descriptionLabel.text = "얼음을 생성 중 입니다."
+            titleLabel.accessibilityLabel = "얼음 상태 확인\n얼음을 생성 중 입니다."
         }
     }
     

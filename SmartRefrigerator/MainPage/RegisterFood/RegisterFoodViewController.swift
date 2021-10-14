@@ -20,7 +20,6 @@ extension RegisterFoodViewController{
 class RegisterFoodViewController: OverrappingViewController,UITextFieldDelegate {
 
     @IBOutlet weak var titleLabel: UILabel!
-    @IBOutlet weak var dimButton: UIButton!
     @IBOutlet weak var keyboardHeightConstraint: NSLayoutConstraint!
     @IBOutlet weak var containerView: UIView!
     @IBOutlet weak var foodNameTextField: InputTextField!
@@ -71,10 +70,6 @@ extension RegisterFoodViewController {
             .bind(to: viewModel.input.submit)
             .disposed(by: disposeBag)
         
-        dimButton.rx.tap.asObservable()
-            .debounce(.milliseconds(500), scheduler: MainScheduler.instance)
-            .subscribe(onNext:cancel)
-            .disposed(by: disposeBag)
         
         cancelButton.rx.tap.asObservable()
             .debounce(.milliseconds(500), scheduler: MainScheduler.instance)
@@ -155,8 +150,10 @@ extension RegisterFoodViewController{
         let formatter = DateFormatter()
         formatter.dateFormat = "yyyy - MM - dd"
         let currentDateString = formatter.string(from: Date())
-        print(currentDateString)
         dateLabel.text = "등록일 : \(currentDateString)"
+        
+        formatter.dateFormat = "yyyy년 MM월 dd일"
+        dateLabel.accessibilityLabel = "등록일 \(formatter.string(from: Date()))"
     }
     
     func createCancelButton(){

@@ -387,10 +387,6 @@
                                     <constraint firstAttribute="height" id="ics-AA-wDJ"/>
                                 </constraints>
                             </view>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="N3Q-DA-Zci">
-                                <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
-                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                            </button>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="GSG-Pd-TsP">
                                 <rect key="frame" x="0.0" y="549.66666666666663" width="390" height="294.33333333333337"/>
                                 <subviews>
@@ -466,18 +462,13 @@
                             <constraint firstItem="ryT-Jy-uyg" firstAttribute="trailing" secondItem="QCj-bq-S0O" secondAttribute="trailing" id="Sz8-Ay-rSm"/>
                             <constraint firstItem="QCj-bq-S0O" firstAttribute="leading" secondItem="ryT-Jy-uyg" secondAttribute="leading" id="UKu-Yh-ZwN"/>
                             <constraint firstItem="GSG-Pd-TsP" firstAttribute="trailing" secondItem="ryT-Jy-uyg" secondAttribute="trailing" id="VhQ-5q-4VF"/>
-                            <constraint firstItem="N3Q-DA-Zci" firstAttribute="leading" secondItem="ryT-Jy-uyg" secondAttribute="leading" id="brj-X2-v4V"/>
                             <constraint firstAttribute="bottom" secondItem="QCj-bq-S0O" secondAttribute="bottom" id="g2Y-Ih-hel"/>
-                            <constraint firstItem="N3Q-DA-Zci" firstAttribute="top" secondItem="v5h-c0-Yhy" secondAttribute="top" id="lvi-d6-j3r"/>
-                            <constraint firstItem="ryT-Jy-uyg" firstAttribute="trailing" secondItem="N3Q-DA-Zci" secondAttribute="trailing" id="oHS-Zu-cv3"/>
-                            <constraint firstAttribute="bottom" secondItem="N3Q-DA-Zci" secondAttribute="bottom" id="ogd-Ni-5UW"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="YJ3-3U-6Iu"/>
                     <connections>
                         <outlet property="cancelButton" destination="oGI-86-cBH" id="yxQ-Lm-fU1"/>
                         <outlet property="containerView" destination="GSG-Pd-TsP" id="Nie-HP-hf9"/>
-                        <outlet property="dimButton" destination="N3Q-DA-Zci" id="I4p-yr-AoB"/>
                         <outlet property="keyBoardHeightConstraint" destination="ics-AA-wDJ" id="uqG-sI-GuP"/>
                         <outlet property="shelfIdInputTextField" destination="JXs-Ki-VcT" id="9Ub-Ho-RQE"/>
                         <outlet property="submitButton" destination="9cb-Bf-IfL" id="Ka3-Zb-QNB"/>

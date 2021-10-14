@@ -63,7 +63,7 @@ extension InquireViewController {
         createModifyButton()
         createOkButton()
         configureViews()
-        
+        configueAccessibilityProperties()
     }
     
     func createContainerView(){
@@ -90,7 +90,7 @@ extension InquireViewController {
     func createRemainedWeightButton(){
         remainedWeightButton.layer.backgroundColor = UIColor(red: 241.0/255.0, green: 241.0/255.0, blue: 241.0/255.0, alpha: 1).cgColor
         remainedWeightButton.configureShadowColor(.black)
-        remainedWeightButton.setTitle("잔여량 \(food.foodWeight)g", for: .normal)
+        remainedWeightButton.setTitle("잔여량 \(food.remainedPercentage) %", for: .normal)
         
     }
     
@@ -142,4 +142,13 @@ extension InquireViewController {
         
     }
     
+    func configueAccessibilityProperties(){
+        titleLabel.accessibilityLabel = food.foodDetailInfoText
+        foodNameButton.accessibilityLabel = "반찬명 \(food.foodName)"
+        registeredDateButton.accessibilityLabel = "등록일 \(food.registeredDateText)"
+        
+        foodNameButton.accessibilityTraits = .none
+        remainedWeightButton.accessibilityTraits = .none
+        registeredDateButton.accessibilityTraits = .none
+    }
 }

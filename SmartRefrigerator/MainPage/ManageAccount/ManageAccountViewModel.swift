@@ -37,7 +37,11 @@ class ManageAccountViewModel : ViewModelType {
             .disposed(by: disposeBag)
         
         input.logoutButton.asObservable()
-            .map({_ in ManageAccountViewModel.ButtonClickResult.logout})
+            .map({_ in
+                UserInfo.savedUser = nil
+                return ManageAccountViewModel.ButtonClickResult.logout
+                
+            })
             .bind(to: output.result)
             .disposed(by: disposeBag)
     }

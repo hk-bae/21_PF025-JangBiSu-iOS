@@ -21,7 +21,6 @@ import RxCocoa
 class ConnectRefrigeratorByNFCInputViewController: OverrappingViewController, UITextFieldDelegate {
 
     @IBOutlet weak var containerView: UIView!
-    @IBOutlet weak var dimButton: UIButton!
     
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var subtitleLabel: UILabel!
@@ -76,10 +75,6 @@ extension ConnectRefrigeratorByNFCInputViewController{
             .bind(to: viewModel.input.submit)
             .disposed(by: disposeBag)
         
-        dimButton.rx.tap.asObservable()
-            .debounce(.milliseconds(500), scheduler: MainScheduler.instance)
-            .subscribe(onNext:cancel)
-            .disposed(by: disposeBag)
         
         cancelButton.rx.tap.asObservable()
             .debounce(.milliseconds(500), scheduler: MainScheduler.instance)
@@ -178,6 +173,7 @@ extension ConnectRefrigeratorByNFCInputViewController{
     
     func configureWrongNFCInput(){
         subtitleLabel.text = "고유번호가 일치하지 않습니다."
+        TTSUtility.speak(string: subtitleLabel.text!)
         subtitleLabel.textColor = UIColor.Service.orange.value
         shelfIdInputTextField.configureView(true)
     }
