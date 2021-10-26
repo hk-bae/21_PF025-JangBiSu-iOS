@@ -44,20 +44,24 @@ class ManageAccountViewController: UIViewController {
 extension ManageAccountViewController{
     func input(){
         nfcButton.rx.tap.asObservable()
+            .throttle(.milliseconds(1000), scheduler: MainScheduler.instance)
             .bind(to: viewModel.input.nfcButton)
             .disposed(by: disposeBag)
         
         backButton.rx.tap.asObservable()
+            .throttle(.milliseconds(1000), scheduler: MainScheduler.instance)
             .bind(to: viewModel.input.backButton)
             .disposed(by: disposeBag)
         
         logoutButton.rx.tap.asObservable()
+            .throttle(.milliseconds(1000), scheduler: MainScheduler.instance)
             .bind(to: viewModel.input.logoutButton)
             .disposed(by: disposeBag)
     }
     
     func output(){
         viewModel.output.result.asObservable()
+            .observe(on: MainScheduler.instance)
             .subscribe(onNext:handleResult)
             .disposed(by: disposeBag)
     }

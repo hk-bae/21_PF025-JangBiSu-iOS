@@ -28,7 +28,6 @@ extension InputTextField {
         self.leftView = UIView()
         self.leftViewMode = .always
         
-        
         let rightPadding = UIView()
         clearButton.setBackgroundImage(UIImage(named: "clear"), for: .normal)
         rightPadding.addSubview(clearButton)
@@ -41,7 +40,7 @@ extension InputTextField {
         
         self.layer.backgroundColor = UIColor(red: 241.0/255.0, green: 241.0/255.0, blue: 244.0/255.0, alpha: 1).cgColor
         
-        clearButton.accessibilityLabel = "입력 내용 초기화"
+        
     }
     
     func initView(){

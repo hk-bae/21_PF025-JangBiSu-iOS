@@ -165,7 +165,6 @@
 		2047DDCA26D4D49F00326003 /* Common */ = {
 			isa = PBXGroup;
 			children = (
-				2047DE1E26DE11AF00326003 /* Font */,
 				2047DDD826D4D8F300326003 /* Service */,
 				20FD7ECE26E20056005B8122 /* Utilites */,
 				2047DDCB26D4D52600326003 /* Model */,
@@ -345,6 +344,7 @@
 		20ED6F7A2706CE59002C66EA /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				2047DE1E26DE11AF00326003 /* Font */,
 				2062432B26CD2D0000A9018A /* Assets.xcassets */,
 				2009CC302705B3B900C22D72 /* Main.storyboard */,
 				2047DDAA26D3EF9A00326003 /* Initial.storyboard */,

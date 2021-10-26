@@ -16,7 +16,7 @@ class UserInfoRepository {
                 .shared
                 .session
                 .request(UserInfoRouter.connect(id: userId, shelfId: shelf.id))
-                .responseJSON{ response in
+                .responseJSON(queue:DispatchQueue.global(qos: .default)){ response in
                     if response.response?.statusCode == 204{
                         // 성공
                         UserInfo.savedUser?.shelf = shelf
@@ -42,8 +42,7 @@ class UserInfoRepository {
             .shared
             .session
             .request(UserInfoRouter.login(id: id, pw: pw))
-            .responseJSON{ response in
-                
+            .responseJSON(queue: DispatchQueue.global(qos: .default)){ response in
                 switch response.result {
                 case .success(let value) :
                     guard let result = value as? [String:Any] else { return }
@@ -63,7 +62,6 @@ class UserInfoRepository {
                                                           name: user["name"] as! String,
                                                           password: user["password"] as! String,
                                                           shelf: shelf)
-                            
                             completion(UserInfo.savedUser,nil)
                         }
                         
@@ -85,8 +83,7 @@ class UserInfoRepository {
             .shared
             .session
             .request(UserInfoRouter.register(id: id, pw: pw, name: name))
-            .responseJSON{ response in
-                
+            .responseJSON(queue:DispatchQueue.global(qos: .default)){ response in
                 switch response.result {
                 case .success(let value) :
                     guard let result = value as? [String:Any] else{ return }

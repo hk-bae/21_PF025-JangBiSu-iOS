@@ -32,7 +32,6 @@ class RegisterViewController: UIViewController,UITextFieldDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = UIColor.Service.defaultBlack.value
-        setDelegate()
         createView()
         input()
         output()
@@ -42,12 +41,6 @@ class RegisterViewController: UIViewController,UITextFieldDelegate {
         navigationController?.popViewController(animated: true)
     }
     
-    func setDelegate(){
-        nameInputTextField.delegate = self
-        idInputTextField.delegate = self
-        pwInputTextField.delegate = self
-        pwCheckInputTextField.delegate = self
-    }
     
 }
 
@@ -74,7 +67,7 @@ extension RegisterViewController {
             .disposed(by: disposeBag)
         
         registerButton.rx.tap.asObservable()
-            .debounce(.milliseconds(500), scheduler: MainScheduler.instance)
+            .throttle(.milliseconds(1000), scheduler: MainScheduler.instance)
             .bind(to: viewModel.input.register)
             .disposed(by: disposeBag)
         
@@ -100,12 +93,16 @@ extension RegisterViewController {
         
         goToLoginButton.rx.tap
             .asObservable()
+            .throttle(.milliseconds(1000), scheduler: MainScheduler.instance)
             .subscribe(onNext:goToLoginPage)
             .disposed(by: disposeBag)
     }
     
     func output(){
-        viewModel.output.register.subscribe(onNext:handleRegisterResult).disposed(by: disposeBag)
+        viewModel.output.register
+            .observe(on: MainScheduler.instance)
+            .subscribe(onNext:handleRegisterResult)
+            .disposed(by: disposeBag)
     }
 }
 
@@ -246,10 +243,5 @@ extension RegisterViewController {
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         self.view.endEditing(true)
     }
-    
-    //리턴키 눌렀을 떄 키보드 내리기
-    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
-        textField.resignFirstResponder()
-        return true
-    }
+
 }

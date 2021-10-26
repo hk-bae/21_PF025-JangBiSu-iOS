@@ -16,9 +16,6 @@ class MainViewModel : ViewModelType {
     let disposeBag = DisposeBag()
     let usecase = MainUsecase()
     
-//    // 해당 칸의 반찬통 등록 여부
-//    var isRegistered = BehaviorRelay<[Bool]>(value:[false,false,false,false,false,false])
-    
     var foods = BehaviorRelay<[Food?]>(value:[nil,nil,nil,nil,nil,nil])
     
     struct Input {
@@ -100,8 +97,8 @@ extension MainViewModel {
         let index = foodInfo.0
         let foodName = foodInfo.1
         if let foodId = foods.value[index]?.id {
-            usecase.modifyFood(foodId: foodId, foodName: foodName, completion: {
-                self.fetchData()
+            usecase.modifyFood(foodId: foodId, foodName: foodName, completion: { [weak self] in
+                self?.fetchData()
             })
         }
         

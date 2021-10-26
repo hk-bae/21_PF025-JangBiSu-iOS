@@ -51,7 +51,8 @@ class RegisterViewModel : ViewModelType {
             .subscribe(onNext:handleInputPwCheck).disposed(by: disposeBag)
         
         input.register.filter(isValid)
-            .subscribe(onNext:register).disposed(by:disposeBag)
+            .subscribe(onNext:register)
+            .disposed(by:disposeBag)
     }
 }
 
@@ -128,13 +129,13 @@ extension RegisterViewModel {
         let pw = self.input.pwTextField.value
         let name = self.input.nameTextField.value
         
-        usecase.register(id, pw, name) { user, errorMessage in
+        usecase.register(id, pw, name) { [weak self] user, errorMessage in
             if let _ = user {
-                self.output.register.accept(RegisterResult.success)
+                self?.output.register.accept(RegisterResult.success)
             }
             
             if let _ = errorMessage {
-                self.output.register.accept(RegisterResult.alreadyExists) // 이미 존재하는 아이디
+                self?.output.register.accept(RegisterResult.alreadyExists) // 이미 존재하는 아이디
             }
         }
     }

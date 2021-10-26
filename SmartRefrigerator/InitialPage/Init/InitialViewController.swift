@@ -14,7 +14,6 @@ class InitialViewController: UIViewController {
     @IBOutlet weak var moveToRegisterPageButton: ShadowingButton!
     
     override func viewWillAppear(_ animated: Bool) {
-        self.navigationController?.isNavigationBarHidden = true
         configureNavigationController()
         autoLogin()
     }
@@ -23,11 +22,6 @@ class InitialViewController: UIViewController {
         super.viewDidLoad()
         createView()
     }
-    
-    override func viewWillDisappear(_ animated: Bool) {
-        self.navigationController?.isNavigationBarHidden = false
-    }
-    
 }
 
 extension InitialViewController {
@@ -39,7 +33,8 @@ extension InitialViewController {
     }
     
     func configureNavigationController(){
-        // 전체 네비게이션 바에 대해서 라인을 없앤다
+        // 전체 네비게이션 바의 백그라운드 이미지, 라인 등을 제거
+        // 네비게이션 바의 텍스트 폰트 크기, 색상 지정
         self.navigationController?.navigationBar.setBackgroundImage(UIImage(), for: .default)
         self.navigationController?.navigationBar.shadowImage = UIImage()
         self.navigationController?.navigationBar.titleTextAttributes = [.foregroundColor : UIColor.white, .font : UIFont.Service.notoSans_regular(_size: 20).value]
@@ -47,7 +42,6 @@ extension InitialViewController {
     }
     
     func createGradeint(){
-        self.view.backgroundColor = UIColor.Service.white100.value
         let gradient = CAGradientLayer()
         gradient.frame = self.view.frame
         gradient.colors = [

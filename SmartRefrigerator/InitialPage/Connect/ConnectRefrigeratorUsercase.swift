@@ -17,7 +17,7 @@ class ConnectRefrigeratorUsecase {
             do{
                 let shelfId = try result.get()
                 let shelf = Shelf(id: shelfId, row: 2, col: 3)
-                self?.repository.connectRefrigerator(shelf: shelf, completion: completion)
+                self?.repository.connectRefrigerator(shelf: shelf, completion: completion) 
             }catch{
                 // 태깅 실패
                 completion("태그에 실패하였습니다. 다시 시도해 주세요.")

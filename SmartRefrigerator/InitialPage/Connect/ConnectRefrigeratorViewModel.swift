@@ -29,7 +29,6 @@ class ConnectRefrigeratorViewModel : ViewModelType {
         input.nfcButton.asObservable()
             .subscribe(onNext:nfcTag)
             .disposed(by: disposeBag)
-                        
     }
 }
 
@@ -40,13 +39,13 @@ extension ConnectRefrigeratorViewModel {
     }
     
     func nfcTag(){
-        usecase.connectRefrigeratorByNFCTag{ error in
+        usecase.connectRefrigeratorByNFCTag{ [weak self] error in
             if let error = error {
                 // 실패
-                self.output.connectRefrigerator.accept(.failure(message: error))
+                self?.output.connectRefrigerator.accept(.failure(message: error))
             }else{
                 // 성공
-                self.output.connectRefrigerator.accept(.success)
+                self?.output.connectRefrigerator.accept(.success)
             }
         }
     }

@@ -50,12 +50,13 @@ class LoginViewController: UIViewController {
 extension LoginViewController {
     func input(){
         self.loginButton.rx.tap.asObservable()
-            .debounce(.milliseconds(500),scheduler: MainScheduler.instance)
+            .throttle(.milliseconds(1000),latest: false, scheduler: MainScheduler.instance)
             .bind(to: viewModel.input.login)
             .disposed(by: disposeBag)
         
         self.idTextField.rx.text
             .orEmpty
+            .debounce(.milliseconds(1000), scheduler: ConcurrentDispatchQueueScheduler(qos: .default))
             .bind(to: viewModel.input.idTextField)
             .disposed(by: disposeBag)
         
@@ -76,6 +77,7 @@ extension LoginViewController {
     
     func output(){
         self.viewModel.output.login.asObservable()
+            .observe(on: MainScheduler.instance)
             .subscribe(onNext:handleLoginResult)
             .disposed(by: disposeBag)
     }
@@ -91,9 +93,9 @@ extension LoginViewController {
                 let main = mainStoryboard.instantiateViewController(identifier: "MainVC") as! MainViewController
                 main.modalTransitionStyle = .crossDissolve
                 main.modalPresentationStyle = .overFullScreen
-                let navigationViewController = self.navigationController
-                self.present(main, animated: true) {
-                    navigationViewController?.popViewController(animated: true)
+                
+                self.present(main, animated: true) { [weak self] in
+                    self?.navigationController?.popViewController(animated: true)
                 }
             }else{
                 // 냉장고 등록 페이지로 이동
@@ -252,11 +254,6 @@ extension LoginViewController {
 extension LoginViewController {
     // 화면 터치시 키보드 내리기
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?){ self.view.endEditing(true)
-    }
-    // 리턴키 눌렀을 때 키보드 내리기
-    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
-        textField.resignFirstResponder()
-        return true
     }
 }
 

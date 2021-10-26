@@ -22,11 +22,7 @@ class ShadowingButton : UIButton{
 
 extension ShadowingButton {
     func createView(){
-//        self.setTitleColor(UIColor.Service.white100.value, for: .normal)
-//        self.layer.backgroundColor = UIColor.Service.red.value.cgColor
-//
-//        self.layer.borderWidth = 2
-//        self.layer.borderColor = UIColor.red.cgColor
+        
         self.layer.shadowOffset = CGSize(width:0,height:8)
         self.layer.shadowOpacity = 1
         self.layer.shadowRadius = 5

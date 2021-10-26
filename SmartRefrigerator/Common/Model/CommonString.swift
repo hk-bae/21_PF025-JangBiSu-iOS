@@ -12,5 +12,4 @@ enum CommonString : String{
     case SAVE_ID = "save-id"
     case SAVED_ID = "saved-id"
     case SAVED_USER = "saved-user"
-    case TEMP_REGISTER_FOOD_NAME = "food-name"
 }

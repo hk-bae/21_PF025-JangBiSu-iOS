@@ -109,6 +109,7 @@ extension InquireViewController {
         modifyButton.layer.backgroundColor = UIColor.Service.yellow.value.cgColor
         modifyButton.configureShadowColor(.black)
         modifyButton.rx.tap.asObservable()
+            .throttle(.milliseconds(1000), scheduler: MainScheduler.instance)
             .subscribe(onNext:{ _ in
                 self.dismiss(animated: true) { [weak self] in
                     self?.completion?(.modify)
@@ -121,6 +122,7 @@ extension InquireViewController {
         okButton.layer.backgroundColor = UIColor.Service.yellow.value.cgColor
         okButton.configureShadowColor(.black)
         okButton.rx.tap.asObservable()
+            .throttle(.milliseconds(1000), scheduler: MainScheduler.instance)
             .subscribe(onNext:{ _ in
                 self.dismiss(animated: true) { [weak self] in
                     self?.completion?(.ok)

@@ -30,7 +30,7 @@ class MainViewController: UIViewController {
     let disposeBag = DisposeBag()
     
     override func viewWillAppear(_ animated: Bool) {
-        //         fetch Data
+        // fetch Data
         viewModel.fetchData()
     }
     
@@ -39,29 +39,31 @@ class MainViewController: UIViewController {
         createViews()
         input()
         output()
-        // foreground 진입 시 fetchData 호출
-        NotificationCenter.default.addObserver(self, selector: #selector(willEnterForeground), name: UIApplication.willEnterForegroundNotification, object: nil)
+        // Active 상태 진입 시 fetchData 호출
+        NotificationCenter.default.addObserver(self, selector: #selector(becomeActive), name: UIApplication.didBecomeActiveNotification, object: nil)
     }
     
 }
 
 extension MainViewController{
     func input(){
-        
         for (index,foodButton) in foods.enumerated() {
             foodButton.rx.tap.asObservable()
+                .throttle(.milliseconds(1000), scheduler: MainScheduler.instance)
                 .map({ index })
                 .bind(to: viewModel.input.foodTouch)
                 .disposed(by: disposeBag)
         }
         
         checkIceButton.rx.tap.asObservable()
+            .throttle(.milliseconds(1000), scheduler: MainScheduler.instance)
             .bind(to: viewModel.input.checkIce)
             .disposed(by: disposeBag)
     }
     
     func output(){
         viewModel.output.foodTouch.asObservable()
+            .observe(on: MainScheduler.instance)
             .subscribe(onNext:{ result in
                 switch result{
                 case .needToRegister(let index) :
@@ -69,32 +71,33 @@ extension MainViewController{
                 case .inquireResult(let index) :
                     if let viewController = self.storyboard?.instantiateViewController(identifier: "InquireFoodVC") as? InquireViewController{
                         viewController.food = self.viewModel.foods.value[index]
-                        viewController.completion = { result in
-                            
+                        viewController.completion = { [weak self] result in
                             switch result{
                             case .modify:
                                 //modify dialog 띄우기
-                                self.popUpRegisterFoodVC(index: index,type: .modify)
+                                self?.popUpRegisterFoodVC(index: index,type: .modify)
                                 break
                             case .ok: break
                             }
                         }
                         self.present(viewController,animated: true,completion: nil)
                     }
-                    return
                 }
             })
             .disposed(by: disposeBag)
         
         viewModel.output.registerFood.asObservable()
+            .observe(on: MainScheduler.instance)
             .subscribe(onNext:handleRegisterFoodResult)
             .disposed(by: disposeBag)
         
         viewModel.output.updateFoods.asObservable()
+            .observe(on: MainScheduler.instance)
             .subscribe(onNext:updateFoods)
             .disposed(by: disposeBag)
         
         viewModel.output.checkIce.asObservable()
+            .observe(on: MainScheduler.instance)
             .subscribe(onNext:{ isIce in
                 if let viewController = self.storyboard?.instantiateViewController(identifier: "CheckIceVC") as? CheckIceViewController{
                     viewController.isIceMade = isIce
@@ -120,13 +123,13 @@ extension MainViewController {
         if let viewController = self.storyboard?.instantiateViewController(withIdentifier: "FoodRegisterVC") as? RegisterFoodViewController{
             switch type {
             case .register:
-                viewController.completion = { foodName in
-                    self.viewModel.input.registerFood.accept((index,foodName))
+                viewController.completion = { [weak self] foodName in
+                    self?.viewModel.input.registerFood.accept((index,foodName))
                 }
             case .modify :
                 viewController.type = type
-                viewController.completion = { foodName in
-                    self.viewModel.input.modifyFood.accept((index,foodName))
+                viewController.completion = { [weak self] foodName in
+                    self?.viewModel.input.modifyFood.accept((index,foodName))
                 }
             }
             self.present(viewController, animated: true, completion: nil)
@@ -141,7 +144,7 @@ extension MainViewController {
         }
     }
     
-    @objc func willEnterForeground(){
+    @objc func becomeActive(){
         viewModel.fetchData()
     }
 }

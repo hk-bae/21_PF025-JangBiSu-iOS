@@ -19,7 +19,7 @@ class MainRepository{
             .shared
             .session
             .request(FoodRouter.fetchFoods(shelf_id: shelfID))
-            .responseJSON { response in
+            .responseJSON(queue:DispatchQueue.global()) { response in
                 
                 let result = response.value as? [String:Any]
                 if let datas = result?["data"] as? [[String:Any]]{
@@ -48,7 +48,7 @@ class MainRepository{
             .shared
             .session
             .request(FoodRouter.registerFood(id: foodId, food_name: foodName,food_row: foodRow,food_col: foodCol,registered_date:registeredDate,shelf_id: shelfID))
-            .responseJSON { response in
+            .responseJSON(queue:DispatchQueue.global()) { response in
                 
                 if response.response?.statusCode == 204{ // 성공
                     let newFood = Food(id: foodId, foodName: foodName, foodRow: foodRow, foodCol: foodCol, foodWeight: 0.0, maxWeight: 0.0, registeredDate: registeredDate, shelfID: Shelf(id: shelfID, row: 2, col: 3))
@@ -70,7 +70,7 @@ class MainRepository{
             .shared
             .session
             .request(FoodRouter.modifyFood(id: foodId, food_name: foodName, registered_date : registeredDate))
-            .responseJSON { response in
+            .responseJSON(queue:DispatchQueue.global()) { response in
                 if response.response?.statusCode == 204 {
                     completion()
                 }
@@ -83,7 +83,7 @@ class MainRepository{
             .shared
             .session
             .request(ShelfRouter.getShelfInfo(shelfId: UserInfo.savedUser!.shelf!.id))
-            .responseJSON { response in
+            .responseJSON(queue:DispatchQueue.global()) { response in
                 let result = response.value as? [String:Any]
                 let data = result?["data"] as? [String:Any]
                 if let ice = data?["ice"] as? Bool {

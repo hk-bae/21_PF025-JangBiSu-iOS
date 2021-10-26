@@ -83,12 +83,12 @@ extension LoginViewModel {
                 self?.output.login.accept(LoginResult.success)
             }
             
-            if let _ = errorMessage {
+            if let errorMessage = errorMessage {
                 switch errorMessage {
-                case "일치하는 회원 정보가 없습니다. 사용자 id를 확인해주세요.":
+                case errorMessage where errorMessage.contains("id"):
                     self?.output.login.accept(LoginResult.nonexistentUser)
                     break
-                case "일치하는 회원 정보가 없습니다. 사용자 pw를 확인해주세요.":
+                case errorMessage where errorMessage.contains("pw"):
                     self?.output.login.accept(LoginResult.inconsistentUser)
                     break
                 default : break

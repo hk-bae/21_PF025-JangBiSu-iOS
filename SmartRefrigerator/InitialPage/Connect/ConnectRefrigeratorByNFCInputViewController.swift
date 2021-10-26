@@ -9,15 +9,6 @@ import UIKit
 import RxSwift
 import RxCocoa
 
-//extension ConnectRefrigeratorByNFCInputViewController {
-//    func show(target : UIViewController? = nil) {
-//        guard let parent = target ?? UIViewController.visibleController else {
-//            return
-//        }
-//        parent.present(self, animated: true, completion: nil)
-//    }
-//}
-
 class ConnectRefrigeratorByNFCInputViewController: OverrappingViewController, UITextFieldDelegate {
 
     @IBOutlet weak var containerView: UIView!
@@ -51,33 +42,23 @@ class ConnectRefrigeratorByNFCInputViewController: OverrappingViewController, UI
         super.viewDidLoad()
         view.backgroundColor = .clear
         containerView.roundCorners(cornerRadius: 15, byRoundingCorners: [.topLeft,.topRight])
-        setDelegate()
         addKeyboardNotifications()
         createView()
         input()
         output()
-    }
-    
-    
-    func setDelegate(){
-        shelfIdInputTextField.delegate = self
-    }
-    
-    deinit {
-        print("deinit")
     }
 }
 
 extension ConnectRefrigeratorByNFCInputViewController{
     func input(){
         submitButton.rx.tap.asObservable()
-            .debounce(.milliseconds(500), scheduler: MainScheduler.instance)
+            .throttle(.milliseconds(1000), scheduler: MainScheduler.instance)
             .bind(to: viewModel.input.submit)
             .disposed(by: disposeBag)
         
         
         cancelButton.rx.tap.asObservable()
-            .debounce(.milliseconds(500), scheduler: MainScheduler.instance)
+            .throttle(.milliseconds(1000), scheduler: MainScheduler.instance)
             .subscribe(onNext:cancel)
             .disposed(by: disposeBag)
         
@@ -93,6 +74,7 @@ extension ConnectRefrigeratorByNFCInputViewController{
     
     func output(){
         viewModel.output.submit.asObservable()
+            .observe(on: MainScheduler.instance)
             .subscribe(onNext:{ [weak self] result in
                 guard let self = self else {fatalError()}
                 switch result {
@@ -170,7 +152,6 @@ extension ConnectRefrigeratorByNFCInputViewController{
 
 extension ConnectRefrigeratorByNFCInputViewController{
     func cancel(){
-//        self.completion?(.failure(message: "cancel"))
         self.removeKeyboardNotifications()
         self.dismiss(animated: true)
     }
@@ -192,12 +173,6 @@ extension ConnectRefrigeratorByNFCInputViewController {
     //화면 터치 시 키보드 내리기
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         self.view.endEditing(true)
-    }
-
-    //리턴키 눌렀을 떄 키보드 내리기
-    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
-        textField.resignFirstResponder()
-        return true
     }
 
     func addKeyboardNotifications(){

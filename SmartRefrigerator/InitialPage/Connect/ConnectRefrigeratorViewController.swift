@@ -30,7 +30,8 @@ class ConnectRefrigeratorViewController : UIViewController{
         let vc = navigationController?.viewControllers[1]
         if let _ = vc as? LoginViewController {
             navigationController?.popViewController(animated: true)
-        }else{        navigationController?.popToRootViewController(animated: true)
+        }else{
+            navigationController?.popToRootViewController(animated: true)
         }
     }
     
@@ -39,18 +40,17 @@ class ConnectRefrigeratorViewController : UIViewController{
 extension ConnectRefrigeratorViewController{
     func input(){
         nfcButton.rx.tap.asObservable()
-            .debounce(.milliseconds(500), scheduler: MainScheduler.instance)
+            .throttle(.milliseconds(1000), scheduler: MainScheduler.instance)
             .bind(to: viewModel.input.nfcButton)
             .disposed(by: disposeBag)
         
         nfcIdInputButton.rx.tap.asObservable()
-            .debounce(.milliseconds(500), scheduler: MainScheduler.instance)
+            .throttle(.milliseconds(1000), scheduler: MainScheduler.instance)
             .subscribe(onNext:{
                 if let viewController = self.storyboard?.instantiateViewController(withIdentifier: "NFCInputVC") as? ConnectRefrigeratorByNFCInputViewController{
                     viewController.completion = self.handleConnectResult
                     self.present(viewController, animated: true, completion: nil)
                 }
-                
             })
             .disposed(by: disposeBag)
         
@@ -59,6 +59,7 @@ extension ConnectRefrigeratorViewController{
     
     func output(){
         viewModel.output.connectRefrigerator
+            .observe(on: MainScheduler.instance)
             .subscribe(onNext:handleConnectResult)
             .disposed(by: disposeBag)
     }
@@ -75,7 +76,7 @@ extension ConnectRefrigeratorViewController{
                 main.modalPresentationStyle = .overFullScreen
                 if let navigationViewController = self.navigationController{
                     self.present(main, animated: true) {
-                        navigationViewController.popViewController(animated: true)
+                        navigationViewController.popToRootViewController(animated: false)
                     }
                 }else{
                     let presentingVC = presentingViewController

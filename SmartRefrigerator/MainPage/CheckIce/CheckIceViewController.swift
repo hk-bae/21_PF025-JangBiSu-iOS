@@ -86,6 +86,7 @@ extension CheckIceViewController{
         okButton.setTitleColor(UIColor.Service.defaultBlack.value, for: .normal)
         okButton.configureShadowColor(.black)
         okButton.rx.tap.asObservable()
+            .throttle(.milliseconds(1000), scheduler: MainScheduler.instance)
             .subscribe (onNext:{ _ in
                 self.dismiss(animated: true, completion: nil)
             })

@@ -131,16 +131,11 @@ extension NFCUtility : NFCTagReaderSessionDelegate {
                     } else {
                         uidString.append(decimalNumber)
                     }
-                    
-                    // 04 9d e8 02 70 71 80
-                    // 04 9d e8 02 70 71 80
                 }
-                print("#####",uidString)
                 
                 self.completion?(.success(uidString))
                 self.session?.alertMessage = "태그가 성공적으로 완료되었습니다."
                 self.session?.invalidate()
-                debugPrint("\(byteData) converted to Tag UID: \(uidString)")
                 
             }else{
                 self.session?.alertMessage = "태그 등록에 실패하였습니다.\n다시 시도해 주세요."

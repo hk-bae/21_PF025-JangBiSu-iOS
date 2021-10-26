@@ -35,11 +35,11 @@ class ConnectRefrigeratorByNFCInputViewModel : ViewModelType {
 extension ConnectRefrigeratorByNFCInputViewModel {
     func connectRefrigerator(){
         let shelfId = self.input.shelfIdInputTextField.value
-        usecase.connectRefrigeratorByNFCInput(shelfId: shelfId) { error in
+        usecase.connectRefrigeratorByNFCInput(shelfId: shelfId) { [weak self] error in
             if let error = error {
-                self.output.submit.accept(.failure(message: error))
+                self?.output.submit.accept(.failure(message: error))
             }else{
-                self.output.submit.accept(.success)
+                self?.output.submit.accept(.success)
             }
         }
     }
