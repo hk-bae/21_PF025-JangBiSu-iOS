@@ -1,13 +1,13 @@
 # 장비서
 
-* 한이음 ICT 멘토링 포르보노 공모전 (2021.08 ~ )
+* 한이음 ICT 멘토링 포르보노 공모전 (2021.08 ~ 2021.11.7)
 
 
-## 0. Contents
+## Contents
 
 [장비서](#---)
 
-​	[0. Contents](#0-contents)
+​	[Contents](#0-contents)
 
 ​	[1. Overeview](#1-overeview)
 
@@ -36,40 +36,48 @@
 
 * 로그인 및 회원가입 기능
 
-   <img src = "https://user-images.githubusercontent.com/68215452/136070636-1e685633-bda3-4918-aeb0-81e102a002a3.gif" width="25%" height="20%">   <img src = "https://user-images.githubusercontent.com/68215452/136070875-87f77c30-7fc4-4d5c-a2d7-7b2388e09b30.gif" width="25%" height="20%">
+   <img src = "https://user-images.githubusercontent.com/68215452/140639038-01c8bf04-5367-43bc-938b-d8d0b4aa96c6.gif" width="25%" height="20%"> <img src = "https://user-images.githubusercontent.com/68215452/140639443-642eded8-7c0f-4615-80e3-19d66a95f542.gif" width="25%" height="20%">
     
 
 * 냉장고 선반 등록 기능 (NFC 태그, 고유번호 입력) 
 
-  <img src = "https://user-images.githubusercontent.com/68215452/136071084-bf5309f4-b045-416d-a153-16c5bb656ced.gif" width="25%" height="20%"> <img src = "https://user-images.githubusercontent.com/68215452/136070977-fc17e8bd-3c14-45af-b63a-d929dfad29b6.gif" width="25%" height="20%">
+  <img src = "https://user-images.githubusercontent.com/68215452/140639519-1351f2b4-93c3-4ef1-99b2-3b56367ec8ef.gif" width="25%" height="20%"> <img src = "https://user-images.githubusercontent.com/68215452/140639485-15e950cc-c1de-4919-a256-90dab8c6063a.gif" width="25%" height="20%">
   
 
 * 반찬통 등록 기능
 
-  <img src = "https://user-images.githubusercontent.com/68215452/136072329-d65cd8c9-df1a-4e0b-8a10-8e08b55d722c.gif" width="25%" height="20%">
+  <img src = "https://user-images.githubusercontent.com/68215452/140639386-dc677e36-ee75-4e5d-8921-f59d88613531.gif" width="25%" height="20%">
     
 
 * 반찬통 정보 조회 및 변경 기능
 
-  <img src = "https://user-images.githubusercontent.com/68215452/136070745-d5662c34-4327-4cf7-bd93-a39b0b84a51a.gif" width="25%" height="20%">
+  <img src = "https://user-images.githubusercontent.com/68215452/140639573-40cf51c5-f378-467d-9958-2f0fee9bc732.gif" width="25%" height="20%">
   
 
-* 얼음 상태 확인 기능 
-
-  <img src = "https://user-images.githubusercontent.com/68215452/136068844-711540d3-346d-45ba-aecb-56c12ffed6e5.gif" width="25%" height="20%">
+* 반찬통 정보 fetch / 얼음 상태 확인 기능
+* 
+  <img src = "https://user-images.githubusercontent.com/68215452/140639621-bda58252-c2e4-471c-b7d9-fa439f294d3d.gif" width="25%" height="20%"> <img src = "https://user-images.githubusercontent.com/68215452/140639585-d1cda044-a497-4700-a614-a8222b489881.gif" width="25%" height="20%">
 
 
 
 * 계정 관리 (선반 재등록, 로그아웃)
 
-  <img src = "https://user-images.githubusercontent.com/68215452/136068121-ce8689b9-5f1a-409a-a897-73fc11792496.gif" width="25%" height="20%">
+  <img src = "https://user-images.githubusercontent.com/68215452/140639649-a2b7d266-c6fc-433c-a91b-6d9c4b6c89a4.gif" width="25%" height="20%">
     
 
 
 
-* 냉장고 이상 감지 알림 기능 (진행중)
+* 냉장고 온도 변화 및 문 열림 감지
 
-  * Push Notification / CoreBluetooth
+  <img src = "https://user-images.githubusercontent.com/68215452/140639690-de8bc75c-ef30-4b2b-b9e3-f2f4194470aa.gif" width="25%" height="20%"> <img src = "https://user-images.githubusercontent.com/68215452/140639681-df8801ff-472d-4e7b-a517-6d0c8d01e01b.gif" width="25%" height="20%">
+  
+  * CoreBluetooth
+  
+  * 앱 실행 시 블루투스 및 알림 권한 요청
+
+  * 블루투스 자동 연결
+
+  * 블루투스 연결 시 냉장고 온도 정보 및 문 열림 감지 알림 제공
 
 
 ## 3. Requirements
@@ -106,18 +114,19 @@
     * NFC 통신을 위한 Apple Framework
     * 큐브 냉장고 선반 및 반찬통의 NFC 태그와 통신
 
-* **Voice Over**
+  * **Voice Over**
     * 화면을 보지 않고도 아이폰을 사용할 수 있도록 도와주는 제스처 기반 화면 읽기 기능
     * 시각 장애인들의 원활한 앱 사용을 돕기 위해 Voice Over 기능 활용 
     * `UIAccessibilityElementProperty` 의 프로퍼티들에 적절한 값 부여
-* **TTS(Text To Speech)**
+
+  * **TTS(Text To Speech)**
     * 사용자에게 필요한 순간 적절한 음성 가이드 제공을 위한 기술
     * Apple의 미디어 Framework인 `AVFoundation` 사용
     
-* 사용 예정 기술
   * **CoreBluetooth**
     * Bluetooth 통신을 위한 Apple Framework
     * 냉장고 이상 확인을 위해 냉장고 선반과의 직접적인 통신
+    
   * **Push Notification**
     * 사용자에게 냉장고 이상을 알리기 위한 기술로 사용 예정
   
