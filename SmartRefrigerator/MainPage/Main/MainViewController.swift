@@ -8,11 +8,14 @@
 import UIKit
 import RxSwift
 import RxCocoa
+import CoreBluetooth
 
 class MainViewController: UIViewController {
     
     @IBOutlet weak var titleLabel: UILabel!
-    
+    @IBOutlet weak var temperatureLabel: UILabel!
+    @IBOutlet weak var bleButton: UIButton!
+    @IBOutlet weak var fetchButton: UIButton!
     @IBOutlet weak var food11: ShadowingButton!
     @IBOutlet weak var food12: ShadowingButton!
     @IBOutlet weak var food13: ShadowingButton!
@@ -36,6 +39,7 @@ class MainViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        configureBLESerialSetting()
         createViews()
         input()
         output()
@@ -58,6 +62,16 @@ extension MainViewController{
         checkIceButton.rx.tap.asObservable()
             .throttle(.milliseconds(1000), scheduler: MainScheduler.instance)
             .bind(to: viewModel.input.checkIce)
+            .disposed(by: disposeBag)
+        
+        fetchButton.rx.tap.asObservable()
+            .throttle(.milliseconds(1000), scheduler: MainScheduler.instance)
+            .subscribe(onNext:{[weak self] _ in self?.viewModel.fetchData()})
+            .disposed(by: disposeBag)
+        
+        bleButton.rx.tap.asObservable()
+            .throttle(.milliseconds(1000), scheduler: MainScheduler.instance)
+            .subscribe(onNext:{[weak self] _ in self?.moveToOpenSetting()})
             .disposed(by: disposeBag)
     }
     
@@ -156,6 +170,8 @@ extension MainViewController {
         createCheckIceButton()
         createManageButton()
         configureCornerRadius()
+        createTemperatureLabel()
+        createFetchButton()
     }
     
     func createTitleLabel(){
@@ -179,6 +195,25 @@ extension MainViewController {
     
     func createManageButton(){
         manageButton.setTitleColor(UIColor.Service.yellow.value, for: .normal)
+    }
+    
+    func createFetchButton(){
+        fetchButton.accessibilityLabel = "냉장고 정보를 최신화하려면 이중 탭 하십시오."
+    }
+    
+    func createTemperatureLabel(){
+        temperatureLabel.isHidden = true
+        bleButton.isHidden = false
+        
+        if BluetoothSerial.shared.state == .poweredOn && BluetoothSerial.shared.connectedPeripheral == nil {
+            bleButton.accessibilityLabel = "연결할 기기를 찾고 있습니다."
+        }else if BluetoothSerial.shared.connectedPeripheral != nil {
+            bleButton.isHidden = true
+            temperatureLabel.isHidden = false
+        }
+        else{
+            bleButton.accessibilityLabel = "온도 정보 제공을 위하여 블루투스 권한이 필요합니다. 권한 관리로 이동하려면 이중탭 하십시오."
+        }
     }
     
     func configureCornerRadius(){

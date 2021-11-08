@@ -219,9 +219,45 @@
                             </stackView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Y2B-XS-Ln4">
                                 <rect key="frame" x="0.0" y="90" width="414" height="147.5"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="℃" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oPA-dL-tUH">
+                                        <rect key="frame" x="32" y="81.5" width="24" height="36"/>
+                                        <fontDescription key="fontDescription" name="NotoSansCJKkr-Medium" family="Noto Sans CJK KR" pointSize="24"/>
+                                        <color key="textColor" red="0.86274509803921573" green="0.86274509803921573" blue="0.86274509803921573" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="circle.fill" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="FgN-1q-ZIB">
+                                        <rect key="frame" x="352" y="84" width="34" height="33"/>
+                                        <color key="tintColor" red="1" green="0.80000000000000004" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="34" id="Kje-RI-cZP"/>
+                                            <constraint firstAttribute="width" constant="34" id="p4B-nQ-yjb"/>
+                                        </constraints>
+                                    </imageView>
+                                    <button opaque="NO" contentMode="scaleAspectFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2O5-0q-buG">
+                                        <rect key="frame" x="355" y="86.5" width="27" height="27"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="27" id="05t-0q-zlx"/>
+                                            <constraint firstAttribute="width" constant="27" id="tzY-9v-oT8"/>
+                                        </constraints>
+                                        <state key="normal" backgroundImage="fetch"/>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Epq-7k-u9f">
+                                        <rect key="frame" x="32" y="84.5" width="31" height="31"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="31" id="LUw-sU-Rd0"/>
+                                            <constraint firstAttribute="width" constant="31" id="zx5-HQ-T3p"/>
+                                        </constraints>
+                                        <state key="normal" title="Button" image="bluetooth"/>
+                                    </button>
+                                </subviews>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
+                                    <constraint firstAttribute="bottom" secondItem="oPA-dL-tUH" secondAttribute="bottom" constant="30" id="5n5-4D-GSA"/>
+                                    <constraint firstItem="Epq-7k-u9f" firstAttribute="centerY" secondItem="2O5-0q-buG" secondAttribute="centerY" id="8BZ-6B-Qtz"/>
                                     <constraint firstAttribute="width" secondItem="Y2B-XS-Ln4" secondAttribute="height" multiplier="390:139" id="FWj-L8-OIR"/>
+                                    <constraint firstItem="2O5-0q-buG" firstAttribute="trailing" secondItem="FgN-1q-ZIB" secondAttribute="trailing" constant="-4" id="MbS-B3-mvu"/>
+                                    <constraint firstAttribute="bottom" secondItem="2O5-0q-buG" secondAttribute="bottom" constant="34" id="cUG-vK-6ru"/>
                                 </constraints>
                             </view>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="9" translatesAutoresizingMaskIntoConstraints="NO" id="tC9-bs-9qb">
@@ -307,11 +343,15 @@
                         <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="LQ3-yX-Dw3" firstAttribute="top" secondItem="tC9-bs-9qb" secondAttribute="bottom" constant="20" id="1nQ-4D-0rO"/>
+                            <constraint firstItem="Epq-7k-u9f" firstAttribute="leading" secondItem="tC9-bs-9qb" secondAttribute="leading" id="ApB-Mn-baG"/>
                             <constraint firstItem="lG2-ol-brr" firstAttribute="centerX" secondItem="5EZ-qb-Rvc" secondAttribute="centerX" id="IoM-oG-xHx"/>
                             <constraint firstItem="Y2B-XS-Ln4" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" id="JSd-bX-Ywm"/>
+                            <constraint firstItem="2O5-0q-buG" firstAttribute="trailing" secondItem="LQ3-yX-Dw3" secondAttribute="trailing" id="MWI-cP-9Zw"/>
+                            <constraint firstItem="FgN-1q-ZIB" firstAttribute="bottom" secondItem="tC9-bs-9qb" secondAttribute="top" constant="-30" id="Nj7-Lg-u7u"/>
                             <constraint firstItem="Y2B-XS-Ln4" firstAttribute="trailing" secondItem="vDu-zF-Fre" secondAttribute="trailing" id="Nmp-X0-bSP"/>
                             <constraint firstItem="Y2B-XS-Ln4" firstAttribute="top" secondItem="lG2-ol-brr" secondAttribute="bottom" id="SDo-XD-zgA"/>
                             <constraint firstItem="lG2-ol-brr" firstAttribute="top" secondItem="vDu-zF-Fre" secondAttribute="top" constant="16" id="UOb-Q1-nKZ"/>
+                            <constraint firstItem="oPA-dL-tUH" firstAttribute="leading" secondItem="LQ3-yX-Dw3" secondAttribute="leading" id="VA5-gF-0bc"/>
                             <constraint firstItem="tC9-bs-9qb" firstAttribute="width" secondItem="5EZ-qb-Rvc" secondAttribute="width" multiplier="330:390" id="YNt-BS-8xt"/>
                             <constraint firstItem="LQ3-yX-Dw3" firstAttribute="centerX" secondItem="5EZ-qb-Rvc" secondAttribute="centerX" id="ckq-BL-cyh"/>
                             <constraint firstItem="LQ3-yX-Dw3" firstAttribute="width" secondItem="tC9-bs-9qb" secondAttribute="width" id="h9z-0f-2jw"/>
@@ -320,7 +360,9 @@
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="bleButton" destination="Epq-7k-u9f" id="CXw-FF-QKj"/>
                         <outlet property="checkIceButton" destination="wRT-am-0wU" id="wtg-4q-k5L"/>
+                        <outlet property="fetchButton" destination="2O5-0q-buG" id="YWy-6x-Hn0"/>
                         <outlet property="food11" destination="gwE-V1-xVn" id="6rA-td-6O9"/>
                         <outlet property="food12" destination="Qox-ro-Op8" id="X7l-KV-KFK"/>
                         <outlet property="food13" destination="ltR-1e-kW9" id="1ZP-82-c60"/>
@@ -328,6 +370,7 @@
                         <outlet property="food22" destination="x4o-VV-tCN" id="HKy-Zm-3o8"/>
                         <outlet property="food23" destination="jdW-Yt-3BJ" id="tvA-7j-2DS"/>
                         <outlet property="manageButton" destination="2rV-wY-nEL" id="ufg-tJ-2Ib"/>
+                        <outlet property="temperatureLabel" destination="oPA-dL-tUH" id="UjH-H5-VCt"/>
                         <outlet property="titleLabel" destination="lG2-ol-brr" id="S2G-X3-fBV"/>
                     </connections>
                 </viewController>
@@ -351,16 +394,16 @@
                                 </constraints>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Tby-Va-32e">
-                                <rect key="frame" x="0.0" y="606" width="414" height="290"/>
+                                <rect key="frame" x="0.0" y="591.5" width="414" height="304.5"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="반찬통 등록하기" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WsA-vn-KNW">
-                                        <rect key="frame" x="32" y="30" width="152" height="28"/>
+                                        <rect key="frame" x="32" y="30" width="161.5" height="36"/>
                                         <fontDescription key="fontDescription" name="NotoSansCJKkr-Regular" family="Noto Sans CJK KR" pointSize="24"/>
                                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="iAH-Ve-Mje" customClass="InputTextField" customModule="SmartRefrigerator" customModuleProvider="target">
-                                        <rect key="frame" x="32" y="78" width="350" height="55.5"/>
+                                        <rect key="frame" x="32" y="86" width="350" height="55.5"/>
                                         <constraints>
                                             <constraint firstAttribute="width" secondItem="iAH-Ve-Mje" secondAttribute="height" multiplier="330:52" id="ITS-Cf-cuG"/>
                                         </constraints>
@@ -369,13 +412,13 @@
                                         <textInputTraits key="textInputTraits"/>
                                     </textField>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="등록일 : 2021 - 08 - 29" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1ie-Pi-OTT">
-                                        <rect key="frame" x="109.5" y="141.5" width="195.5" height="23.5"/>
+                                        <rect key="frame" x="112" y="149.5" width="190.5" height="30"/>
                                         <fontDescription key="fontDescription" name="NotoSansCJKkr-Regular" family="Noto Sans CJK KR" pointSize="20"/>
                                         <color key="textColor" red="1" green="0.80000000000000004" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <stackView opaque="NO" contentMode="scaleToFill" distribution="equalSpacing" translatesAutoresizingMaskIntoConstraints="NO" id="kGy-ER-tyH">
-                                        <rect key="frame" x="32" y="185" width="350" height="55"/>
+                                        <rect key="frame" x="32" y="199.5" width="350" height="55"/>
                                         <subviews>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ERH-CR-YsC" customClass="ShadowingButton" customModule="SmartRefrigerator" customModuleProvider="target">
                                                 <rect key="frame" x="0.0" y="0.0" width="167.5" height="55"/>
@@ -458,19 +501,19 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="WnY-YW-ZU9">
-                                <rect key="frame" x="0.0" y="438" width="414" height="458"/>
+                                <rect key="frame" x="0.0" y="421.5" width="414" height="474.5"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="반찬 정보" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YHW-Ud-fVi">
-                                        <rect key="frame" x="147" y="39" width="120" height="37.5"/>
+                                        <rect key="frame" x="143.5" y="39" width="127" height="47.5"/>
                                         <fontDescription key="fontDescription" name="NotoSansCJKkr-Regular" family="Noto Sans CJK KR" pointSize="32"/>
                                         <color key="textColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillProportionally" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="MSL-s1-dQH">
-                                        <rect key="frame" x="63.5" y="96.5" width="287" height="186.5"/>
+                                        <rect key="frame" x="63.5" y="106.5" width="287" height="186.5"/>
                                         <subviews>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="q0H-uj-dsX" customClass="ShadowingButton" customModule="SmartRefrigerator" customModuleProvider="target">
-                                                <rect key="frame" x="0.0" y="0.0" width="287" height="52.5"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="287" height="53.5"/>
                                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <fontDescription key="fontDescription" name="NotoSansCJKkr-Bold" family="Noto Sans CJK KR" pointSize="20"/>
                                                 <state key="normal" title="반찬 이름">
@@ -478,7 +521,7 @@
                                                 </state>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3rs-ry-Nso" customClass="ShadowingButton" customModule="SmartRefrigerator" customModuleProvider="target">
-                                                <rect key="frame" x="0.0" y="62.5" width="287" height="52.5"/>
+                                                <rect key="frame" x="0.0" y="63.5" width="287" height="54"/>
                                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <fontDescription key="fontDescription" name="NotoSansCJKkr-Bold" family="Noto Sans CJK KR" pointSize="20"/>
                                                 <state key="normal" title="잔여량 0%">
@@ -486,7 +529,7 @@
                                                 </state>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="87p-eR-xya" customClass="ShadowingButton" customModule="SmartRefrigerator" customModuleProvider="target">
-                                                <rect key="frame" x="0.0" y="125" width="287" height="61.5"/>
+                                                <rect key="frame" x="0.0" y="127.5" width="287" height="59"/>
                                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <fontDescription key="fontDescription" name="NotoSansCJKkr-Bold" family="Noto Sans CJK KR" pointSize="20"/>
                                                 <state key="normal" title="2021 - 10 - 02">
@@ -499,13 +542,13 @@
                                         </constraints>
                                     </stackView>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="등록일로부터 1일 지났습니다." textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8Wa-md-3ty">
-                                        <rect key="frame" x="89.5" y="293" width="235.5" height="23.5"/>
+                                        <rect key="frame" x="83" y="303" width="248" height="30"/>
                                         <fontDescription key="fontDescription" name="NotoSansCJKkr-Regular" family="Noto Sans CJK KR" pointSize="20"/>
                                         <color key="textColor" red="1" green="0.80000000000000004" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="14" translatesAutoresizingMaskIntoConstraints="NO" id="37F-B6-t86">
-                                        <rect key="frame" x="32" y="351.5" width="350" height="55.5"/>
+                                        <rect key="frame" x="32" y="368" width="350" height="55.5"/>
                                         <subviews>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uH3-n0-h3t" customClass="ShadowingButton" customModule="SmartRefrigerator" customModuleProvider="target">
                                                 <rect key="frame" x="0.0" y="0.0" width="168" height="55.5"/>
@@ -708,6 +751,9 @@
     </designables>
     <resources>
         <image name="back" width="16" height="16"/>
+        <image name="bluetooth" width="256" height="256"/>
+        <image name="circle.fill" catalog="system" width="128" height="121"/>
+        <image name="fetch" width="13.5" height="13.5"/>
         <image name="ice" width="70" height="76"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>

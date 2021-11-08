@@ -8,7 +8,7 @@
 import UIKit
 
 
-class InitialViewController: UIViewController {
+class InitialViewController: UIViewController,BluetoothSerialDelegate {
     
     @IBOutlet weak var moveToLoginPageButton: ShadowingButton!
     @IBOutlet weak var moveToRegisterPageButton: ShadowingButton!
@@ -20,6 +20,8 @@ class InitialViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        BluetoothSerial.shared.delegate = self
+        requestNotificationAuthorization()
         createView()
     }
 }
@@ -89,4 +91,17 @@ extension InitialViewController {
             self.present(main, animated: true)
         }
     }
+    
+    // 알림 권한 허용 요청
+    func requestNotificationAuthorization() {
+        let authOptions = UNAuthorizationOptions(arrayLiteral: .alert, .badge, .sound)
+        
+        UNUserNotificationCenter.current().requestAuthorization(options: authOptions) { success, error in
+            if let error = error {
+                print("Error: \(error)")
+            }
+        }
+    }
+    
+    
 }
