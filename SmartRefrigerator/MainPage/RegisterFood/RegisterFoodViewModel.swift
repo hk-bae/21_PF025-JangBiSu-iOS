@@ -13,7 +13,6 @@ class RegisterFoodViewModel : ViewModelType {
     let input = Input()
     let output = Output()
     let disposeBag = DisposeBag()
-//    let usecase = RegisterFoodUsecase()
     
     struct Input{
         let submit = PublishRelay<Void>()
@@ -27,8 +26,13 @@ class RegisterFoodViewModel : ViewModelType {
     init(){
         input.submit.asObservable()
             .withLatestFrom(input.foodNameInputTextField)
-            .filter(isValid)
-            .map(handleNameField)
+            .filter({ [weak self] foodName in
+                return self?.isValid(foodName) ?? false
+            })
+            .map({[weak self] foodName in
+                guard let self = self else { fatalError() }
+                return self.handleNameField(foodName)
+            })
             .bind(to: output.submit)
             .disposed(by: disposeBag)
     }

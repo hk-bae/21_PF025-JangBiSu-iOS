@@ -16,8 +16,8 @@ class MainUsecase {
             for food in rawValue {
                 let row = food.foodRow
                 let col = food.foodCol
-                let index = row * 3 + col
-                if index < foodsArray.count {
+                if 0 <= row && row < 2 && 0 <= col && col < 3 {
+                    let index = row * 3 + col
                     foodsArray[index] = food
                 }
             }
@@ -54,5 +54,5 @@ class MainUsecase {
     func handleCheckingIce(completion:@escaping (Bool) -> Void){
         repository.getIceInfo(completion:completion)
     }
-
+    
 }

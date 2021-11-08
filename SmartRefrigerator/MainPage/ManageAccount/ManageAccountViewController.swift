@@ -10,7 +10,7 @@ import RxSwift
 import RxCocoa
 
 class ManageAccountViewController: UIViewController {
-
+    
     @IBOutlet weak var backButton: UIButton!
     @IBOutlet weak var logoutButton: ShadowingButton!
     @IBOutlet weak var nfcButton: ShadowingButton!
@@ -35,10 +35,10 @@ class ManageAccountViewController: UIViewController {
         createView()
         input()
         output()
-
+        
     }
     
-
+    
 }
 
 extension ManageAccountViewController{
@@ -62,8 +62,9 @@ extension ManageAccountViewController{
     func output(){
         viewModel.output.result.asObservable()
             .observe(on: MainScheduler.instance)
-            .subscribe(onNext:handleResult)
-            .disposed(by: disposeBag)
+            .subscribe(onNext:{[weak self] result in
+                self?.handleResult(result)
+            }).disposed(by: disposeBag)
     }
 }
 

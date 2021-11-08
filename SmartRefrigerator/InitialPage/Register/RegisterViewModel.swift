@@ -36,23 +36,31 @@ class RegisterViewModel : ViewModelType {
         // 각 텍스트 필드들에 대하여 subscribe을 통해 유효성 검증.
         // 유효하지 않는 경우 output.register에 Result를 전송하고 이를 뷰컨트롤러에서 통지 처리할 수 있도록 한다.
         input.nameTextField.asObservable()
-            .subscribe(onNext:handleInputName)
-            .disposed(by: disposeBag)
+            .subscribe(onNext:{ [weak self] name in
+                self?.handleInputName(name)
+            }).disposed(by: disposeBag)
         
         input.idTextField.asObservable()
-            .subscribe(onNext:handleInputId)
-            .disposed(by: disposeBag)
+            .subscribe(onNext:{ [weak self] id in
+                self?.handleInputId(id)
+            }).disposed(by: disposeBag)
         
         input.pwTextField.asObservable()
-            .subscribe(onNext:handleInputPw)
+            .subscribe(onNext:{[weak self] pw in
+                self?.handleInputPw(pw)
+            })
             .disposed(by: disposeBag)
         
         input.pwCheckTextField.asObservable()
-            .subscribe(onNext:handleInputPwCheck).disposed(by: disposeBag)
+            .subscribe(onNext:{[weak self] pwCheck in
+                self?.handleInputPwCheck(pwCheck)
+            }).disposed(by: disposeBag)
         
-        input.register.filter(isValid)
-            .subscribe(onNext:register)
-            .disposed(by:disposeBag)
+        input.register.filter({ [weak self]_ in
+            return self?.isValid() ?? false
+        }).subscribe(onNext:{[weak self] _ in
+            self?.register()
+        }).disposed(by:disposeBag)
     }
 }
 

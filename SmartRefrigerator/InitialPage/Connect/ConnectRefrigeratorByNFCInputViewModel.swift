@@ -26,8 +26,9 @@ class ConnectRefrigeratorByNFCInputViewModel : ViewModelType {
     
     init(){
         input.submit.asObservable()
-            .subscribe(onNext:connectRefrigerator)
-            .disposed(by: disposeBag)
+            .subscribe(onNext:{[weak self] in
+                self?.connectRefrigerator()
+            }).disposed(by: disposeBag)
     }
 }
 

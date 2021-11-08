@@ -17,16 +17,16 @@ struct Food: Codable {
     var shelfID: Shelf
     
     
-    enum CodingKeys: String, CodingKey {
-        case id
-        case shelfID = "shelf_id"
-        case foodName = "food_name"
-        case foodWeight = "food_weight"
-        case maxWeight = "max_weight"
-        case foodRow = "food_row"
-        case foodCol = "food_col"
-        case registeredDate = "registered_date"
-    }
+//    enum CodingKeys: String, CodingKey {
+//        case id
+//        case shelfID = "shelf_id"
+//        case foodName = "food_name"
+//        case foodWeight = "food_weight"
+//        case maxWeight = "max_weight"
+//        case foodRow = "food_row"
+//        case foodCol = "food_col"
+//        case registeredDate = "registered_date"
+//    }
 }
 
 extension Food {
@@ -45,7 +45,7 @@ extension Food {
         if maxWeight == 0.0 {
             return 100
         }
-        return  Int(foodWeight / maxWeight) * 100
+        return  Int((foodWeight / maxWeight) * 100)
     }
     
     var registeredDateText : String{
@@ -77,8 +77,6 @@ extension Food {
     }
     
     var foodDetailInfoText : String {
-
-        
         return "\(foodName.split(separator: "\n").joined())\n잔여량 \(remainedPercentage)%\n등록일 \(registeredDateText)\n등록일로부터 \(afterRegisteredDate)일 지났습니다."
     }
 }

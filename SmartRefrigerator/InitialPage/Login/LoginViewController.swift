@@ -66,20 +66,26 @@ extension LoginViewController {
             .disposed(by: disposeBag)
         
         self.idTextField.clearButton.rx.tap.asObservable()
-            .subscribe(onNext:clearInputId)
+            .subscribe(onNext:{ [weak self] in
+                self?.clearInputId()
+            })
             .disposed(by: disposeBag)
         
         
         self.passwordTextField.clearButton.rx.tap.asObservable()
-            .subscribe(onNext:clearInputPw)
+            .subscribe(onNext:{ [weak self] in
+                self?.clearInputPw()
+            })
             .disposed(by: disposeBag)
     }
     
     func output(){
         self.viewModel.output.login.asObservable()
             .observe(on: MainScheduler.instance)
-            .subscribe(onNext:handleLoginResult)
-            .disposed(by: disposeBag)
+            .subscribe(onNext:{ [weak self] in
+                guard let self = self else { return }
+                self.handleLoginResult(result: $0)
+            }).disposed(by: disposeBag)
     }
 }
 
@@ -104,35 +110,34 @@ extension LoginViewController {
                 
             }
             
-        case .inValidInput(let text) :
-            configureLoginFailLabel(false)
+        case .inValidInput(let resonForInvalidInput) :
+            configureLoginFailLabel(isLoginSuccess: false)
             
-            if text.count > 4 {
-                idTextField.configureView(true)
-                passwordTextField.configureView(true)
+            if resonForInvalidInput.count > 4 {
+                idTextField.configureView(isWrong: true)
+                passwordTextField.configureView(isWrong: true)
             }
-            else if text == "아이디" {
-                idTextField.configureView(true)
-                passwordTextField.configureView(false)
+            else if resonForInvalidInput == "아이디" {
+                idTextField.configureView(isWrong: true)
+                passwordTextField.configureView(isWrong: false)
             }else{
-                idTextField.configureView(false)
-                passwordTextField.configureView(true)
+                idTextField.configureView(isWrong: false)
+                passwordTextField.configureView(isWrong: true)
             }
-
-            loginFailLabel.text = "\(text)을(를) 입력해주세요."
+            loginFailLabel.text = "\(resonForInvalidInput)을(를) 입력해주세요."
             TTSUtility.speak(string: loginFailLabel.text!)
             
         case .nonexistentUser:
-            configureLoginFailLabel(false)
-            idTextField.configureView(true)
-            passwordTextField.configureView(false)
+            configureLoginFailLabel(isLoginSuccess: false)
+            idTextField.configureView(isWrong: true)
+            passwordTextField.configureView(isWrong: false)
             loginFailLabel.text = "존재하지 않는 아이디 입니다."
             TTSUtility.speak(string: loginFailLabel.text!)
             break
         case .inconsistentUser:
-            configureLoginFailLabel(false)
-            idTextField.configureView(false)
-            passwordTextField.configureView(true)
+            configureLoginFailLabel(isLoginSuccess: false)
+            idTextField.configureView(isWrong: false)
+            passwordTextField.configureView(isWrong: true)
             loginFailLabel.text = "아이디와 비밀번호가 일치하지 않습니다."
             TTSUtility.speak(string: loginFailLabel.text!)
             break
@@ -149,7 +154,7 @@ extension LoginViewController {
         createIdInputTextField()
         createPasswordInputTextField()
         createLoginButton()
-        configureLoginFailLabel(true)
+        configureLoginFailLabel(isLoginSuccess: true)
         configureViews()
         createAutoLogin()
         createSaveId()
@@ -186,7 +191,7 @@ extension LoginViewController {
         backButton.accessibilityLabel = "뒤로가기"
     }
     
-    func configureLoginFailLabel(_ bool : Bool){
+    func configureLoginFailLabel(isLoginSuccess bool : Bool){
         
         loginFailLabel.isHidden = bool
         

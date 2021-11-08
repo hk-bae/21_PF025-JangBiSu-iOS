@@ -19,24 +19,13 @@ extension UIView {
             layer.cornerRadius = cornerRadius
             //설정된 위치의 모서리
             layer.maskedCorners = CACornerMask(rawValue: byRoundingCorners.rawValue)
-        }else {
-            //iOS 11 미만
-            let path = UIBezierPath(roundedRect: self.bounds,
-                                    byRoundingCorners: byRoundingCorners,
-                                    cornerRadii: CGSize(width:cornerRadius, height: cornerRadius))
-            
-            let maskLayer = CAShapeLayer()
-            maskLayer.frame = self.bounds
-            maskLayer.path = path.cgPath
-            
-            layer.mask = maskLayer
         }
     }
 }
 //자연스러운 팝업을 위한 클래스
 class OverrappingViewController: UIViewController {
     
-    final private var dimmedBackgroundColor: UIColor = UIColor(red: 0, green: 0, blue: 0, alpha: 1)
+    final private var dimmedBackgroundColor: UIColor = UIColor.black
     final private var dimmedTiming = 0.3
     final var dimmedTimingDisclouse: Double?
     
@@ -64,7 +53,7 @@ class OverrappingViewController: UIViewController {
         dimmedBackgroundView!.translatesAutoresizingMaskIntoConstraints = true
         //해당 뷰를 서브뷰로 추가
         presentingViewController.view.addSubview(dimmedBackgroundView!)
-        //0.3초 후에 alpha를 0.5로 (반투명하게) 변경
+        //0.3초 후에 alpha를 0.8로 (반투명하게) 변경
         UIView.animate(withDuration: dimmedTiming, animations: { [weak self] in
             self?.dimmedBackgroundView!.alpha = 0.8
         })

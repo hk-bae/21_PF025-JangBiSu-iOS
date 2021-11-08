@@ -34,27 +34,31 @@ class MainViewModel : ViewModelType {
     
     init(){
         input.foodTouch.asObservable()
-            .subscribe(onNext:handleTouchingFood)
-            .disposed(by: disposeBag)
-    
+            .subscribe(onNext:{ [weak self] index in
+                self?.handleTouchingFood(index)
+            }).disposed(by: disposeBag)
+        
         input.registerFood.asObservable()
-            .subscribe(onNext:registerFood)
-            .disposed(by: disposeBag)
-       
+            .subscribe(onNext:{[weak self] foodInfo in
+                self?.registerFood(foodInfo)
+            }).disposed(by: disposeBag)
+        
         input.modifyFood.asObservable()
-            .subscribe(onNext:modifyFood)
-            .disposed(by: disposeBag)
+            .subscribe(onNext:{[weak self] foodInfo in
+                self?.modifyFood(foodInfo)
+            }).disposed(by: disposeBag)
         
         input.checkIce.asObservable()
-            .subscribe(onNext:handleCheckingIce)
-            .disposed(by: disposeBag)
+            .subscribe(onNext:{[weak self] _ in
+                self?.handleCheckingIce()
+            }).disposed(by: disposeBag)
         
         foods.asObservable()
             .map { _ in }
             .bind(to: output.updateFoods)
             .disposed(by: disposeBag)
         
-            
+        
     }
 }
 

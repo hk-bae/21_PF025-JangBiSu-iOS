@@ -30,14 +30,22 @@ class LoginViewModel: ViewModelType {
         // input
         // 아이디 저장 체크 되어있으면 저장함
         self.input.idTextField.asObservable()
-            .filter(checkSaveId)
-            .subscribe(onNext:saveId)
+            .filter({ [weak self] id in
+                return self?.checkSaveId(id: id) ?? false
+            })
+            .subscribe(onNext:{ [weak self] id in
+                self?.saveId(id: id)
+            })
             .disposed(by:disposeBag)
         
         //login 버튼 클릭 시 아이디, 패쓰워드 유효성 검사 후 로그인 시도, output.login에 통지
         self.input.login.asObservable()
-            .filter(isValid)
-            .subscribe(onNext:login)
+            .filter({ [weak self] _ in
+                return self?.isValid() ?? false
+            })
+            .subscribe(onNext:{ [weak self] _ in
+                self?.login()
+            })
             .disposed(by:disposeBag)
         
         

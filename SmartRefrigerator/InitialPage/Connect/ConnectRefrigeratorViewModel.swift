@@ -18,7 +18,7 @@ class ConnectRefrigeratorViewModel : ViewModelType {
     
     struct Input {
         let nfcButton = PublishRelay<Void>()
-        let nfcIdInputButton = PublishRelay<Void>()
+        //        let nfcIdInputButton = PublishRelay<Void>()
     }
     
     struct Output{
@@ -27,8 +27,9 @@ class ConnectRefrigeratorViewModel : ViewModelType {
     
     init(){
         input.nfcButton.asObservable()
-            .subscribe(onNext:nfcTag)
-            .disposed(by: disposeBag)
+            .subscribe(onNext:{[weak self] _ in
+                self?.nfcTag()
+            }).disposed(by: disposeBag)
     }
 }
 

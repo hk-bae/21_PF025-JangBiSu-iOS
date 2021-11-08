@@ -87,8 +87,8 @@ extension CheckIceViewController{
         okButton.configureShadowColor(.black)
         okButton.rx.tap.asObservable()
             .throttle(.milliseconds(1000), scheduler: MainScheduler.instance)
-            .subscribe (onNext:{ _ in
-                self.dismiss(animated: true, completion: nil)
+            .subscribe (onNext:{ [weak self] _ in
+                self?.dismiss(animated: true, completion: nil)
             })
             .disposed(by: disposeBag)
         

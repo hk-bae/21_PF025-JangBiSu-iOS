@@ -10,7 +10,7 @@ import UIKit
 @IBDesignable
 class InputTextField : UITextField {
     
-    lazy var clearButton = UIButton()
+    var clearButton = UIButton()
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -57,7 +57,7 @@ extension InputTextField {
     }
     
     
-    func configureView(_ isWrong : Bool){
+    func configureView(isWrong : Bool){
         if isWrong {
             self.layer.borderColor = UIColor.Service.orange.value.cgColor
         }else{

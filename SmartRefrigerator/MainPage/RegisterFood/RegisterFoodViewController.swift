@@ -68,7 +68,7 @@ extension RegisterFoodViewController {
         
         cancelButton.rx.tap.asObservable()
             .throttle(.milliseconds(1000), scheduler: MainScheduler.instance)
-            .subscribe(onNext:cancel)
+            .subscribe(onNext:{[weak self] _ in self?.cancel()})
             .disposed(by: disposeBag)
         
         foodNameTextField.rx.text.orEmpty
@@ -77,7 +77,7 @@ extension RegisterFoodViewController {
         
         foodNameTextField.clearButton.rx.tap
             .asObservable()
-            .subscribe(onNext:clearInputId)
+            .subscribe(onNext:{[weak self] _ in self?.clearInputId()})
             .disposed(by: disposeBag)
     }
     func output(){

@@ -10,7 +10,7 @@ import RxSwift
 import RxCocoa
 
 class ConnectRefrigeratorByNFCInputViewController: OverrappingViewController, UITextFieldDelegate {
-
+    
     @IBOutlet weak var containerView: UIView!
     
     @IBOutlet weak var titleLabel: UILabel!
@@ -59,8 +59,9 @@ extension ConnectRefrigeratorByNFCInputViewController{
         
         cancelButton.rx.tap.asObservable()
             .throttle(.milliseconds(1000), scheduler: MainScheduler.instance)
-            .subscribe(onNext:cancel)
-            .disposed(by: disposeBag)
+            .subscribe(onNext:{ [weak self] _ in
+                self?.cancel()
+            }).disposed(by: disposeBag)
         
         shelfIdInputTextField.rx.text.orEmpty
             .bind(to: viewModel.input.shelfIdInputTextField)
@@ -68,27 +69,17 @@ extension ConnectRefrigeratorByNFCInputViewController{
         
         shelfIdInputTextField.clearButton.rx.tap
             .asObservable()
-            .subscribe(onNext:clearInputId)
-            .disposed(by: disposeBag)
+            .subscribe(onNext:{ [weak self] _ in
+                self?.clearInputId()
+            }).disposed(by: disposeBag)
     }
     
     func output(){
         viewModel.output.submit.asObservable()
             .observe(on: MainScheduler.instance)
             .subscribe(onNext:{ [weak self] result in
-                guard let self = self else {fatalError()}
-                switch result {
-                case .success :
-                    self.removeKeyboardNotifications()
-                    self.dismiss(animated: true) { [weak self] in
-                        self?.completion?(result)
-                    }
-                    
-                case .failure(_) :
-                    self.configureWrongNFCInput()
-                }
-            })
-            .disposed(by: disposeBag)
+                self?.handleResult(result)
+            }).disposed(by: disposeBag)
         
     }
 }
@@ -103,7 +94,7 @@ extension ConnectRefrigeratorByNFCInputViewController{
         createSubtitleLabel()
         configureViews()
     }
-
+    
     
     func createTitleLabel(){
         titleLabel.textColor = UIColor.Service.defaultWhite.value
@@ -145,9 +136,9 @@ extension ConnectRefrigeratorByNFCInputViewController{
             subtitleLabel.font = UIFont(name: currentFontName, size: currentFontSize)
             subtitleLabel.layoutIfNeeded()
         }
-            
+        
     }
-
+    
 }
 
 extension ConnectRefrigeratorByNFCInputViewController{
@@ -165,7 +156,20 @@ extension ConnectRefrigeratorByNFCInputViewController{
         subtitleLabel.text = "고유번호가 일치하지 않습니다."
         TTSUtility.speak(string: subtitleLabel.text!)
         subtitleLabel.textColor = UIColor.Service.orange.value
-        shelfIdInputTextField.configureView(true)
+        shelfIdInputTextField.configureView(isWrong: true)
+    }
+    
+    func handleResult(_ result:ConnectRefrigeratorViewModel.ConnectResult){
+        switch result {
+        case .success :
+            self.removeKeyboardNotifications()
+            self.dismiss(animated: true) { [weak self] in
+                self?.completion?(result)
+            }
+            
+        case .failure(_) :
+            self.configureWrongNFCInput()
+        }
     }
 }
 
@@ -174,34 +178,34 @@ extension ConnectRefrigeratorByNFCInputViewController {
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         self.view.endEditing(true)
     }
-
+    
     func addKeyboardNotifications(){
         // 키보드가 나타날 때 앱에 알린다.
         NotificationCenter.default.addObserver(self, selector: #selector(self.keyboardWillShow(_:)), name: UIResponder.keyboardWillShowNotification, object: nil)
         // 키보드가 사라질 때 앱에 알린다.
         NotificationCenter.default.addObserver(self, selector: #selector(self.keyboardWillHide(_:)), name: UIResponder.keyboardWillHideNotification, object: nil)
     }
-
+    
     func removeKeyboardNotifications(){
         NotificationCenter.default.removeObserver(self,name:UIResponder.keyboardWillHideNotification,object: nil)
         NotificationCenter.default.removeObserver(self,name:UIResponder.keyboardWillHideNotification,object: nil)
     }
-
+    
     // 키보드 높이 만큼 화면 올리기
     @objc func keyboardWillShow(_ noti : NSNotification){
-
+        
         if let frame = noti.userInfo?[UIResponder.keyboardFrameEndUserInfoKey] as? NSValue {
-
+            
             let rect = frame.cgRectValue
             let keyboardHeight = rect.height
-
+            
             self.keyBoardHeightConstraint.constant = keyboardHeight
-
+            
             view.layoutIfNeeded()
-
+            
         }
     }
-
+    
     // 원래 화면 높이로 돌아오는 메서드
     @objc func keyboardWillHide(_ noti : NSNotification){
         self.keyBoardHeightConstraint.constant = 0

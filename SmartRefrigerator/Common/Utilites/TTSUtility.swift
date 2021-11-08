@@ -12,7 +12,6 @@ class TTSUtility : NSObject,AVSpeechSynthesizerDelegate{
     private static let shared = TTSUtility()
     
     var synthesizer : AVSpeechSynthesizer = AVSpeechSynthesizer()
-    var utterance : AVSpeechUtterance!
     
     private override init(){
         super.init()
@@ -24,7 +23,7 @@ class TTSUtility : NSObject,AVSpeechSynthesizerDelegate{
     }
     
     private func speak(_ string: String){
-        utterance = AVSpeechUtterance(string:string)
+        let utterance = AVSpeechUtterance(string:string)
         utterance.voice = AVSpeechSynthesisVoice(language: "ko-KR")
         utterance.rate = 0.5
         synthesizer.speak(utterance)

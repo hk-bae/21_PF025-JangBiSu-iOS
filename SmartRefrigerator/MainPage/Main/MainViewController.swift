@@ -78,7 +78,8 @@ extension MainViewController{
     func output(){
         viewModel.output.foodTouch.asObservable()
             .observe(on: MainScheduler.instance)
-            .subscribe(onNext:{ result in
+            .subscribe(onNext:{ [weak self] result in
+                guard let self = self else { return }
                 switch result{
                 case .needToRegister(let index) :
                     self.popUpRegisterFoodVC(index: index)
@@ -102,17 +103,20 @@ extension MainViewController{
         
         viewModel.output.registerFood.asObservable()
             .observe(on: MainScheduler.instance)
-            .subscribe(onNext:handleRegisterFoodResult)
-            .disposed(by: disposeBag)
+            .subscribe(onNext:{[weak self] result in
+                self?.handleRegisterFoodResult(result)
+            }).disposed(by: disposeBag)
         
         viewModel.output.updateFoods.asObservable()
             .observe(on: MainScheduler.instance)
-            .subscribe(onNext:updateFoods)
-            .disposed(by: disposeBag)
+            .subscribe(onNext:{[weak self] _ in
+                self?.updateFoods()
+            }).disposed(by: disposeBag)
         
         viewModel.output.checkIce.asObservable()
             .observe(on: MainScheduler.instance)
-            .subscribe(onNext:{ isIce in
+            .subscribe(onNext:{ [weak self] isIce in
+                guard let self = self else { return }
                 if let viewController = self.storyboard?.instantiateViewController(identifier: "CheckIceVC") as? CheckIceViewController{
                     viewController.isIceMade = isIce
                     self.present(viewController, animated: true, completion: nil)

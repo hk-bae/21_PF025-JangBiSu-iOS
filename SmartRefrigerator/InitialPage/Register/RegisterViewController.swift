@@ -73,36 +73,42 @@ extension RegisterViewController {
         
         nameInputTextField.clearButton.rx.tap
             .asObservable()
-            .subscribe(onNext: clearInputName)
-            .disposed(by: disposeBag)
+            .subscribe(onNext: { [weak self] _ in
+                self?.clearInputName()
+            }).disposed(by: disposeBag)
         
         idInputTextField.clearButton.rx.tap
             .asObservable()
-            .subscribe(onNext: clearInputId)
-            .disposed(by: disposeBag)
+            .subscribe(onNext:  {[weak self] _ in
+                self?.clearInputId()
+            }).disposed(by: disposeBag)
         
         pwInputTextField.clearButton.rx.tap
             .asObservable()
-            .subscribe(onNext: clearInputPw)
-            .disposed(by: disposeBag)
+            .subscribe(onNext: {[weak self] _ in
+                self?.clearInputPw()
+            }).disposed(by: disposeBag)
         
         pwCheckInputTextField.clearButton.rx.tap
             .asObservable()
-            .subscribe(onNext: clearInputPwCheck)
-            .disposed(by: disposeBag)
+            .subscribe(onNext: {[weak self] _ in
+                self?.clearInputPwCheck()
+            }).disposed(by: disposeBag)
         
         goToLoginButton.rx.tap
             .asObservable()
             .throttle(.milliseconds(1000), scheduler: MainScheduler.instance)
-            .subscribe(onNext:goToLoginPage)
-            .disposed(by: disposeBag)
+            .subscribe(onNext:{[weak self] _ in
+                self?.goToLoginPage()
+            }).disposed(by: disposeBag)
     }
     
     func output(){
         viewModel.output.register
             .observe(on: MainScheduler.instance)
-            .subscribe(onNext:handleRegisterResult)
-            .disposed(by: disposeBag)
+            .subscribe(onNext:{[weak self] result in
+                self?.handleRegisterResult(result: result)
+            }).disposed(by: disposeBag)
     }
 }
 
@@ -176,27 +182,27 @@ extension RegisterViewController {
         case .failure :
             break
         case.invalidName :
-            self.nameInputTextField.configureView(true)
+            self.nameInputTextField.configureView(isWrong: true)
         case .validName :
-            self.nameInputTextField.configureView(false)
+            self.nameInputTextField.configureView(isWrong: false)
         case .invalidId :
-            self.idInputTextField.configureView(true)
+            self.idInputTextField.configureView(isWrong: true)
         case .validId :
-            self.idInputTextField.configureView(false)
+            self.idInputTextField.configureView(isWrong: false)
         case .alreadyExists :
-            self.idInputTextField.configureView(true)
+            self.idInputTextField.configureView(isWrong: true)
             self.registerFailLabel.isHidden = false
             self.registerFailLabel.text = "이미 존재하는 아이디 입니다."
             TTSUtility.speak(string: self.registerFailLabel.text!)
             
         case .invalidPassword :
-            self.pwInputTextField.configureView(true)
+            self.pwInputTextField.configureView(isWrong: true)
         case .validPassword :
-            self.pwInputTextField.configureView(false)
+            self.pwInputTextField.configureView(isWrong: false)
         case .invalidCheckPassword :
-            self.pwCheckInputTextField.configureView(true)
+            self.pwCheckInputTextField.configureView(isWrong: true)
         case .validCheckPassword :
-            self.pwCheckInputTextField.configureView(false)
+            self.pwCheckInputTextField.configureView(isWrong: false)
         case let .invalidInputRegister(term) :
             self.registerFailLabel.isHidden = false
             self.registerFailLabel.text = term
@@ -208,15 +214,17 @@ extension RegisterViewController {
         guard let loginVC = self.storyboard?.instantiateViewController(identifier: "LoginVC") as? LoginViewController else{
             fatalError()
         }
-        let nc = self.navigationController
-        CATransaction.begin()
-        CATransaction.setCompletionBlock {
-            nc?.pushViewController(loginVC, animated: true)
+        
+        guard var viewcontrollers = self.navigationController?.viewControllers else {
+            return
         }
-        self.navigationController?.popViewController(animated: true)
-        CATransaction.commit()
+        viewcontrollers.removeLast()
+        viewcontrollers.append(loginVC)
+        
+        navigationController?.setViewControllers(viewcontrollers, animated: true)
+        
     }
-
+    
     
     func clearInputId(){
         self.idInputTextField.text = ""
@@ -243,5 +251,5 @@ extension RegisterViewController {
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         self.view.endEditing(true)
     }
-
+    
 }

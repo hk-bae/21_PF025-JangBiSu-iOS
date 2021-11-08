@@ -17,7 +17,7 @@ class ConnectRefrigeratorViewController : UIViewController{
     
     private let viewModel = ConnectRefrigeratorViewModel()
     private let disposeBag = DisposeBag()
-        
+    
     override func viewDidLoad(){
         super.viewDidLoad()
         view.layer.backgroundColor = UIColor.Service.defaultBlack.value.cgColor
@@ -46,7 +46,8 @@ extension ConnectRefrigeratorViewController{
         
         nfcIdInputButton.rx.tap.asObservable()
             .throttle(.milliseconds(1000), scheduler: MainScheduler.instance)
-            .subscribe(onNext:{
+            .subscribe(onNext:{ [weak self] in
+                guard let self = self else { return }
                 if let viewController = self.storyboard?.instantiateViewController(withIdentifier: "NFCInputVC") as? ConnectRefrigeratorByNFCInputViewController{
                     viewController.completion = self.handleConnectResult
                     self.present(viewController, animated: true, completion: nil)
@@ -60,7 +61,9 @@ extension ConnectRefrigeratorViewController{
     func output(){
         viewModel.output.connectRefrigerator
             .observe(on: MainScheduler.instance)
-            .subscribe(onNext:handleConnectResult)
+            .subscribe(onNext:{ [weak self] result in
+                self?.handleConnectResult(result: result)
+            })
             .disposed(by: disposeBag)
     }
 }
@@ -74,16 +77,15 @@ extension ConnectRefrigeratorViewController{
                 let main = mainStoryboard.instantiateViewController(identifier: "MainVC") as! MainViewController
                 main.modalTransitionStyle = .crossDissolve
                 main.modalPresentationStyle = .overFullScreen
-                if let navigationViewController = self.navigationController{
+                if let navigationViewController = self.navigationController{ // 로그인,회원가입 이후
                     self.present(main, animated: true) {
                         navigationViewController.popToRootViewController(animated: false)
                     }
-                }else{
+                }else{ // NFC 재등록 이후
                     let presentingVC = presentingViewController
                     self.dismiss(animated: true) {
                         presentingVC?.dismiss(animated: true, completion: nil)
                     }
-                    
                 }
             }
         case .failure(let message) :
@@ -97,6 +99,7 @@ extension ConnectRefrigeratorViewController {
     func createView(){
         createNfcButton()
         createNfcIdButton()
+        createBackButton()
     }
     
     func createNfcButton(){
@@ -113,6 +116,31 @@ extension ConnectRefrigeratorViewController {
         nfcIdInputButton.layer.cornerRadius = 16
         nfcIdInputButton.titleLabel?.numberOfLines = 0
         nfcIdInputButton.titleLabel?.textAlignment = .center
+    }
+    
+    // 선반 재등록인 경우 back 버튼 추가
+    func createBackButton(){
+        if let _ = self.navigationController { return }
+        
+        let backButton = UIButton()
+        backButton.setImage(UIImage(named: "back"), for: .normal)
+        backButton.accessibilityLabel = "뒤로가기"
+        
+        backButton.translatesAutoresizingMaskIntoConstraints = false
+        
+        view.addSubview(backButton)
+        NSLayoutConstraint.activate([
+            backButton.widthAnchor.constraint(equalToConstant: 28),
+            backButton.heightAnchor.constraint(equalToConstant: 28),
+            backButton.leadingAnchor.constraint(equalTo: view.leadingAnchor,constant: 30),
+            backButton.topAnchor.constraint(equalTo: view.topAnchor, constant: 60)
+        ])
+        
+        backButton.rx.tap.asObservable()
+            .subscribe(onNext:{ [weak self] in
+                self?.dismiss(animated: true, completion: nil)
+            })
+            .disposed(by: disposeBag)
     }
     
     
